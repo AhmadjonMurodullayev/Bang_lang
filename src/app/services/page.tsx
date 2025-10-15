@@ -1,9 +1,8 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Counter } from "@/components/counter"
+import Image from "next/image"
 import {
   Baby,
   TrendingUp,
@@ -273,9 +272,11 @@ export default function ServicesPage() {
                   </p>
                   <div className="flex items-center gap-4">
                     <div className="h-14 w-14 overflow-hidden rounded-full ring-2 ring-primary/20">
-                      <img
-                        src={`/diverse-group.png?height=56&width=56&query=person ${i}`}
+                      <Image
+                        src="/diverse-group.png"
                         alt="Customer"
+                        width={56}
+                        height={56}
                         className="h-full w-full object-cover"
                       />
                     </div>

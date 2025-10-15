@@ -118,8 +118,7 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-  React.ComponentProps<'div'> & {
+}: Record<string, unknown> & {
     hideLabel?: boolean
     hideIndicator?: boolean
     indicator?: 'line' | 'dot' | 'dashed'
@@ -129,7 +128,7 @@ function ChartTooltipContent({
   const { config } = useChart()
 
   const tooltipLabel = React.useMemo(() => {
-    if (hideLabel || !payload?.length) {
+    if (hideLabel || !payload || !Array.isArray(payload) || payload.length === 0) {
       return null
     }
 
@@ -143,8 +142,8 @@ function ChartTooltipContent({
 
     if (labelFormatter) {
       return (
-        <div className={cn('font-medium', labelClassName)}>
-          {labelFormatter(value, payload)}
+        <div className={cn('font-medium', labelClassName as string)}>
+          {(labelFormatter as (value: unknown, payload: unknown) => React.ReactNode)(value, payload)}
         </div>
       )
     }
@@ -153,7 +152,7 @@ function ChartTooltipContent({
       return null
     }
 
-    return <div className={cn('font-medium', labelClassName)}>{value}</div>
+    return <div className={cn('font-medium', labelClassName as string)}>{value}</div>
   }, [
     label,
     labelFormatter,
@@ -164,7 +163,7 @@ function ChartTooltipContent({
     labelKey,
   ])
 
-  if (!active || !payload?.length) {
+  if (!active || !payload || !Array.isArray(payload) || payload.length === 0) {
     return null
   }
 
@@ -174,7 +173,7 @@ function ChartTooltipContent({
     <div
       className={cn(
         'border-border/50 bg-background grid min-w-[8rem] items-start gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl',
-        className,
+        className as string,
       )}
     >
       {!nestLabel ? tooltipLabel : null}
@@ -193,7 +192,7 @@ function ChartTooltipContent({
               )}
             >
               {formatter && item?.value !== undefined && item.name ? (
-                formatter(item.value, item.name, item, index, item.payload)
+                (formatter as (value: unknown, name: unknown, item: unknown, index: number, payload: unknown) => React.ReactNode)(item.value, item.name, item, index, item.payload)
               ) : (
                 <>
                   {itemConfig?.icon ? (
@@ -256,8 +255,9 @@ function ChartLegendContent({
   payload,
   verticalAlign = 'bottom',
   nameKey,
-}: React.ComponentProps<'div'> &
-  Pick<RechartsPrimitive.LegendProps, 'payload' | 'verticalAlign'> & {
+}: React.ComponentProps<'div'> & {
+    payload?: unknown[]
+    verticalAlign?: string
     hideIcon?: boolean
     nameKey?: string
   }) {
@@ -276,12 +276,12 @@ function ChartLegendContent({
       )}
     >
       {payload.map((item) => {
-        const key = `${nameKey || item.dataKey || 'value'}`
+        const key = `${nameKey || (item as Record<string, unknown>).dataKey || 'value'}`
         const itemConfig = getPayloadConfigFromPayload(config, item, key)
 
         return (
           <div
-            key={item.value}
+            key={String((item as Record<string, unknown>).value)}
             className={
               '[&>svg]:text-muted-foreground flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3'
             }
@@ -292,7 +292,7 @@ function ChartLegendContent({
               <div
                 className="h-2 w-2 shrink-0 rounded-[2px]"
                 style={{
-                  backgroundColor: item.color,
+                  backgroundColor: (item as { color?: string }).color,
                 }}
               />
             )}

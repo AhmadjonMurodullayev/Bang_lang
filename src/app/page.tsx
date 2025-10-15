@@ -1,5 +1,3 @@
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,25 +5,16 @@ import { Counter } from "@/components/counter";
 import {
   Heart,
   Syringe,
-  TestTube,
   Stethoscope,
-  Activity,
-  Microscope,
   ArrowRight,
   Check,
-  MapPin,
   Users,
-  Award,
   TrendingUp,
   ClipboardCheck,
-  Clock,
-  Smartphone,
-  Download,
   Plus,
   Search,
   Calendar,
   MessageCircle,
-  Globe,
   Play,
   Apple,
   Hospital,

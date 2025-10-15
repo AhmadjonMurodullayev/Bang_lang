@@ -1,7 +1,6 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function BlogPage() {
   const blogPosts = [
@@ -63,11 +62,12 @@ export default function BlogPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <Image
                     src={post.image || "/placeholder.svg"}
                     alt={post.title}
-                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <CardContent className="p-6">
@@ -87,12 +87,12 @@ export default function BlogPage() {
           <div className="mt-12">
             <Card className="overflow-hidden hover:shadow-lg transition-shadow">
               <div className="grid md:grid-cols-2 gap-0">
-                <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
-                  <img src="/baby-health-checkup.jpg" alt="Featured post" className="h-full w-full object-cover" />
+                <div className="aspect-[4/3] md:aspect-auto overflow-hidden relative">
+                  <Image src="/baby-health-checkup.jpg" alt="Featured post" fill className="object-cover" />
                 </div>
                 <CardContent className="p-8 flex flex-col justify-center">
                   <h3 className="mb-4 text-3xl font-bold text-balance">
-                    6 Tips For Maintaining Children's Mental Health When Sick
+                    6 Tips For Maintaining Children&apos;s Mental Health When Sick
                   </h3>
                   <p className="mb-6 text-muted-foreground">
                     Lorem ipsum dolor sit amet, consel tetur adipiscing elit, sed..
@@ -107,11 +107,12 @@ export default function BlogPage() {
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.slice(0, 3).map((post, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <Image
                     src={post.image || "/placeholder.svg"}
                     alt={post.title}
-                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <CardContent className="p-6">

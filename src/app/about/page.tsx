@@ -1,5 +1,3 @@
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,22 +10,41 @@ import {
   Check,
   Heart,
   Building2,
-  TestTube,
-  Microscope,
   Globe,
   Facebook,
   Twitter,
   Instagram,
   Star,
   Plus,
-  X,
 } from "lucide-react";
 import { Counter } from "@/components/counter";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
+      {/* Header */}
+      <div className="sticky top-0 z-50 w-full backdrop-blur-md border-b border-white/20" style={{
+        background: 'linear-gradient(90deg, rgba(0, 72, 189, 0.9) 0%, rgba(0, 88, 230, 0.9) 50%, rgba(213, 213, 215, 0.9) 100%)'
+      }}>
+        <div className="container mx-auto px-4">
+          <div className="flex h-20 items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/25">
+                <div className="text-2xl font-bold text-white leading-none">+</div>
+              </div>
+              <span className="text-2xl font-bold text-white tracking-tight">Pediatra</span>
+            </div>
+            <div className="hidden md:flex items-center gap-6">
+              <Link href="/" className="text-sm font-semibold text-white hover:text-white/80 transition-colors">Home</Link>
+              <Link href="/about" className="text-sm font-semibold text-white hover:text-white/80 transition-colors">About</Link>
+              <Link href="/services" className="text-sm font-semibold text-white hover:text-white/80 transition-colors">Services</Link>
+              <Link href="/contact" className="text-sm font-semibold text-white hover:text-white/80 transition-colors">Contact</Link>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Hero Section */}
       <section className="gradient-blue py-20">
         <div className="container mx-auto px-4 text-center">
@@ -472,6 +489,53 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-8 md:grid-cols-4">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/25">
+                  <div className="text-2xl font-bold text-white leading-none">+</div>
+                </div>
+                <span className="text-2xl font-bold tracking-tight">Pediatra</span>
+              </div>
+              <p className="text-gray-400 mb-6">Professional pediatric care for your children&apos;s health and wellbeing.</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li><Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
+                <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
+                <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors">Services</Link></li>
+                <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Services</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Child Care</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Vaccinations</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Emergency Care</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Health Checkups</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
+              <div className="space-y-2">
+                <p className="text-gray-400">123 Medical Street</p>
+                <p className="text-gray-400">Health City, HC 12345</p>
+                <p className="text-gray-400">Phone: (+62) 81 414 257</p>
+                <p className="text-gray-400">Email: info@pediatra.com</p>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
+            <p className="text-gray-400">&copy; 2024 Pediatra. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
