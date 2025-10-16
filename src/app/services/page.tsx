@@ -17,6 +17,9 @@ import {
   Users,
   Award,
   Heart,
+  Hospital,
+  ClipboardList,
+  UserRound,
 } from "lucide-react"
 
 export default function ServicesPage() {
@@ -199,54 +202,176 @@ export default function ServicesPage() {
 
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="mb-16 text-center">
-            <div className="mb-4 text-sm font-bold text-primary uppercase tracking-wider">Our Locations</div>
-            <h2 className="mb-4 text-4xl lg:text-5xl font-bold">Our Clinic Spread All Over The World</h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel dignissim lectus pellentesque.
-            </p>
-          </div>
+          {/* Top Section - Locations */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+            {/* Left Side - Text and Locations */}
+            <div>
+              <div className="mb-4 text-sm font-bold text-primary uppercase tracking-wider">
+                Our Locations
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
+                Our Clinic Spread All Over The World
+              </h2>
+              <p className="text-gray-600 text-lg mb-12 leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-16">
-            {[
-              { city: "New York", address: "45 Grand Central, New York", color: "bg-emerald-500" },
-              { city: "California", address: "45 Grand Central, California", color: "bg-teal-500" },
-              { city: "Australia", address: "45 Grand Central, Australia", color: "bg-blue-500" },
-              { city: "France", address: "45 Grand Central, France", color: "bg-cyan-500" },
-            ].map((location, i) => (
-              <Card key={i} className="group hover:shadow-xl transition-all duration-300 border-0 hover:-translate-y-1">
-                <CardContent className="p-8">
-                  <div
-                    className={`mb-6 flex h-16 w-16 items-center justify-center rounded-full ${location.color} group-hover:scale-110 transition-all duration-300 shadow-lg`}
-                  >
-                    <MapPin className="h-8 w-8 text-white" />
+              {/* Locations Grid */}
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  {
+                    city: "New York",
+                    address: "29 Union Square West, NY. LB 10004",
+                    color: "bg-primary",
+                  },
+                  {
+                    city: "California",
+                    address: "19 Califf Square East, CL. LBA 11109",
+                    color: "bg-primary",
+                  },
+                  {
+                    city: "Australia",
+                    address: "77 Sydney Square West, SY. LB 21189",
+                    color: "bg-blue-500",
+                  },
+                  {
+                    city: "France",
+                    address: "10 Avenue Square East, FR. LB 22432",
+                    color: "bg-blue-500",
+                  },
+                ].map((location, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <div
+                      className={`flex h-12 w-12 items-center justify-center rounded-full ${location.color} flex-shrink-0`}
+                    >
+                      <Hospital className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-800 mb-1">
+                        {location.city}
+                      </h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {location.address}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="mb-2 text-xl font-bold">{location.city}</h3>
-                  <p className="text-sm text-muted-foreground">{location.address}</p>
-                </CardContent>
-              </Card>
-            ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Right Side - Globe */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                {/* Custom globe with hexagonal pattern */}
+                <div className="h-80 w-80 rounded-full border-4 border-gray-200 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
+                  {/* Hexagonal pattern background */}
+                  <div className="absolute inset-0 opacity-30">
+                    <div
+                      className="w-full h-full"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
+                      }}
+                    ></div>
+                  </div>
+
+                  {/* Location markers */}
+                  <div className="absolute top-16 left-20 h-3 w-3 rounded-full bg-primary"></div>
+                  <div className="absolute top-32 right-16 h-3 w-3 rounded-full bg-primary"></div>
+                  <div className="absolute bottom-20 left-24 h-3 w-3 rounded-full bg-primary"></div>
+                  <div className="absolute bottom-16 right-20 h-3 w-3 rounded-full bg-primary"></div>
+                  <div className="absolute top-24 left-1/2 h-3 w-3 rounded-full bg-primary"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {[
-              { count: 48, label: "Qualified Doctors", icon: Users, color: "from-blue-500 to-blue-600" },
-              { count: 120, label: "Years Experience", icon: Award, color: "from-purple-500 to-purple-600" },
-              { count: 92, label: "Clinic Rooms", icon: MapPin, color: "from-emerald-500 to-emerald-600" },
-              { count: 231, label: "Happy Patients", icon: Heart, color: "from-cyan-500 to-cyan-600" },
-            ].map((stat, i) => (
-              <Card
-                key={i}
-                className={`bg-gradient-to-br ${stat.color} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
-              >
-                <CardContent className="p-8 text-center">
-                  <stat.icon className="h-10 w-10 mx-auto mb-4 opacity-90" />
-                  <Counter end={stat.count} duration={2500} className="text-4xl font-bold mb-2" />
-                  <p className="text-sm text-white/90 font-medium">{stat.label}</p>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Bottom Section - Statistics */}
+     {/* Bottom Section - Statistics */}
+<div className="max-w-6xl mx-auto">
+  <div className="relative rounded-3xl bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-10 md:px-10 md:py-10 shadow-2xl">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6">
+      {[
+        {
+          count: 48,
+          label: "Pediatrician",
+          iconType: "doctor",
+          highlight: false,
+        },
+        {
+          count: 120,
+          label: "Medical Stuff",
+          iconType: "stethoscope",
+          highlight: false,
+        },
+        {
+          count: 92,
+          label: "Pediatra Polyclinic",
+          iconType: "hospital",
+          highlight: true,
+        },
+        {
+          count: 231,
+          label: "Safe Observation",
+          iconType: "clipboard",
+          highlight: false,
+        },
+      ].map((stat, i) => (
+        <div key={i} className="relative">
+          {/* Top white pill with icon */}
+          <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-[200px] sm:w-[250px] h-[70px] bg-white rounded-[999px] shadow-md flex items-center justify-center">
+            {stat.iconType === "doctor" && (
+              <UserRound
+                className={`${
+                  stat.highlight ? "text-emerald-600" : "text-blue-600"
+                } h-8 w-8`}
+              />
+            )}
+            {stat.iconType === "stethoscope" && (
+              <Stethoscope
+                className={`${
+                  stat.highlight ? "text-emerald-600" : "text-blue-600"
+                } h-8 w-8`}
+              />
+            )}
+            {stat.iconType === "hospital" && (
+              <Hospital
+                className={`${
+                  stat.highlight ? "text-emerald-600" : "text-blue-600"
+                } h-8 w-8`}
+              />
+            )}
+            {stat.iconType === "clipboard" && (
+              <ClipboardList
+                className={`${
+                  stat.highlight ? "text-emerald-600" : "text-blue-600"
+                } h-8 w-8`}
+              />
+            )}
           </div>
+
+          {/* Content card */}
+          <div
+            className={`${
+              stat.highlight ? "bg-emerald-500 rounded-2xl shadow-xl" : ""
+            } pt-16 pb-7 px-6 text-center text-white`}
+          >
+            <Counter
+              end={stat.count}
+              duration={1200}
+              className="text-4xl sm:text-5xl font-extrabold tracking-tight"
+              suffix="+"
+            />
+            <div className="mt-1 text-white/90 font-medium text-base sm:text-lg">
+              {stat.label}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
         </div>
       </section>
 

@@ -27,62 +27,62 @@ export default function ContactPage() {
             <h2 className="text-4xl font-bold">Get In Touch</h2>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-16">
-            <Card className="group hover:shadow-lg transition-shadow text-center">
-              <CardContent className="p-8">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary transition-colors">
-                  <MapPin className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="mb-2 text-lg font-bold">Our Office</h3>
-                <p className="text-sm text-muted-foreground">45 Grand Road RT 3419</p>
-                <p className="text-sm text-muted-foreground">Tangerang, Bali, INA</p>
-              </CardContent>
-            </Card>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-16">
+  {[
+    {
+      icon: <MapPin className="h-7 w-7 text-white" />,
+      title: "Our Office",
+      lines: ["Sunset Road ST.3319,", "Denpasar, Bali, INA"],
+    },
+    {
+      icon: <Phone className="h-7 w-7 text-white" />,
+      title: "Call Us",
+      lines: ["+62-361-234-4567 |", "Hotline 112-110-5"],
+    },
+    {
+      icon: <Mail className="h-7 w-7 text-white" />,
+      title: "Email Us",
+      lines: ["pediatra@domain.com |", "support@info.com"],
+    },
+    {
+      icon: <Clock className="h-7 w-7 text-white" />,
+      title: "Working Hours",
+      lines: ["Monday - Sunday : 9:30 AM", "to 7:00 PM"],
+    },
+  ].map((item, i) => (
+    <div
+      key={i}
+      className="relative bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-8 pt-14 text-center"
+    >
+      {/* Icon Circle */}
+      <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-[#23c99a] rounded-full h-16 w-16 flex items-center justify-center shadow-md">
+        {item.icon}
+      </div>
 
-            <Card className="group hover:shadow-lg transition-shadow text-center">
-              <CardContent className="p-8">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary transition-colors">
-                  <Phone className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="mb-2 text-lg font-bold">Call Us</h3>
-                <p className="text-sm text-muted-foreground">+62 381 234 4567 /</p>
-                <p className="text-sm text-muted-foreground">Hotline 177-110-35</p>
-              </CardContent>
-            </Card>
+      {/* Content */}
+      <h3 className="mb-2 text-lg font-semibold text-gray-800">
+        {item.title}
+      </h3>
+      {item.lines.map((line, j) => (
+        <p key={j} className="text-sm text-gray-500">
+          {line}
+        </p>
+      ))}
+    </div>
+  ))}
+</div>
 
-            <Card className="group hover:shadow-lg transition-shadow text-center">
-              <CardContent className="p-8">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary transition-colors">
-                  <Mail className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="mb-2 text-lg font-bold">Email Us</h3>
-                <p className="text-sm text-muted-foreground">pediatra@domain.com /</p>
-                <p className="text-sm text-muted-foreground">support@mail.com</p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-shadow text-center">
-              <CardContent className="p-8">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary transition-colors">
-                  <Clock className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="mb-2 text-lg font-bold">Working Hours</h3>
-                <p className="text-sm text-muted-foreground">Mon-Sat: 9 am - 6 pm</p>
-                <p className="text-sm text-muted-foreground">Sun: 10 am - 7 pm</p>
-              </CardContent>
-            </Card>
-          </div>
 
           {/* Map and Form */}
           <div className="grid gap-8 lg:grid-cols-2">
             {/* Map */}
             <Card className="overflow-hidden">
-              <div className="aspect-[4/3] bg-muted">
+              <div className="aspect-[4/4] bg-muted">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613!3d-6.1944491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sJakarta!5e0!3m2!1sen!2sid!4v1234567890"
                   width="100%"
                   height="100%"
-                  style={{ border: 0 }}
+                  style={{ border: 0  }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

@@ -38,7 +38,7 @@ export default function HomePage() {
         <div
           style={{
             background:
-             "linear-gradient(135deg, #548bff 0%, #3b82f6 50%, #60a5fa 100%)",
+              "linear-gradient(135deg, #548bff 0%, #3b82f6 50%, #60a5fa 100%)",
           }}
         >
           <div className="container mx-auto px-4 py-20 relative z-10">
@@ -149,8 +149,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-      
       {/* About Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
@@ -159,7 +157,7 @@ export default function HomePage() {
             <div className="relative">
               {/* Blue rounded shape background */}
               <div className="absolute top-10 -left-10 w-96 h-[500px] bg-primary/30 rounded-[3rem] -z-10"></div>
-              
+
               {/* Main image */}
               <div className="relative aspect-[3/4] overflow-hidden rounded-3xl shadow-2xl max-w-md">
                 <Image
@@ -174,7 +172,9 @@ export default function HomePage() {
 
             {/* Content */}
             <div className="space-y-6 relative">
-              <div className="text-sm font-bold text-primary uppercase tracking-wider">About Pediatra</div>
+              <div className="text-sm font-bold text-primary uppercase tracking-wider">
+                About Pediatra
+              </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-balance leading-tight text-gray-800">
                 You Can Find Pediatra At Your Fingertips
               </h2>
@@ -256,8 +256,12 @@ export default function HomePage() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-800 text-base">Dr. Monica Hopkins</h4>
-                  <p className="text-sm text-primary font-medium">Pediatra Founder</p>
+                  <h4 className="font-bold text-gray-800 text-base">
+                    Dr. Monica Hopkins
+                  </h4>
+                  <p className="text-sm text-primary font-medium">
+                    Pediatra Founder
+                  </p>
                 </div>
                 <div className="ml-auto">
                   <Image
@@ -273,8 +277,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      
 
       {/* Services Icons Section */}
       <section className="py-20 bg-gray-50">
@@ -292,15 +294,17 @@ export default function HomePage() {
                 <div className="bg-white rounded-2xl p-8 shadow-sm border-2 border-transparent hover:border-primary hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                   <div className="flex flex-col items-center">
                     <div className="mb-4 flex items-center justify-center h-20 w-20">
-                      <Image 
-                        src={service.image} 
-                        alt={service.label} 
+                      <Image
+                        src={service.image}
+                        alt={service.label}
                         width={80}
                         height={80}
                         className="object-contain"
                       />
                     </div>
-                    <h3 className="font-semibold text-sm text-gray-700 text-center">{service.label}</h3>
+                    <h3 className="font-semibold text-sm text-gray-700 text-center">
+                      {service.label}
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -310,37 +314,44 @@ export default function HomePage() {
       </section>
 
       {/* Free Consultation CTA */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="bg-gray-50 rounded-3xl p-8 flex items-center justify-between">
-            <div className="flex items-center gap-6">
-              <div className="flex-shrink-0">
-                <div className="h-16 w-16 rounded-full bg-primary flex items-center justify-center">
-                  <MessageCircle className="h-8 w-8 text-white" />
-                </div>
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-1">Free Online Consultation</h2>
-                <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-white h-12 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all rounded-full"
-              >
-                Make Appointment
-              </Button>
-              <Link
-                href="/about"
-                className="text-gray-700 hover:text-primary text-base font-semibold flex items-center gap-2 transition-colors"
-              >
-                Learn More <ArrowRight className="h-5 w-5" />
-              </Link>
-            </div>
+<section className="py-16 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="bg-gray-50 rounded-3xl p-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+      {/* Left content */}
+      <div className="flex items-center gap-6 flex-col sm:flex-row text-center sm:text-left">
+        <div className="flex-shrink-0">
+          <div className="h-16 w-16 rounded-full bg-primary flex items-center justify-center mx-auto sm:mx-0">
+            <MessageCircle className="h-8 w-8 text-white" />
           </div>
         </div>
-      </section>
+        <div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-1">
+            Free Online Consultation
+          </h2>
+          <p className="text-gray-600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing.
+          </p>
+        </div>
+      </div>
+
+      {/* Right buttons */}
+      <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center">
+        <Button
+          size="lg"
+          className="bg-primary hover:bg-primary/90 text-white h-12 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all rounded-full w-full sm:w-auto"
+        >
+          Make Appointment
+        </Button>
+        <Link
+          href="/about"
+          className="text-gray-700 hover:text-primary text-base font-semibold flex items-center justify-center gap-2 transition-colors"
+        >
+          Learn More <ArrowRight className="h-5 w-5" />
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Services Grid Section */}
       <section className="py-24 gradient-blue-light">
@@ -447,7 +458,8 @@ export default function HomePage() {
                 Our Clinic Spread All Over The World
               </h2>
               <p className="text-gray-600 text-lg mb-12 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
 
               {/* Locations Grid */}
@@ -475,11 +487,15 @@ export default function HomePage() {
                   },
                 ].map((location, i) => (
                   <div key={i} className="flex items-start gap-4">
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-full ${location.color} flex-shrink-0`}>
+                    <div
+                      className={`flex h-12 w-12 items-center justify-center rounded-full ${location.color} flex-shrink-0`}
+                    >
                       <Hospital className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-800 mb-1">{location.city}</h3>
+                      <h3 className="font-bold text-gray-800 mb-1">
+                        {location.city}
+                      </h3>
                       <p className="text-sm text-gray-600 leading-relaxed">
                         {location.address}
                       </p>
@@ -496,11 +512,14 @@ export default function HomePage() {
                 <div className="h-80 w-80 rounded-full border-4 border-gray-200 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                   {/* Hexagonal pattern background */}
                   <div className="absolute inset-0 opacity-30">
-                    <div className="w-full h-full" style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
-                    }}></div>
+                    <div
+                      className="w-full h-full"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
+                      }}
+                    ></div>
                   </div>
-                  
+
                   {/* Location markers */}
                   <div className="absolute top-16 left-20 h-3 w-3 rounded-full bg-primary"></div>
                   <div className="absolute top-32 right-16 h-3 w-3 rounded-full bg-primary"></div>
@@ -513,42 +532,91 @@ export default function HomePage() {
           </div>
 
           {/* Bottom Section - Statistics */}
-          <div className="max-w-6xl mx-auto">
-            <div className="relative rounded-3xl bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-8 md:px-10 md:py-10 shadow-2xl">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  { count: 48, label: "Pediatrician", iconType: "doctor", highlight: false },
-                  { count: 120, label: "Medical Stuff", iconType: "stethoscope", highlight: false },
-                  { count: 92, label: "Pediatra Polyclinic", iconType: "hospital", highlight: true },
-                  { count: 231, label: "Safe Observation", iconType: "clipboard", highlight: false },
-                ].map((stat, i) => (
-                  <div key={i} className="relative">
-                    {/* Top white pill with icon */}
-                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-[250px] h-[70px] bg-white rounded-[999px] shadow-md flex items-center justify-center">
-                      {stat.iconType === 'doctor' && (
-                        <UserRound className={`${stat.highlight ? 'text-emerald-600' : 'text-blue-600'} h-8 w-8`} />
-                      )}
-                      {stat.iconType === 'stethoscope' && (
-                        <Stethoscope className={`${stat.highlight ? 'text-emerald-600' : 'text-blue-600'} h-8 w-8`} />
-                      )}
-                      {stat.iconType === 'hospital' && (
-                        <Hospital className={`${stat.highlight ? 'text-emerald-600' : 'text-blue-600'} h-8 w-8`} />
-                      )}
-                      {stat.iconType === 'clipboard' && (
-                        <ClipboardList className={`${stat.highlight ? 'text-emerald-600' : 'text-blue-600'} h-8 w-8`} />
-                      )}
-                    </div>
+     {/* Bottom Section - Statistics */}
+<div className="max-w-6xl mx-auto">
+  <div className="relative rounded-3xl bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-10 md:px-10 md:py-10 shadow-2xl">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6">
+      {[
+        {
+          count: 48,
+          label: "Pediatrician",
+          iconType: "doctor",
+          highlight: false,
+        },
+        {
+          count: 120,
+          label: "Medical Stuff",
+          iconType: "stethoscope",
+          highlight: false,
+        },
+        {
+          count: 92,
+          label: "Pediatra Polyclinic",
+          iconType: "hospital",
+          highlight: true,
+        },
+        {
+          count: 231,
+          label: "Safe Observation",
+          iconType: "clipboard",
+          highlight: false,
+        },
+      ].map((stat, i) => (
+        <div key={i} className="relative">
+          {/* Top white pill with icon */}
+          <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-[200px] sm:w-[250px] h-[70px] bg-white rounded-[999px] shadow-md flex items-center justify-center">
+            {stat.iconType === "doctor" && (
+              <UserRound
+                className={`${
+                  stat.highlight ? "text-emerald-600" : "text-blue-600"
+                } h-8 w-8`}
+              />
+            )}
+            {stat.iconType === "stethoscope" && (
+              <Stethoscope
+                className={`${
+                  stat.highlight ? "text-emerald-600" : "text-blue-600"
+                } h-8 w-8`}
+              />
+            )}
+            {stat.iconType === "hospital" && (
+              <Hospital
+                className={`${
+                  stat.highlight ? "text-emerald-600" : "text-blue-600"
+                } h-8 w-8`}
+              />
+            )}
+            {stat.iconType === "clipboard" && (
+              <ClipboardList
+                className={`${
+                  stat.highlight ? "text-emerald-600" : "text-blue-600"
+                } h-8 w-8`}
+              />
+            )}
+          </div>
 
-                    {/* Content card */}
-                    <div className={`${stat.highlight ? 'bg-emerald-500 rounded-2xl shadow-xl' : ''} pt-16 pb-7 px-6 text-center text-white`}>
-                      <Counter end={stat.count} duration={1200} className="text-5xl font-extrabold tracking-tight" suffix="+" />
-                      <div className="mt-1 text-white/90 font-medium">{stat.label}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          {/* Content card */}
+          <div
+            className={`${
+              stat.highlight ? "bg-emerald-500 rounded-2xl shadow-xl" : ""
+            } pt-16 pb-7 px-6 text-center text-white`}
+          >
+            <Counter
+              end={stat.count}
+              duration={1200}
+              className="text-4xl sm:text-5xl font-extrabold tracking-tight"
+              suffix="+"
+            />
+            <div className="mt-1 text-white/90 font-medium text-base sm:text-lg">
+              {stat.label}
             </div>
           </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
         </div>
       </section>
 
