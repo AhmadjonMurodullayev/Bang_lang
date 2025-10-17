@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import { Counter } from "@/components/counter";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function AboutPage() {
   return (
