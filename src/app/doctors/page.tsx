@@ -164,108 +164,111 @@ const Doctors = () => {
         </div>
       </section>
 
-  <section className="relative py-10 overflow-hidden bg-gradient-to-r from-blue-700 to-sky-500">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full"></div>
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-2xl"></div>
-          <div className="absolute top-1/3 left-1/2 w-16 h-16 bg-white/10 rotate-45"></div>
-        </div>
+   <section className="  relative py-10 md:py-16 lg:py-20 overflow-hidden bg-gradient-to-r from-blue-700 to-sky-500">
+  {/* Background pattern */}
+  <div className="absolute inset-0 opacity-20">
+    <div className="absolute top-4 left-4 w-16 md:w-32 h-16 md:h-32 bg-white/10 rounded-full"></div>
+    <div className="absolute bottom-0 right-0 w-[150px] md:w-[350px] h-[150px] md:h-[350px] bg-white/10 rounded-full blur-2xl"></div>
+    <div className="absolute top-1/3 left-1/2 w-8 md:w-14 h-8 md:h-14 bg-white/10 rotate-45"></div>
+  </div>
 
-        <div className="relative container mx-auto px-6">
-          {/* Header and Cards */}
-          <div className="flex flex-col lg:flex-row justify-between gap-12 ">
-            {/* Left Text */}
-            <div className="max-w-2xl">
-              <p className="text-sm font-bold text-blue-100 uppercase mb-4 tracking-widest">
-                Why Choose Pediatra
-              </p>
-              <h2 className="text-5xl font-extrabold text-white mb-6">
-                We Ready For 24 Hours
-              </h2>
-              <p className="text-white/90 text-lg leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-              </p>
+  <div className="relative container mx-auto px-4 md:px-8">
+    {/* Header + Cards */}
+    <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-14">
+      {/* Left Text */}
+      <div className="lg:w-1/2">
+        <p className="text-xs md:text-sm font-semibold text-blue-100 uppercase mb-3 md:mb-4 tracking-widest">
+          Why Choose Pediatra
+        </p>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 md:mb-6 leading-tight">
+          We’re Ready 24/7
+        </h2>
+        <p className="text-white/90 text-base md:text-lg leading-relaxed">
+          Our pediatric specialists are available day and night to provide the
+          best care for your child with love, compassion, and modern expertise.
+        </p>
+      </div>
+
+      {/* Right Cards */}
+      <div className="flex flex-col sm:flex-row  gap-5 justify-center lg:justify-end lg:w-1/2">
+        {/* Card 1 */}
+        <Card className="flex-1 min-w-[250px] bg-white rounded-2xl shadow-xl border-0 hover:-translate-y-1 transition-transform duration-300">
+          <CardContent className="p-6 flex flex-col h-full text-center md:text-left">
+            <div className="mx-auto md:mx-0 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 mb-5">
+              <Heart className="h-7 w-7 text-white" />
             </div>
+            <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
+              Child Care
+            </h3>
+            <p className="text-gray-600 text-sm md:text-base flex-grow mb-4">
+              Comprehensive care for your child’s health, growth, and
+              development in a safe, nurturing environment.
+            </p>
+            <Button
+              variant="link"
+              className="text-emerald-600 font-semibold underline p-0 self-center md:self-start"
+            >
+              Read More
+            </Button>
+          </CardContent>
+        </Card>
 
-            {/* Right Cards */}
-            <div className="flex gap-8 justify-center mb-5">
-              {/* Card 1 */}
-              <Card className="bg-white w-[250px] h-[300px] rounded-2xl shadow-2xl border-0 max-w-sm ">
-                <CardContent className="p-4 flex flex-col ">
-                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-emerald-500 mb-6">
-                    <Heart className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    Child Care
-                  </h3>
-                  <p className="text-gray-600 mb-3">
-                    Lorem ipsum dolor sit amet consectetur adipiscing reayu
-                    consectetur.
-                  </p>
-                  <Button
-                    variant="link"
-                    className="text-emerald-600 font-semibold underline p-0"
-                  >
-                    Read More
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Card 2 */}
-              <Card className="bg-white  w-[200px] h-[250px] md:w-[250px] md:h-[300px] rounded-2xl shadow-2xl border-0 max-w-sm">
-                <CardContent className="p-4 flex flex-col ">
-                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-emerald-500 mb-6">
-                    <Building2 className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    Modern Clinic
-                  </h3>
-                  <p className="text-gray-600 mb-3">
-                    Lorem ipsum dolor sit amet consectetur adipiscing reayu
-                    consectetur.
-                  </p>
-                  <Button
-                    variant="link"
-                    className="text-emerald-600 font-semibold underline p-0"
-                  >
-                    Read More
-                  </Button>
-                </CardContent>
-              </Card>
+        {/* Card 2 */}
+        <Card className="flex-1 min-w-[250px]  bg-white rounded-2xl shadow-xl border-0 hover:-translate-y-1 transition-transform duration-300">
+          <CardContent className="p-6 flex flex-col h-full text-center md:text-left">
+            <div className="mx-auto md:mx-0 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 mb-5">
+              <Building2 className="h-7 w-7 text-white" />
             </div>
-          </div>
+            <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
+              Modern Clinic
+            </h3>
+            <p className="text-gray-600 text-sm md:text-base flex-grow mb-4">
+              Equipped with state-of-the-art technology to provide high-quality
+              medical treatment and diagnostics.
+            </p>
+            <Button
+              variant="link"
+              className="text-emerald-600 font-semibold underline p-0 self-center md:self-start"
+            >
+              Read More
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
 
-          {/* Progress Bars */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              { title: "Environmental Testing", percent: 90 },
-              { title: "Medical Research", percent: 93 },
-              { title: "Vaccines Research", percent: 95 },
-            ].map((item, idx) => (
-              <div key={idx}>
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                  <span className="text-2xl font-bold text-white">
-                    {item.percent}%
-                  </span>
-                </div>
-                <div className="w-full bg-white/30 rounded-full h-2 mb-3 overflow-hidden">
-                  <div
-                    className="bg-gradient-to-r from-emerald-400 to-emerald-500 h-2 rounded-full transition-all duration-1000"
-                    style={{ width: `${item.percent}%` }}
-                  ></div>
-                </div>
-                <p className="text-white/80 text-sm leading-relaxed">
-                  Lorem ipsum dolor sit amet consectetur adipi scing elit sed do
-                  eiusmod tempor incididunt ut labore et dolore magna.
-                </p>
-              </div>
-            ))}
+    {/* Progress Bars */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mt-10 md:mt-14">
+      {[
+        { title: "Environmental Testing", percent: 90 },
+        { title: "Medical Research", percent: 93 },
+        { title: "Vaccines Research", percent: 95 },
+      ].map((item, idx) => (
+        <div key={idx} className="w-full">
+          <div className="flex justify-between items-center mb-3 md:mb-4">
+            <h3 className="text-lg md:text-xl font-bold text-white">
+              {item.title}
+            </h3>
+            <span className="text-xl md:text-2xl font-bold text-white">
+              {item.percent}%
+            </span>
           </div>
+          <div className="w-full bg-white/30 rounded-full h-2 overflow-hidden">
+            <div
+              className="bg-gradient-to-r from-emerald-400 to-emerald-500 h-2 rounded-full transition-all duration-1000"
+              style={{ width: `${item.percent}%` }}
+            ></div>
+          </div>
+          <p className="text-white/80 text-sm md:text-base mt-3 leading-relaxed">
+            Our ongoing research ensures continuous improvement in health and
+            safety standards for all.
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
          <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
