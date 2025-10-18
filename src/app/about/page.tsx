@@ -24,7 +24,13 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="gradient-blue py-20">
+      <section   style={{
+            backgroundImage: 'url("/backround.png")',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            height: "400px",
+          }}>
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-4 text-5xl font-bold text-white">About</h1>
           <div className="flex items-center justify-center gap-2 text-white/90">
@@ -152,94 +158,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="relative  md:py-16 lg:py-20 overflow-hidden bg-gradient-to-r from-blue-700 to-sky-500">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 w-32 h-32 md:w-40 md:h-40 bg-white/10 rounded-full"></div>
-        <div className="absolute bottom-0 right-0 w-64 h-64 md:w-[400px] md:h-[400px] bg-white/10 rounded-full blur-2xl"></div>
-        <div className="absolute top-1/3 left-1/2 w-12 h-12 md:w-16 md:h-16 bg-white/10 rotate-45"></div>
-      </div>
-
-      <div className="relative container mx-auto px-4 sm:px-6">
-        {/* Header and Cards */}
-        <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-12 ">
-          {/* Left Text */}
-          <div className="w-full lg:max-w-2xl">
-            <p className="text-xs sm:text-sm font-bold text-blue-100 uppercase mb-3 md:mb-4 tracking-widest">
-              Why Choose Pediatra
-            </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 md:mb-6 text-balance">
-              We Ready For 24 Hours
-            </h2>
-            <p className="text-white/90 text-base md:text-lg leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,
-              pulvinar dapibus leo.
-            </p>
-          </div>
-
-          {/* Right Cards */}
-          <div className="flex flex-col sm:flex-row gap-6 md:gap-8 justify-center lg:justify-end items-center sm:items-start">
-            {/* Card 1 */}
-            <Card className="bg-white w-full sm:w-[220px] md:w-[250px] rounded-2xl shadow-2xl border-0 hover:shadow-3xl transition-shadow duration-300">
-              <CardContent className=" md:flex flex-col h-full">
-                <div className="h-14 w-14 md:h-16 md:w-16 flex items-center justify-center rounded-full bg-emerald-500  6">
-                  <Heart className="h-7 w-7 md:h-8 md:w-8 text-white" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Child Care</h3>
-                <p className="text-gray-600 text-sm md:text-base mb-3 md:mb-4 flex-grow">
-                  Lorem ipsum dolor sit amet consectetur adipiscing reayu consectetur.
-                </p>
-                <Button variant="link" className="text-emerald-600 font-semibold underline p-0 self-start">
-                  Read More
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Card 2 */}
-            <Card className="bg-white w-full sm:w-[220px] md:w-[250px] rounded-2xl shadow-2xl border-0 hover:shadow-3xl transition-shadow duration-300 mb-8   ">
-              <CardContent className=" md:flex flex-col h-full">
-                <div className="h-14 w-14 md:h-16 md:w-16 flex items-center justify-center rounded-full bg-emerald-500 ">
-                  <Building2 className="h-7 w-7 md:h-8 md:w-8 text-white" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-3">Modern Clinic</h3>
-                <p className="text-gray-600 text-sm md:text-base mb-3 md:mb-4 flex-grow">
-                  Lorem ipsum dolor sit amet consectetur adipiscing reayu consectetur.
-                </p>
-                <Button variant="link" className="text-emerald-600 font-semibold underline p-0 self-start">
-                  Read More
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* Progress Bars */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {[
-            { title: "Environmental Testing", percent: 90 },
-            { title: "Medical Research", percent: 93 },
-            { title: "Vaccines Research", percent: 95 },
-          ].map((item, idx) => (
-            <div key={idx} className="space-y-3 md:space-y-4">
-              <div className="flex justify-between items-center">
-                <h3 className="text-lg md:text-xl font-bold text-white text-balance">{item.title}</h3>
-                <span className="text-xl md:text-2xl font-bold text-white ml-2">{item.percent}%</span>
-              </div>
-              <div className="w-full bg-white/30 rounded-full h-2 overflow-hidden">
-                <div
-                  className="bg-gradient-to-r from-emerald-400 to-emerald-500 h-2 rounded-full transition-all duration-1000"
-                  style={{ width: `${item.percent}%` }}
-                ></div>
-              </div>
-              <p className="text-white/80 text-sm md:text-base leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipi scing elit sed do eiusmod tempor incididunt ut labore et
-                dolore magna.
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+  
 
       {/* Doctors Section */}
       <section className="py-20">

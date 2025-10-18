@@ -13,7 +13,7 @@ import cardiologyIcon from "@/assets/icons/cardiology.png";
 const Doctors = () => {
   return (
     <>
-      <section className="gradient-blue py-20">
+      <section  className="gradient-blue py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-4 text-5xl font-bold text-white">Doctors</h1>
           <div className="flex items-center justify-center gap-2 text-white/90">

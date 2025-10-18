@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Phone, Menu, X, ChevronDown, ChevronUp } from "lucide-react"
-import { useState } from "react"
+import Link from "next/link";
+import { Phone, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,47 +10,57 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 import {
   Drawer,
   DrawerContent,
   DrawerHeader,
   DrawerTrigger,
   DrawerClose,
-} from "@/components/ui/drawer"
+} from "@/components/ui/drawer";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "@/components/ui/collapsible";
 
 export function Header() {
-  const [servicesOpen, setServicesOpen] = useState(false)
-  const [pagesOpen, setPagesOpen] = useState(false)
-  const [blogOpen, setBlogOpen] = useState(false)
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [pagesOpen, setPagesOpen] = useState(false);
+  const [blogOpen, setBlogOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const closeDrawer = () => {
-    setDrawerOpen(false)
-    setServicesOpen(false)
-    setPagesOpen(false)
-    setBlogOpen(false)
-  }
+    setDrawerOpen(false);
+    setServicesOpen(false);
+    setPagesOpen(false);
+    setBlogOpen(false);
+  };
 
   return (
     <>
       {/* Main Header */}
-      <header className="w-full " style={{
-        background:  "linear-gradient(135deg, #548bff 0%, #3b82f6 50%, #60a5fa 100%)",
-      }}>
+      <header
+        className="w-full "
+        style={{
+          backgroundImage: 'url("/backround.png")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <div className="container mx-auto px-4">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/25">
-                <div className="text-2xl font-bold text-white leading-none">+</div>
+                <div className="text-2xl font-bold text-white leading-none">
+                  +
+                </div>
               </div>
-              <span className="text-2xl font-bold text-white tracking-tight">Pediatra</span>
+              <span className="text-2xl font-bold text-white tracking-tight">
+                Pediatra
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -59,7 +69,7 @@ export function Header() {
                 <NavigationMenuItem>
                   <Link href="/" legacyBehavior passHref>
                     <NavigationMenuLink className="text-sm font-semibold text-white hover:text-white/80 transition-colors px-4 py-2">
-                      Home
+                      Bosh sahifa
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -67,31 +77,39 @@ export function Header() {
                 <NavigationMenuItem>
                   <Link href="/about" legacyBehavior passHref>
                     <NavigationMenuLink className="text-sm font-semibold text-white hover:text-white/80 transition-colors px-4 py-2">
-                      About
+                      Biz haqimizda
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-sm font-semibold text-white hover:text-white/80 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
-                    Services
+                    Xizmatlar
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="w-[400px] p-4 bg-white rounded-lg shadow-xl">
                       <div className="grid gap-3">
-                        <Link 
-                          href="/services" 
+                        <Link
+                          href="/services"
                           className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
                         >
-                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">Services</div>
-                          <div className="text-sm text-muted-foreground">View all our services</div>
+                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">
+                            Xizmatlar
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            Barcha xizmatlarimizni ko'ring
+                          </div>
                         </Link>
-                        <Link 
-                          href="/services" 
+                        <Link
+                          href="/services"
                           className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
                         >
-                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">Service Details</div>
-                          <div className="text-sm text-muted-foreground">Learn more about our services</div>
+                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">
+                            Xizmat tafsilotlari
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            Xizmatlarimiz haqida batafsil
+                          </div>
                         </Link>
                       </div>
                     </div>
@@ -100,22 +118,26 @@ export function Header() {
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-sm font-semibold text-white hover:text-white/80 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
-                    Pages
+                    Sahifalar
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="w-[400px] p-4 bg-white rounded-lg shadow-xl">
                       <div className="grid gap-3">
-                        <Link 
-                          href="/appointment" 
+                        <Link
+                          href="/appointment"
                           className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
                         >
-                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">Appointment</div>
+                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">
+                            Navbat olish
+                          </div>
                         </Link>
-                        <Link 
-                          href="/doctors" 
+                        <Link
+                          href="/doctors"
                           className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
                         >
-                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">Doctors</div>
+                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">
+                            Shifokorlar
+                          </div>
                         </Link>
                       </div>
                     </div>
@@ -129,19 +151,27 @@ export function Header() {
                   <NavigationMenuContent>
                     <div className="w-[400px] p-4 bg-white rounded-lg shadow-xl">
                       <div className="grid gap-3">
-                        <Link 
-                          href="/blog" 
+                        <Link
+                          href="/blog"
                           className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
                         >
-                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">Blog</div>
-                          <div className="text-sm text-muted-foreground">Read our latest articles</div>
+                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">
+                            Blog
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            So'nggi maqolalarimizni o'qing
+                          </div>
                         </Link>
-                        <Link 
-                          href="/blog" 
+                        <Link
+                          href="/blog"
                           className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
                         >
-                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">News</div>
-                          <div className="text-sm text-muted-foreground">Stay updated with our news</div>
+                          <div className="font-semibold text-foreground group-hover:text-primary mb-1">
+                            Yangiliklar
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            Yangiliklarimiz bilan tanishing
+                          </div>
                         </Link>
                       </div>
                     </div>
@@ -151,7 +181,7 @@ export function Header() {
                 <NavigationMenuItem>
                   <Link href="/contact" legacyBehavior passHref>
                     <NavigationMenuLink className="text-sm font-semibold text-white hover:text-white/80 transition-colors px-4 py-2">
-                      Contact
+                      Aloqa
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -164,14 +194,22 @@ export function Header() {
                   <Phone className="h-5 w-5 text-white" />
                 </div>
                 <div className="text-left">
-                  <div className="text-xs text-white/90 font-medium mb-0.5">Contact a Doctor</div>
-                  <div className="text-sm font-bold text-white tracking-wide">(+62) 81 414 257</div>
+                  <div className="text-xs text-white/90 font-medium mb-0.5">
+                    Shifokor bilan bog'lanish
+                  </div>
+                  <div className="text-sm font-bold text-white tracking-wide">
+                    (+62) 81 414 257
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Mobile Menu Button */}
-            <Drawer direction="left" open={drawerOpen} onOpenChange={setDrawerOpen}>
+            <Drawer
+              direction="left"
+              open={drawerOpen}
+              onOpenChange={setDrawerOpen}
+            >
               <DrawerTrigger asChild>
                 <button className="md:hidden text-white">
                   <Menu className="h-6 w-6" />
@@ -180,11 +218,19 @@ export function Header() {
               <DrawerContent>
                 <DrawerHeader>
                   <div className="flex items-center justify-between">
-                    <Link href="/" className="flex items-center gap-3" onClick={closeDrawer}>
+                    <Link
+                      href="/"
+                      className="flex items-center gap-3"
+                      onClick={closeDrawer}
+                    >
                       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/25">
-                        <div className="text-xl font-bold text-white leading-none">+</div>
+                        <div className="text-xl font-bold text-white leading-none">
+                          +
+                        </div>
                       </div>
-                      <span className="text-xl font-bold text-foreground tracking-tight">Pediatra</span>
+                      <span className="text-xl font-bold text-foreground tracking-tight">
+                        Pediatra
+                      </span>
                     </Link>
                     <DrawerClose asChild>
                       <button onClick={closeDrawer}>
@@ -193,45 +239,52 @@ export function Header() {
                     </DrawerClose>
                   </div>
                 </DrawerHeader>
-                
+
                 {/* Navigation */}
                 <nav className="flex-1 p-6">
                   <div className="space-y-6">
-                    <Link 
-                      href="/" 
+                    <Link
+                      href="/"
                       className="flex items-center text-lg font-semibold text-primary py-2"
                       onClick={closeDrawer}
                     >
-                      Home
+                      Bosh sahifa
                     </Link>
-                    <Link 
-                      href="/about" 
+                    <Link
+                      href="/about"
                       className="flex items-center text-lg font-semibold text-gray-700 hover:text-primary py-2 transition-colors"
                       onClick={closeDrawer}
                     >
-                      About
+                      Biz haqimizda
                     </Link>
-                    
+
                     {/* Services Dropdown */}
-                    <Collapsible open={servicesOpen} onOpenChange={setServicesOpen}>
+                    <Collapsible
+                      open={servicesOpen}
+                      onOpenChange={setServicesOpen}
+                    >
                       <CollapsibleTrigger className="flex items-center justify-between w-full text-lg font-semibold text-gray-700 hover:text-primary py-2 transition-colors">
-                        Services
-                        {servicesOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                        Xizmatlar
+                        {servicesOpen ? (
+                          <ChevronUp className="h-4 w-4" />
+                        ) : (
+                          <ChevronDown className="h-4 w-4" />
+                        )}
                       </CollapsibleTrigger>
                       <CollapsibleContent className="space-y-2 ml-4">
-                        <Link 
-                          href="/services" 
+                        <Link
+                          href="/services"
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          All Services
+                          Barcha xizmatlar
                         </Link>
-                        <Link 
-                          href="/services" 
+                        <Link
+                          href="/services"
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          Service Details
+                          Xizmat tafsilotlari
                         </Link>
                       </CollapsibleContent>
                     </Collapsible>
@@ -239,23 +292,27 @@ export function Header() {
                     {/* Pages Dropdown */}
                     <Collapsible open={pagesOpen} onOpenChange={setPagesOpen}>
                       <CollapsibleTrigger className="flex items-center justify-between w-full text-lg font-semibold text-gray-700 hover:text-primary py-2 transition-colors">
-                        Pages
-                        {pagesOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                        Sahifalar
+                        {pagesOpen ? (
+                          <ChevronUp className="h-4 w-4" />
+                        ) : (
+                          <ChevronDown className="h-4 w-4" />
+                        )}
                       </CollapsibleTrigger>
                       <CollapsibleContent className="space-y-2 ml-4">
-                        <Link 
-                          href="/appointment" 
+                        <Link
+                          href="/appointment"
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          Appointment
+                          Navbat olish
                         </Link>
-                        <Link 
-                          href="/doctors" 
+                        <Link
+                          href="/doctors"
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          Doctors
+                          Shifokorlar
                         </Link>
                       </CollapsibleContent>
                     </Collapsible>
@@ -264,32 +321,36 @@ export function Header() {
                     <Collapsible open={blogOpen} onOpenChange={setBlogOpen}>
                       <CollapsibleTrigger className="flex items-center justify-between w-full text-lg font-semibold text-gray-700 hover:text-primary py-2 transition-colors">
                         Blog
-                        {blogOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                        {blogOpen ? (
+                          <ChevronUp className="h-4 w-4" />
+                        ) : (
+                          <ChevronDown className="h-4 w-4" />
+                        )}
                       </CollapsibleTrigger>
                       <CollapsibleContent className="space-y-2 ml-4">
-                        <Link 
-                          href="/blog" 
+                        <Link
+                          href="/blog"
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          Blog Posts
+                          Blog maqolalari
                         </Link>
-                        <Link 
-                          href="/blog" 
+                        <Link
+                          href="/blog"
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          News
+                          Yangiliklar
                         </Link>
                       </CollapsibleContent>
                     </Collapsible>
 
-                    <Link 
-                      href="/contact" 
+                    <Link
+                      href="/contact"
                       className="flex items-center text-lg font-semibold text-gray-700 hover:text-primary py-2 transition-colors"
                       onClick={closeDrawer}
                     >
-                      Contact
+                      Aloqa
                     </Link>
                   </div>
                 </nav>
@@ -301,8 +362,12 @@ export function Header() {
                       <Phone className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-xs text-white/90 font-medium">Contact a Doctor</div>
-                      <div className="text-sm font-bold text-white">(+62) 81 414 257</div>
+                      <div className="text-xs text-white/90 font-medium">
+                        Shifokor bilan bog'lanish
+                      </div>
+                      <div className="text-sm font-bold text-white">
+                        (+62) 81 414 257
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -312,5 +377,5 @@ export function Header() {
         </div>
       </header>
     </>
-  )
+  );
 }
