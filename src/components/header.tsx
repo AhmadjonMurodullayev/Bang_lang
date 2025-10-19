@@ -97,7 +97,7 @@ export function Header() {
                             Xizmatlar
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            Barcha xizmatlarimizni ko'ring
+                            Barcha xizmatlarimizni ko&apos;ring
                           </div>
                         </Link>
                         <Link
@@ -159,7 +159,7 @@ export function Header() {
                             Blog
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            So'nggi maqolalarimizni o'qing
+                            So&apos;nggi maqolalarimizni o&apos;qing
                           </div>
                         </Link>
                         <Link
@@ -195,7 +195,7 @@ export function Header() {
                 </div>
                 <div className="text-left">
                   <div className="text-xs text-white/90 font-medium mb-0.5">
-                    Shifokor bilan bog'lanish
+                    Shifokor bilan bog&apos;lanish
                   </div>
                   <div className="text-sm font-bold text-white tracking-wide">
                     (+62) 81 414 257
@@ -363,7 +363,7 @@ export function Header() {
                     </div>
                     <div>
                       <div className="text-xs text-white/90 font-medium">
-                        Shifokor bilan bog'lanish
+                        Shifokor bilan bog&apos;lanish
                       </div>
                       <div className="text-sm font-bold text-white">
                         (+62) 81 414 257

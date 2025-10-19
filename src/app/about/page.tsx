@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
@@ -8,8 +7,6 @@ import {
 } from "@/components/ui/accordion";
 import {
   Check,
-  Heart,
-  Building2,
   Globe,
   Facebook,
   Twitter,

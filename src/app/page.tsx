@@ -15,8 +15,6 @@ import {
   Search,
   Calendar,
   MessageCircle,
-  Play,
-  Apple,
   Hospital,
   ClipboardList,
   UserRound,
@@ -52,7 +50,7 @@ export default function HomePage() {
                   BEPUL!     Birinchi konsultatsiya bepul!
                 </div>
                 <h1 className="text-5xl font-bold leading-tight lg:text-6xl text-balance">
-                  Farzandlaringizni Ishonchli Qo'llarga topshiring !
+                  Farzandlaringizni Ishonchli Qo&apos;llarga topshiring !
                 </h1>
                 <p className="text-lg text-white/90 leading-relaxed max-w-xl">
                   Biz bolalaringiz uchun sog‘liqni tiklash bo‘yicha professional
@@ -73,7 +71,7 @@ export default function HomePage() {
                     variant="outline"
                     className="border-2 border-white text-white hover:bg-white hover:text-blue-600 bg-transparent h-12 px-8 text-base font-semibold rounded-full"
                   >
-                    Biz bilan bog'lanish
+                    Biz bilan bog&apos;lanish
                   </Button>
                 </div>
               </div>
@@ -185,8 +183,8 @@ export default function HomePage() {
               <p className="text-gray-600 leading-relaxed text-base">
                 Biz bolalaringiz uchun eng yaxshi tibbiy xizmatlarni taqdim etamiz.
                 Professional shifokorlarimiz va zamonaviy jihozlarimiz bilan
-                farzandlaringizning sog'liqini himoya qilamiz va rivojlanishini
-                qo'llab-quvvatlaymiz.
+                farzandlaringizning sog&apos;liqini himoya qilamiz va rivojlanishini
+                qo&apos;llab-quvvatlaymiz.
               </p>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-4 pt-4">
@@ -212,7 +210,7 @@ export default function HomePage() {
                       <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
                     </div>
                     <h4 className="font-semibold text-gray-700 text-sm">
-                      Yangi tug'ilgan chaqaloq parvarishi
+                      Yangi tug&apos;ilgan chaqaloq parvarishi
                     </h4>
                   </div>
                   <div className="flex gap-3 items-start">
@@ -228,7 +226,7 @@ export default function HomePage() {
                       <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
                     </div>
                     <h4 className="font-semibold text-gray-700 text-sm">
-                      Mijozlar uchun qo'llab-quvvatlash
+                      Mijozlar uchun qo&apos;llab-quvvatlash
                     </h4>
                   </div>
                 </div>
@@ -349,7 +347,7 @@ export default function HomePage() {
                 href="/about"
                 className="text-gray-700 hover:text-primary text-base font-semibold flex items-center justify-center gap-2 transition-colors"
               >
-                Ko'proq o'rganish <ArrowRight className="h-5 w-5" />
+                Ko&apos;proq o&apos;rganish <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -364,7 +362,7 @@ export default function HomePage() {
               Bizning xizmatlarimiz
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
-              Asosiy xizmatlarimizni ko'ring
+              Asosiy xizmatlarimizni ko&apos;ring
             </h2>
           </div>
 
@@ -415,7 +413,7 @@ export default function HomePage() {
                     href="/services"
                     className="text-sm font-bold text-primary hover:underline inline-flex items-center gap-1 group-hover:gap-2 transition-all"
                   >
-                    Ko'proq o'qish <ArrowRight className="h-4 w-4" />
+                    Ko&apos;proq o&apos;qish <ArrowRight className="h-4 w-4" />
                   </Link>
                 </CardContent>
               </Card>
@@ -429,10 +427,10 @@ export default function HomePage() {
                   </div>
                 </div>
                 <h3 className="mb-3 text-xl font-bold">
-                  Ko'proq xizmatlarni ko'ring
+                  Ko&apos;proq xizmatlarni ko&apos;ring
                 </h3>
                 <p className="mb-6 text-sm text-white/90 leading-relaxed">
-                  Bizning boshqa xizmatlarimizni ham ko'rib chiqing va
+                  Bizning boshqa xizmatlarimizni ham ko&apos;rib chiqing va
                   farzandlaringiz uchun eng yaxshi yechimni toping.
                 </p>
                 <Button
@@ -655,7 +653,7 @@ export default function HomePage() {
                 Onlayn navbat olish
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-balance leading-tight">
-                Navbat olishning oson yo'li
+                Navbat olishning oson yo&apos;li
               </h2>
               <p className="text-muted-foreground leading-relaxed text-lg">
                 Bizning navbat olish tizimi juda oson va qulay. Faqat bir necha
@@ -703,7 +701,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <div className="mb-4 text-sm font-bold text-primary uppercase tracking-wider">
-              So'nggi yangiliklar
+              So&apos;nggi yangiliklar
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
               Yangiliklar va maqolalar
@@ -767,7 +765,7 @@ export default function HomePage() {
                     href="/blog"
                     className="text-sm font-bold text-primary hover:underline inline-flex items-center gap-1 group-hover:gap-2 transition-all"
                   >
-                    Ko'proq o'qish <ArrowRight className="h-4 w-4" />
+                    Ko&apos;proq o&apos;qish <ArrowRight className="h-4 w-4" />
                   </Link>
                 </CardContent>
               </Card>
