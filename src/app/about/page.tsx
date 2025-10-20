@@ -1,18 +1,15 @@
+
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import {
   Check,
+  Heart,
+  Building2,
   Globe,
   Facebook,
   Twitter,
   Instagram,
   Star,
-  Plus,
 } from "lucide-react";
 import { Counter } from "@/components/counter";
 import Image from "next/image";
@@ -21,13 +18,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section   style={{
-            backgroundImage: 'url("/backround.png")',
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            height: "400px",
-          }}>
+      <section className="gradient-blue py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-4 text-5xl font-bold text-white">About</h1>
           <div className="flex items-center justify-center gap-2 text-white/90">
@@ -155,7 +146,108 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Section */}
-  
+  <section className="relative py-10 overflow-hidden bg-gradient-to-r from-blue-700 to-sky-500">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full"></div>
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-2xl"></div>
+          <div className="absolute top-1/3 left-1/2 w-16 h-16 bg-white/10 rotate-45"></div>
+        </div>
+
+        <div className="relative container mx-auto px-6">
+          {/* Header and Cards */}
+          <div className="flex flex-col lg:flex-row justify-between gap-12 ">
+            {/* Left Text */}
+            <div className="max-w-2xl">
+              <p className="text-sm font-bold text-blue-100 uppercase mb-4 tracking-widest">
+                Why Choose Pediatra
+              </p>
+              <h2 className="text-5xl font-extrabold text-white mb-6">
+                We Ready For 24 Hours
+              </h2>
+              <p className="text-white/90 text-lg leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              </p>
+            </div>
+
+            {/* Right Cards */}
+            <div className="flex gap-8 justify-center mb-5">
+              {/* Card 1 */}
+              <Card className="bg-white w-[250px] h-[300px] rounded-2xl shadow-2xl border-0 max-w-sm ">
+                <CardContent className="p-4 flex flex-col ">
+                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-emerald-500 mb-6">
+                    <Heart className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    Child Care
+                  </h3>
+                  <p className="text-gray-600 mb-3">
+                    Lorem ipsum dolor sit amet consectetur adipiscing reayu
+                    consectetur.
+                  </p>
+                  <Button
+                    variant="link"
+                    className="text-emerald-600 font-semibold underline p-0"
+                  >
+                    Read More
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Card 2 */}
+              <Card className="bg-white  w-[200px] h-[250px] md:w-[250px] md:h-[300px] rounded-2xl shadow-2xl border-0 max-w-sm">
+                <CardContent className="p-4 flex flex-col ">
+                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-emerald-500 mb-6">
+                    <Building2 className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    Modern Clinic
+                  </h3>
+                  <p className="text-gray-600 mb-3">
+                    Lorem ipsum dolor sit amet consectetur adipiscing reayu
+                    consectetur.
+                  </p>
+                  <Button
+                    variant="link"
+                    className="text-emerald-600 font-semibold underline p-0"
+                  >
+                    Read More
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Progress Bars */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              { title: "Environmental Testing", percent: 90 },
+              { title: "Medical Research", percent: 93 },
+              { title: "Vaccines Research", percent: 95 },
+            ].map((item, idx) => (
+              <div key={idx}>
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                  <span className="text-2xl font-bold text-white">
+                    {item.percent}%
+                  </span>
+                </div>
+                <div className="w-full bg-white/30 rounded-full h-2 mb-3 overflow-hidden">
+                  <div
+                    className="bg-gradient-to-r from-emerald-400 to-emerald-500 h-2 rounded-full transition-all duration-1000"
+                    style={{ width: `${item.percent}%` }}
+                  ></div>
+                </div>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  Lorem ipsum dolor sit amet consectetur adipi scing elit sed do
+                  eiusmod tempor incididunt ut labore et dolore magna.
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Doctors Section */}
       <section className="py-20">
@@ -269,108 +361,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-16 lg:grid-cols-3 items-start">
-            {/* Left Side - Accordion */}
-            <div className="lg:col-span-2">
-              <div className="mb-8">
-                <div className="mb-4 text-sm font-semibold text-teal-600">
-                  Clients Questions
-                </div>
-                <h2 className="mb-6 text-4xl font-bold text-gray-800">
-                  Related Question
-                </h2>
-                <p className="text-gray-600 leading-relaxed">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae illoi aunventore veritatis quasi architecto beatae.
-                </p>
-              </div>
-
-              {/* Shadcn Accordion */}
-              <Accordion type="single" defaultValue="item-0" collapsible className="space-y-4">
-                <AccordionItem value="item-0" className="rounded-2xl overflow-hidden border-0 shadow-sm">
-                  <AccordionTrigger className="p-6 bg-gray-50 text-gray-800 hover:bg-gray-100 hover:no-underline rounded-2xl [&[data-state=open]]:rounded-b-none group">
-                    <div className="flex items-center gap-4 w-full">
-                      <div className="w-8 h-8 rounded-full bg-gray-300 group-hover:bg-emerald-500 flex items-center justify-center flex-shrink-0 transition-colors">
-                        <Plus className="h-4 w-4 text-gray-600 group-hover:text-white transition-colors" />
-                      </div>
-                      <span className="font-semibold text-left">How is the transfer process to take the test ?</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white border-l-4 border-emerald-500 rounded-b-2xl">
-                    <p className="text-gray-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massaum sociis natoque penatibus.</p>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-1" className="rounded-2xl overflow-hidden border-0 shadow-sm">
-                  <AccordionTrigger className="p-6 bg-gray-50 text-gray-800 hover:bg-gray-100 hover:no-underline rounded-2xl [&[data-state=open]]:rounded-b-none group">
-                    <div className="flex items-center gap-4 w-full">
-                      <div className="w-8 h-8 rounded-full bg-gray-300 group-hover:bg-emerald-500 flex items-center justify-center flex-shrink-0 transition-colors">
-                        <Plus className="h-4 w-4 text-gray-600 group-hover:text-white transition-colors" />
-                      </div>
-                      <span className="font-semibold text-left">How is the transfer process to take the test ?</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white border-l-4 border-emerald-500 rounded-b-2xl">
-                    <p className="text-gray-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massaum sociis natoque penatibus.</p>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-2" className="rounded-2xl overflow-hidden border-0 shadow-sm">
-                  <AccordionTrigger className="p-6 bg-gray-50 text-gray-800 hover:bg-gray-100 hover:no-underline rounded-2xl [&[data-state=open]]:rounded-b-none group">
-                    <div className="flex items-center gap-4 w-full">
-                      <div className="w-8 h-8 rounded-full bg-gray-300 group-hover:bg-emerald-500 flex items-center justify-center flex-shrink-0 transition-colors">
-                        <Plus className="h-4 w-4 text-gray-600 group-hover:text-white transition-colors" />
-                      </div>
-                      <span className="font-semibold text-left">How do I have to submit the required documents ?</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white border-l-4 border-emerald-500 rounded-b-2xl">
-                    <p className="text-gray-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massaum sociis natoque penatibus.</p>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-3" className="rounded-2xl overflow-hidden border-0 shadow-sm">
-                  <AccordionTrigger className="p-6 bg-gray-50 text-gray-800 hover:bg-gray-100 hover:no-underline rounded-2xl [&[data-state=open]]:rounded-b-none group">
-                    <div className="flex items-center gap-4 w-full">
-                      <div className="w-8 h-8 rounded-full bg-gray-300 group-hover:bg-emerald-500 flex items-center justify-center flex-shrink-0 transition-colors">
-                        <Plus className="h-4 w-4 text-gray-600 group-hover:text-white transition-colors" />
-                      </div>
-                      <span className="font-semibold text-left">Do you have venue options for appointments?</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white border-l-4 border-emerald-500 rounded-b-2xl">
-                    <p className="text-gray-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massaum sociis natoque penatibus.</p>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-
-            {/* Right Side - Doctor Image */}
-            <div className="lg:col-span-1">
-              <div className="relative">
-                {/* Decorative Background Shapes */}
-                <div className="absolute -left-8 -top-8 -bottom-8 w-32 bg-gradient-to-b from-blue-200/30 to-cyan-200/30 rounded-l-3xl -z-10"></div>
-                <div className="absolute -left-4 -top-4 w-16 h-16 bg-emerald-200/40 rounded-full -z-10"></div>
-                
-                {/* Doctor Image */}
-                <div className="relative aspect-[3/4] overflow-hidden rounded-tl-3xl rounded-bl-3xl shadow-lg">
-                  <Image
-                    src="/doctor-with-child-patient.jpg"
-                    alt="Doctor consultation"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-  
     </div>
   );
 }

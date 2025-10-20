@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -27,8 +29,10 @@ import allergyIcon from "@/assets/icons/allergy.png";
 import screeningsIcon from "@/assets/icons/creenings.png";
 import pathologyIcon from "@/assets/icons/pathology.png";
 import cardiologyIcon from "@/assets/icons/cardiology.png";
+import { useTranslations } from 'next-intl';
 
 export default function HomePage() {
+  const t = useTranslations();
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -47,31 +51,27 @@ export default function HomePage() {
               <div className="text-white space-y-8">
                 <div className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium">
                   <span className="w-2 h-2 bg-white rounded-full"></span>
-                  BEPUL!     Birinchi konsultatsiya bepul!
+                  {t("hero.freeConsultation")}
                 </div>
                 <h1 className="text-5xl font-bold leading-tight lg:text-6xl text-balance">
-                  Farzandlaringizni Ishonchli Qo&apos;llarga topshiring !
+                  {t("hero.title")}
                 </h1>
                 <p className="text-lg text-white/90 leading-relaxed max-w-xl">
-                  Biz bolalaringiz uchun sog‘liqni tiklash bo‘yicha professional
-                  va samarali yechimlar taqdim etamiz. Har bir bola uchun
-                  individual yondashuvni qo‘llab, sog‘liqni yaxshilash va
-                  rivojlanishini qo‘llab-quvvatlash xizmatlarimizni taqdim
-                  etamiz.
+                  {t("hero.description")}
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Button
                     size="lg"
                     className="bg-primary hover:bg-primary/90 text-white px-8 h-12 text-base font-semibold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all rounded-full"
                   >
-                    Boshlash
+                    {t("hero.cta")}
                   </Button>
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-2 border-white text-white hover:bg-white hover:text-blue-600 bg-transparent h-12 px-8 text-base font-semibold rounded-full"
                   >
-                    Biz bilan bog&apos;lanish
+                    {t("hero.contact")}
                   </Button>
                 </div>
               </div>
@@ -103,37 +103,37 @@ export default function HomePage() {
               <form className="grid grid-cols-1 md:grid-cols-5 gap-4">
                 <div>
                   <label className="mb-2 block text-sm font-semibold text-foreground">
-                    Ism
+                    {t("common.name")}
                   </label>
                   <Input
-                    placeholder="Sizning ismingiz"
+                    placeholder={t("common.yourName")}
                     className="h-12 border-border/50 focus:border-primary rounded-lg"
                   />
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-semibold text-foreground">
-                    Email
+                    {t("common.email")}
                   </label>
                   <Input
                     type="email"
-                    placeholder="Sizning emailingiz"
+                    placeholder={t("common.yourEmail")}
                     className="h-12 border-border/50 focus:border-primary rounded-lg"
                   />
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-semibold text-foreground">
-                    Xizmat
+                    {t("common.service")}
                   </label>
                   <select className="w-full h-12 rounded-lg border border-border/50 bg-background px-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
-                    <option>Xizmatni tanlang</option>
-                    <option>Bolalar parvarishi</option>
-                    <option>Emlash</option>
-                    <option>Allergiya testi</option>
+                    <option>{t("common.selectService")}</option>
+                    <option>{t("common.childCare")}</option>
+                    <option>{t("common.vaccination")}</option>
+                    <option>{t("common.allergyTest")}</option>
                   </select>
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-semibold text-foreground">
-                    Sana
+                    {t("common.date")}
                   </label>
                   <Input
                     type="date"
@@ -142,7 +142,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-end">
                   <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-semibold text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all rounded-lg">
-                    Hozir navbat olish
+                    {t("common.bookAppointmentNow")}
                   </Button>
                 </div>
               </form>
@@ -175,16 +175,13 @@ export default function HomePage() {
             {/* Content */}
             <div className="space-y-6 relative">
               <div className="text-sm font-bold text-primary uppercase tracking-wider">
-                Pediatra haqida
+                {t("about.subtitle")}
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-balance leading-tight text-gray-800">
-                Pediatrani barmoq uchingizda topishingiz mumkin
+                {t("about.title")}
               </h2>
               <p className="text-gray-600 leading-relaxed text-base">
-                Biz bolalaringiz uchun eng yaxshi tibbiy xizmatlarni taqdim etamiz.
-                Professional shifokorlarimiz va zamonaviy jihozlarimiz bilan
-                farzandlaringizning sog&apos;liqini himoya qilamiz va rivojlanishini
-                qo&apos;llab-quvvatlaymiz.
+                {t("about.description")}
               </p>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-4 pt-4">
@@ -194,7 +191,7 @@ export default function HomePage() {
                       <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
                     </div>
                     <h4 className="font-semibold text-gray-700 text-sm">
-                      Bolalar semirishining oldini olish
+                      {t("common.preventChildObesity")}
                     </h4>
                   </div>
                   <div className="flex gap-3 items-start">
@@ -202,7 +199,7 @@ export default function HomePage() {
                       <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
                     </div>
                     <h4 className="font-semibold text-gray-700 text-sm">
-                      Bolalarda diabet belgilari
+                      {t("common.diabetesSignsInChildren")}
                     </h4>
                   </div>
                   <div className="flex gap-3 items-start">
@@ -210,7 +207,7 @@ export default function HomePage() {
                       <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
                     </div>
                     <h4 className="font-semibold text-gray-700 text-sm">
-                      Yangi tug&apos;ilgan chaqaloq parvarishi
+                      {t("common.newbornCare")}
                     </h4>
                   </div>
                   <div className="flex gap-3 items-start">
@@ -218,7 +215,7 @@ export default function HomePage() {
                       <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
                     </div>
                     <h4 className="font-semibold text-gray-700 text-sm">
-                      Bolalarda ADHD tekshiruvi
+                      {t("common.adhdScreeningInChildren")}
                     </h4>
                   </div>
                   <div className="flex gap-3 items-start">
@@ -226,7 +223,7 @@ export default function HomePage() {
                       <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
                     </div>
                     <h4 className="font-semibold text-gray-700 text-sm">
-                      Mijozlar uchun qo&apos;llab-quvvatlash
+                      {t("common.supportForClients")}
                     </h4>
                   </div>
                 </div>
@@ -261,7 +258,7 @@ export default function HomePage() {
                     Dr. Monika Hopkins
                   </h4>
                   <p className="text-sm text-primary font-medium">
-                    Pediatra asoschisi
+                    {t("about.founder")}
                   </p>
                 </div>
                 <div className="ml-auto">
@@ -284,12 +281,12 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
             {[
-              { image: childIcon, label: "Bolalar massaji" },
-              { image: vaccinationsIcon, label: "LFK" },
-              { image: allergyIcon, label: "Gigromassaj" },
-              { image: screeningsIcon, label: "Trenajor" },
-              { image: pathologyIcon, label: "Logoped defektolog" },
-              { image: cardiologyIcon, label: "Igna terapiya" },
+              { image: childIcon, label: t("services.childMassage") },
+              { image: vaccinationsIcon, label: t("services.lfk") },
+              { image: allergyIcon, label: t("services.hydroMassage") },
+              { image: screeningsIcon, label: t("services.trainer") },
+              { image: pathologyIcon, label: t("services.logoped") },
+              { image: cardiologyIcon, label: t("services.acupuncture") },
             ].map((service, i) => (
               <div key={i} className="group cursor-pointer">
                 <div className="bg-white rounded-2xl p-8 shadow-sm border-2 border-transparent hover:border-primary hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
@@ -327,10 +324,10 @@ export default function HomePage() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-1">
-                  Bepul onlayn konsultatsiya
+                  {t("common.freeConsultation")}
                 </h2>
                 <p className="text-gray-600">
-                  Bizning professional shifokorlarimizdan bepul maslahat oling.
+                  {t("common.freeConsultationDesc")}
                 </p>
               </div>
             </div>
@@ -341,13 +338,13 @@ export default function HomePage() {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white h-12 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all rounded-full w-full sm:w-auto"
               >
-                Navbat olish
+                {t("common.bookAppointment")}
               </Button>
               <Link
                 href="/about"
                 className="text-gray-700 hover:text-primary text-base font-semibold flex items-center justify-center gap-2 transition-colors"
               >
-                Ko&apos;proq o&apos;rganish <ArrowRight className="h-5 w-5" />
+                {t("common.learnMore")} <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -372,26 +369,36 @@ export default function HomePage() {
                 icon: Heart,
                 title: "Bolalar massaji",
                 color: "bg-emerald-500",
+                description:
+                  "Chaqaloq va bolalarda mushak tonusini me'yorlash, uyqu va hazmni yaxshilash hamda motor rivojlanishga ko'maklashadi.",
               },
               {
                 icon: TrendingUp,
                 title: "LFK",
                 color: "bg-teal-500",
+                description:
+                  "Davolovchi jismoniy tarbiya: qomat nuqsonlari va mushak-skelet muammolarini tuzatish, reabilitatsiya va moslashuvchanlikni oshirish.",
               },
               {
                 icon: Syringe,
-                title: "Gigromassaj",
+                title: "Gidromassaj",
                 color: "bg-cyan-500",
+                description:
+                  "Suv oqimlari yordamida amalga oshiriladigan massaj bo'lib, qon aylanishini yaxshilaydi va mushaklarni bo'shashtiradi.",
               },
               {
                 icon: Stethoscope,
                 title: "Trenajor",
                 color: "bg-emerald-500",
+                description:
+                  "Maxsus trenajyorlarda reabilitatsiya mashqlari: mushak kuchi, muvofiqlashtirish va harakat hajmini tiklashga yordam beradi.",
               },
               {
                 icon: ClipboardCheck,
                 title: "Logoped defektolog",
                 color: "bg-teal-500",
+                description:
+                  "Nutq buzilishlarini korreksiya qilish: talaffuzni to'g'rilash, lug'at boyitish va kommunikativ ko'nikmalarni rivojlantirish.",
               },
             ].map((service, i) => (
               <Card
@@ -406,8 +413,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="mb-3 text-xl font-bold">{service.title}</h3>
                   <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
-                    Biz bolalaringiz uchun eng yaxshi tibbiy yordamni taqdim etamiz.
-                    Professional shifokorlarimiz va zamonaviy uskunalarimiz bilan.
+                    {service.description}
                   </p>
                   <Link
                     href="/services"
@@ -437,7 +443,9 @@ export default function HomePage() {
                   variant="secondary"
                   className="bg-white text-primary hover:bg-white/90 w-fit rounded-full font-semibold"
                 >
-                  Barcha xizmatlar <ArrowRight className="ml-2 h-4 w-4" />
+                  <Link href="/services/details">
+                    Barcha  xizmatlar
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -459,8 +467,8 @@ export default function HomePage() {
                 Bizning klinikamiz markazlarimiz
               </h2>
               <p className="text-gray-600 text-lg mb-12 leading-relaxed">
-                Bizning klinikalarimiz dunyoning turli qismlarida joylashgan
-                va sizga eng yaqin joyda sifatli tibbiy xizmatni taqdim etamiz.
+                Bizning klinikalarimiz dunyoning turli qismlarida joylashgan va
+                sizga eng yaqin joyda sifatli tibbiy xizmatni taqdim etamiz.
               </p>
 
               {/* Locations Grid */}
@@ -468,7 +476,8 @@ export default function HomePage() {
                 {[
                   {
                     city: "Toshkent ",
-                    address: "Toshkent shahar, Chilonzor tumani, zargarlik ko'chasi 25a",
+                    address:
+                      "Toshkent shahar, Chilonzor tumani, zargarlik ko'chasi 25a",
                     color: "bg-primary",
                   },
                   {
@@ -657,8 +666,8 @@ export default function HomePage() {
               </h2>
               <p className="text-muted-foreground leading-relaxed text-lg">
                 Bizning navbat olish tizimi juda oson va qulay. Faqat bir necha
-                bosqichda siz shifokor bilan uchrashuvni tashkil qilishingiz mumkin.
-                Barcha jarayon onlayn amalga oshiriladi va vaqt tejaydi.
+                bosqichda siz shifokor bilan uchrashuvni tashkil qilishingiz
+                mumkin. Barcha jarayon onlayn amalga oshiriladi va vaqt tejaydi.
               </p>
 
               <div className="space-y-6 pt-4">
@@ -674,7 +683,11 @@ export default function HomePage() {
                     icon: ClipboardCheck,
                   },
                   { step: "03", title: "Navbat olish", icon: Calendar },
-                  { step: "04", title: "Shifokor bilan uchrashish", icon: Users },
+                  {
+                    step: "04",
+                    title: "Shifokor bilan uchrashish",
+                    icon: Users,
+                  },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 items-center">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white font-bold text-lg flex-shrink-0">
@@ -693,8 +706,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-     
 
       {/* News & Articles Section */}
       <section className="py-24 bg-white">

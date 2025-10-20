@@ -1,9 +1,22 @@
-import React from 'react'
-import Image from 'next/image'
-import { Counter } from '@/components/counter'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { ArrowRight, Building2, Check, Facebook, Globe, Heart, Instagram, Link, MessageCircle, Star, Twitter } from 'lucide-react'
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { Counter } from "@/components/counter";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  ArrowRight,
+  Check,
+  Facebook,
+  Globe,
+  Instagram,
+  MessageCircle,
+  Star,
+  Twitter,
+} from "lucide-react";
+import Link from "next/link";
+import { useTranslations } from 'next-intl';
 import childIcon from "@/assets/icons/child.png";
 import vaccinationsIcon from "@/assets/icons/vaccinations.png";
 import allergyIcon from "@/assets/icons/allergy.png";
@@ -11,32 +24,43 @@ import screeningsIcon from "@/assets/icons/creenings.png";
 import pathologyIcon from "@/assets/icons/pathology.png";
 import cardiologyIcon from "@/assets/icons/cardiology.png";
 const Doctors = () => {
+  const t = useTranslations();
+  
   return (
     <>
-      <section  className="gradient-blue py-20">
+      <section
+        style={{
+          backgroundImage: 'url("/backround.png")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: "400px",
+          display: "flex",
+          alignItems: "center",
+        }}
+        className=" py-20"
+      >
         <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-4 text-5xl font-bold text-white">Doctors</h1>
+          <h1 className="mb-4 text-5xl font-bold text-white">{t("common.doctors")}</h1>
           <div className="flex items-center justify-center gap-2 text-white/90">
-            <span>Home</span>
+            <span>{t("common.home")}</span>
             <span>{">"}</span>
-            <span>Doctors</span>
+            <span>{t("common.doctors")}</span>
           </div>
         </div>
       </section>
 
-
-   <section className="py-20">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <div className="mb-4 text-sm font-semibold text-primary">
-              Our Doctors
+              Bizning shifokorlar
             </div>
             <h2 className="mb-4 text-4xl font-bold">
-              Meet Our Qualified Doctors
+              Malakali shifokorlarimiz bilan tanishing
             </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Sizning farzandingiz uchun gʻamxoʻr va tajribali mutaxassislar.
             </p>
           </div>
 
@@ -47,56 +71,57 @@ const Doctors = () => {
                 specialty: "General Doctor",
                 consultations: 2214,
                 rating: 4.8,
-                image: "/female-doctor.png"
+                image: "/female-doctor.png",
               },
               {
-                name: "Dr. Maysa Azer", 
+                name: "Dr. Maysa Azer",
                 specialty: "Pediatrician",
                 consultations: 1324,
                 rating: 5.0,
-                image: "/female-doctor-portrait.png"
+                image: "/female-doctor-portrait.png",
               },
               {
                 name: "Dr. Ayda Ortega",
-                specialty: "Pathology", 
+                specialty: "Pathology",
                 consultations: 824,
                 rating: 4.7,
-                image: "/thoughtful-doctor.png"
+                image: "/thoughtful-doctor.png",
               },
               {
                 name: "Dr. Valeria Costa",
                 specialty: "Cardiology",
                 consultations: 974,
                 rating: 4.6,
-                image: "/female-doctor.png"
-              }, {
+                image: "/female-doctor.png",
+              },
+              {
                 name: "Dr. Marlie Varga",
                 specialty: "General Doctor",
                 consultations: 2214,
                 rating: 4.8,
-                image: "/female-doctor.png"
+                image: "/female-doctor.png",
               },
               {
-                name: "Dr. Maysa Azer", 
+                name: "Dr. Maysa Azer",
                 specialty: "Pediatrician",
                 consultations: 1324,
                 rating: 5.0,
-                image: "/female-doctor-portrait.png"
+                image: "/female-doctor-portrait.png",
               },
               {
                 name: "Dr. Ayda Ortega",
-                specialty: "Pathology", 
+                specialty: "Pathology",
                 consultations: 824,
                 rating: 4.7,
-                image: "/thoughtful-doctor.png"
+                image: "/thoughtful-doctor.png",
               },
               {
                 name: "Dr. Valeria Costa",
                 specialty: "Cardiology",
                 consultations: 974,
                 rating: 4.6,
-                image: "/female-doctor.png"
-              }
+                image: "/female-doctor.png",
+              },
             ].map((doctor, i) => (
               <Card
                 key={i}
@@ -109,7 +134,7 @@ const Doctors = () => {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  
+
                   {/* Hover Overlay with Social Icons */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex gap-4">
@@ -124,24 +149,28 @@ const Doctors = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Doctor Info Overlay */}
                   <div className="absolute bottom-0 rounded-2xl left-0 right-0 bg-gradient-to-r from-blue-600 to-blue-300 p-4">
-                    <h3 className="text-lg font-bold text-white mb-1">{doctor.name}</h3>
+                    <h3 className="text-lg font-bold text-white mb-1">
+                      {doctor.name}
+                    </h3>
                     <p className="text-sm text-white/90">{doctor.specialty}</p>
                   </div>
                 </div>
-                
+
                 <CardContent>
                   <div className="flex items-center gap-2 mb-3">
                     <Check className="h-4 w-4 text-emerald-600" />
                     <span className="text-sm text-gray-600">
-                      {doctor.consultations} Consultation Done
+                      {doctor.consultations} ta qabul
                     </span>
                   </div>
-                  
+
                   <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-gray-800">{doctor.rating}</span>
+                    <span className="text-lg font-bold text-gray-800">
+                      {doctor.rating}
+                    </span>
                     <div className="flex gap-1">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <Star
@@ -149,7 +178,8 @@ const Doctors = () => {
                           className={`h-4 w-4 ${
                             star <= Math.floor(doctor.rating)
                               ? "text-yellow-400 fill-current"
-                              : star === Math.ceil(doctor.rating) && doctor.rating % 1 !== 0
+                              : star === Math.ceil(doctor.rating) &&
+                                doctor.rating % 1 !== 0
                               ? "text-yellow-400 fill-current opacity-50"
                               : "text-gray-300"
                           }`}
@@ -164,113 +194,7 @@ const Doctors = () => {
         </div>
       </section>
 
-   <section className="  relative py-10 md:py-16 lg:py-20 overflow-hidden bg-gradient-to-r from-blue-700 to-sky-500">
-  {/* Background pattern */}
-  <div className="absolute inset-0 opacity-20">
-    <div className="absolute top-4 left-4 w-16 md:w-32 h-16 md:h-32 bg-white/10 rounded-full"></div>
-    <div className="absolute bottom-0 right-0 w-[150px] md:w-[350px] h-[150px] md:h-[350px] bg-white/10 rounded-full blur-2xl"></div>
-    <div className="absolute top-1/3 left-1/2 w-8 md:w-14 h-8 md:h-14 bg-white/10 rotate-45"></div>
-  </div>
-
-  <div className="relative container mx-auto px-4 md:px-8">
-    {/* Header + Cards */}
-    <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-14">
-      {/* Left Text */}
-      <div className="lg:w-1/2">
-        <p className="text-xs md:text-sm font-semibold text-blue-100 uppercase mb-3 md:mb-4 tracking-widest">
-          Why Choose Pediatra
-        </p>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 md:mb-6 leading-tight">
-          We’re Ready 24/7
-        </h2>
-        <p className="text-white/90 text-base md:text-lg leading-relaxed">
-          Our pediatric specialists are available day and night to provide the
-          best care for your child with love, compassion, and modern expertise.
-        </p>
-      </div>
-
-      {/* Right Cards */}
-      <div className="flex flex-col sm:flex-row  gap-5 justify-center lg:justify-end lg:w-1/2">
-        {/* Card 1 */}
-        <Card className="flex-1 min-w-[250px] bg-white rounded-2xl shadow-xl border-0 hover:-translate-y-1 transition-transform duration-300">
-          <CardContent className="p-6 flex flex-col h-full text-center md:text-left">
-            <div className="mx-auto md:mx-0 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 mb-5">
-              <Heart className="h-7 w-7 text-white" />
-            </div>
-            <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
-              Child Care
-            </h3>
-            <p className="text-gray-600 text-sm md:text-base flex-grow mb-4">
-              Comprehensive care for your child’s health, growth, and
-              development in a safe, nurturing environment.
-            </p>
-            <Button
-              variant="link"
-              className="text-emerald-600 font-semibold underline p-0 self-center md:self-start"
-            >
-              Read More
-            </Button>
-          </CardContent>
-        </Card>
-
-        {/* Card 2 */}
-        <Card className="flex-1 min-w-[250px]  bg-white rounded-2xl shadow-xl border-0 hover:-translate-y-1 transition-transform duration-300">
-          <CardContent className="p-6 flex flex-col h-full text-center md:text-left">
-            <div className="mx-auto md:mx-0 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 mb-5">
-              <Building2 className="h-7 w-7 text-white" />
-            </div>
-            <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
-              Modern Clinic
-            </h3>
-            <p className="text-gray-600 text-sm md:text-base flex-grow mb-4">
-              Equipped with state-of-the-art technology to provide high-quality
-              medical treatment and diagnostics.
-            </p>
-            <Button
-              variant="link"
-              className="text-emerald-600 font-semibold underline p-0 self-center md:self-start"
-            >
-              Read More
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
-
-    {/* Progress Bars */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mt-10 md:mt-14">
-      {[
-        { title: "Environmental Testing", percent: 90 },
-        { title: "Medical Research", percent: 93 },
-        { title: "Vaccines Research", percent: 95 },
-      ].map((item, idx) => (
-        <div key={idx} className="w-full">
-          <div className="flex justify-between items-center mb-3 md:mb-4">
-            <h3 className="text-lg md:text-xl font-bold text-white">
-              {item.title}
-            </h3>
-            <span className="text-xl md:text-2xl font-bold text-white">
-              {item.percent}%
-            </span>
-          </div>
-          <div className="w-full bg-white/30 rounded-full h-2 overflow-hidden">
-            <div
-              className="bg-gradient-to-r from-emerald-400 to-emerald-500 h-2 rounded-full transition-all duration-1000"
-              style={{ width: `${item.percent}%` }}
-            ></div>
-          </div>
-          <p className="text-white/80 text-sm md:text-base mt-3 leading-relaxed">
-            Our ongoing research ensures continuous improvement in health and
-            safety standards for all.
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
-         <section className="py-20 bg-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid gap-16 lg:grid-cols-2 items-center">
             {/* Image */}
@@ -310,17 +234,17 @@ const Doctors = () => {
             {/* Content */}
             <div>
               <div className="mb-4 text-sm font-semibold text-primary">
-                About Pediatra
+                Eng yaxshi va malakali pediatrlarni shu yerdan topishingiz
+                mumkin.
               </div>
               <h2 className="mb-6 text-4xl font-bold text-balance">
-                You Can Find Pediatra At Your Fingertips
+                Pediatrlarni tez va oson toping
               </h2>
               <p className="mb-8 text-muted-foreground leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat duis aute irure dolor in
-                reprehenderit.
+                O&apos;z farzandingiz uchun ishonchli va tajribali shifokorlarni
+                topish endi yanada oson! Bizning platformada malakali pediatrlar
+                yordamida bolangiz sog&apos;ligi uchun eng yaxshi g&apos;amxo&apos;rlik va
+                maslahatlarni olishingiz mumkin.
               </p>
 
               <div className="grid gap-6 sm:grid-cols-2">
@@ -329,10 +253,13 @@ const Doctors = () => {
                     <Check className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="mb-1 font-semibold">All Types of Doctors</h4>
+                    <h4 className="mb-1 font-semibold">
+                      Pediatrlarni tez va oson topish
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      Lorem ipsum dolor sit amet cons adipiscing elit sed doesmo
-                      ipsum dolor in reprehenderit.
+                      Onlayn filtrlar va geolokatsiya yordamida yaqin atrofdagi
+                      mos pediatrlarni tezda toping, bo‘sh vaqtlari va tajribasi
+                      bilan tanishing.
                     </p>
                   </div>
                 </div>
@@ -342,11 +269,12 @@ const Doctors = () => {
                   </div>
                   <div>
                     <h4 className="mb-1 font-semibold">
-                      Get an E-Prescription
+                      Elektron retsept va tavsiyalar
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      Lorem ipsum dolor sit amet cons adipiscing elit sed doesmo
-                      ipsum dolor in reprehenderit.
+                      Qabuldan so‘ng retsept va uy sharoitida bajariladigan
+                      tavsiyalar elektron ko‘rinishda yuboriladi, barcha
+                      hujjatlar shaxsiy kabinetda saqlanadi.
                     </p>
                   </div>
                 </div>
@@ -385,16 +313,16 @@ const Doctors = () => {
         </div>
       </section>
 
-          <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
             {[
-              { image: childIcon, label: "Child Care" },
-              { image: vaccinationsIcon, label: "Vaccinations" },
-              { image: allergyIcon, label: "Allergy Test" },
-              { image: screeningsIcon, label: "Screenings" },
-              { image: pathologyIcon, label: "Pathology" },
-              { image: cardiologyIcon, label: "Cardiology" },
+              { image: childIcon, label: "Bolalar massaji" },
+              { image: vaccinationsIcon, label: "LFK" },
+              { image: allergyIcon, label: "Gidromassaj" },
+              { image: screeningsIcon, label: "Trenajor" },
+              { image: pathologyIcon, label: "Logoped defektolog" },
+              { image: cardiologyIcon, label: "Igna terapiya" },
             ].map((service, i) => (
               <div key={i} className="group cursor-pointer">
                 <div className="bg-white rounded-2xl p-8 shadow-sm border-2 border-transparent hover:border-primary hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
@@ -419,45 +347,42 @@ const Doctors = () => {
         </div>
       </section>
       <section className="py-16 bg-white">
-  <div className="container mx-auto px-4">
-    <div className="bg-gray-50 rounded-3xl p-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
-      {/* Left content */}
-      <div className="flex items-center gap-6 flex-col sm:flex-row text-center sm:text-left">
-        <div className="flex-shrink-0">
-          <div className="h-16 w-16 rounded-full bg-primary flex items-center justify-center mx-auto sm:mx-0">
-            <MessageCircle className="h-8 w-8 text-white" />
+        <div className="container mx-auto px-4">
+          <div className="bg-gray-50 rounded-3xl p-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+            {/* Left content */}
+            <div className="flex items-center gap-6 flex-col sm:flex-row text-center sm:text-left">
+              <div className="flex-shrink-0">
+                <div className="h-16 w-16 rounded-full bg-primary flex items-center justify-center mx-auto sm:mx-0">
+                  <MessageCircle className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-1">
+                  Bizning xizmatlarimiz haqida toʻliq maʼlumotlar olish uchun
+                  yordam beradi.
+                </h2>
+              </div>
+            </div>
+
+            {/* Right buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center">
+              <Link
+                href="/about"
+                className="text-gray-700 hover:text-primary text-base font-semibold flex items-center justify-center gap-2 transition-colors"
+              >
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-white h-12 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all rounded-full w-full sm:w-auto"
+                >
+                  Batafsil maʼlumot <ArrowRight className="h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-1">
-            Free Online Consultation
-          </h2>
-          <p className="text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing.
-          </p>
-        </div>
-      </div>
-
-      {/* Right buttons */}
-      <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center">
-        <Button
-          size="lg"
-          className="bg-primary hover:bg-primary/90 text-white h-12 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all rounded-full w-full sm:w-auto"
-        >
-          Make Appointment
-        </Button>
-        <Link
-          href="/about"
-          className="text-gray-700 hover:text-primary text-base font-semibold flex items-center justify-center gap-2 transition-colors"
-        >
-          Learn More <ArrowRight className="h-5 w-5" />
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
     </>
-  )
-}
+  );
+};
 
-export default Doctors
+export default Doctors;
