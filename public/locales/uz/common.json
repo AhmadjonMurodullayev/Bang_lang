@@ -4,7 +4,24 @@
     "title": "Farzandingiz salomatligi bizning asosiy mas'uliyatimiz",
     "description": "Professional pediatriya xizmatlari va zamonaviy tibbiy yondashuv bilan farzandingizni sog'lom va baxtli qilib tarbiyalaymiz",
     "cta": "Navbat olish",
-    "watchVideo": "Video ko'rish"
+    "watchVideo": "Video ko'rish",
+    "contact": "Biz bilan bog'lanish"
+  },
+  "footer": {
+    "newsletterTitle": "Yangiliklarimizga obuna bo'ling",
+    "newsletterDescription": "Yangi maqolalar va yangiliklarni email orqali oling.",
+    "emailPlaceholder": "Email manzilingiz",
+    "subscribe": "Obuna bo'lish",
+    "brandDescription": "Farzandingiz salomatligi uchun ishonchli hamkor.",
+    "quickLinks": "Tezkor havolalar",
+    "pricing": "Narxlar",
+    "usefulLinks": "Foydali havolalar",
+    "disclaimer": "Rad etish",
+    "workingHours1": "09:00 – 19:00, Dushanba – Shanba",
+    "workingHours2": "10:00 – 17:00, Seshanba",
+    "callToday": "Bugun qo'ng'iroq qiling",
+    "phoneNumber": "(+998) 95 281 70 70",
+    "copyright": "Copyright © 2024. Barcha huquqlar himoyalangan."
   },
   "common": {
     "home": "Bosh sahifa",
@@ -27,13 +44,21 @@
     "privacyPolicy": "Maxfiylik siyosati",
     "termsAndConditions": "Foydalanish shartlari",
     "faq": "Tez-tez so'raladigan savollar",
-    "language": "Til",
-    "selectLanguage": "Til tanlash",
     "name": "Ism",
-    "email": "Email",
+    "email": "Elektron pochta",
     "service": "Xizmat",
     "date": "Sana",
-    "phone": "Telefon",
+    "yourName": "Sizning ismingiz",
+    "booking": {
+      "bookAppointment": "Navbat olish",
+      "meetDoctor": "Shifokor bilan uchrashish"
+    },
+
+    "language": "Til",
+    "selectLanguage": "Til tanlash",
+    "emailAddress": "Email",
+    "date": "Sana",
+    "phoneNumber": "Telefon",
     "subject": "Mavzu",
     "message": "Xabar matni",
     "send": "Yuborish",
@@ -59,9 +84,6 @@
     "easyBooking": "Navbat olishning oson yo'li",
     "easyBookingDesc": "Bizning navbat olish tizimi juda oson va qulay. Faqat bir necha bosqichda siz shifokor bilan uchrashuvni tashkil qilishingiz mumkin. Barcha jarayon onlayn amalga oshiriladi va vaqt tejaydi.",
     "findNearestPediatrician": "Eng yaqin Pediatrani qidirish",
-    "selectService": "Xizmatni tanlash",
-    "bookAppointment": "Navbat olish",
-    "meetDoctor": "Shifokor bilan uchrashish",
     "latestNews": "So'nggi yangiliklar",
     "newsAndArticles": "Yangiliklar va maqolalar",
     "commonChildDiseases": "Eng keng tarqalgan bolalar kasalliklari",
@@ -83,20 +105,68 @@
     "newbornCare": "Yangi tug'ilgan chaqaloq parvarishi",
     "adhdScreeningInChildren": "Bolalarda ADHD tekshiruvi",
     "supportForClients": "Mijozlar uchun qo'llab-quvvatlash",
-    "childCare": "Bolalar parvarishi",
-    "vaccination": "Emlash",
-    "allergyTest": "Allergiya testi",
+    "childCare": "Bolalar massaji",
+    "vaccination": "LFK",
+    "allergyTest": "Gidromassaj",
+    "screening": "Tekshiruv",
+    "pathology": "Patologiya",
+    "cardiology": "Kardiologiya",
+    "acupuncture": "Igna terapiya",
     "freeConsultation": "Bepul onlayn konsultatsiya",
     "freeConsultationDesc": "Bizning professional shifokorlarimizdan bepul maslahat oling.",
-    "learnMore": "Ko'proq o'rganish"
+    "locations": {
+      "subtitle": "Bizning joylashuvlarimiz",
+      "title": "Bizning klinikamiz markazlarimiz",
+      "description": "Bizning klinikalarimiz dunyoning turli qismlarida joylashgan va sizga eng yaqin joyda sifatli tibbiy xizmatni taqdim etamiz.",
+      "tashkent": "Toshkent",
+      "tashkentRegion": "Toshkent viloyati",
+      "samarkand": "Samarqand",
+      "namangan": "Namangan",
+      "comingSoon": "Tez kunda",
+      "tashkentAddress": "Toshkent shahar, Chilonzor tumani, zargarlik ko'chasi 25a"
+    },
+    "statistics": {
+      "pediatricians": "Pediatr",
+      "medicalStaff": "Tibbiy xodimlar",
+      "pediatricClinics": "Pediatra poliklinikasi",
+      "safeMonitoring": "Xavfsiz kuzatish"
+    },
+    "booking": {
+      "subtitle": "Onlayn navbat olish",
+      "title": "Navbat olishning oson yo'li",
+      "description": "Bizning navbat olish tizimi juda oson va qulay. Faqat bir necha bosqichda siz shifokor bilan uchrashuvni tashkil qilishingiz mumkin. Barcha jarayon onlayn amalga oshiriladi va vaqt tejaydi.",
+      "findNearestPediatrician": "Eng yaqin Pediatrani qidirish",
+      "selectService": "Xizmatni tanlash",
+      "meetDoctor": "Shifokor bilan uchrashish"
+    },
+    "news": {
+      "subtitle": "So'nggi yangiliklar",
+      "title": "Yangiliklar va maqolalar",
+      "commonChildDiseases": "Eng keng tarqalgan bolalar kasalliklari",
+      "commonChildDiseasesDesc": "Bolalarda eng keng tarqalgan kasalliklar va ularning oldini olish usullari haqida batafsil ma'lumot.",
+      "childHealthCare": "Farzandingizning sog'liqini qanday saqlash kerak",
+      "childHealthCareDesc": "Bolalarning sog'liqini saqlash va himoya qilish bo'yicha professional maslahatlar va tavsiyalar.",
+      "bestMedicineForChild": "Farzandingiz uchun eng yaxshi dori",
+      "bestMedicineForChildDesc": "Bolalar uchun dori-darmonlarni to'g'ri tanlash va ishlatish bo'yicha maslahatlar.",
+      "childDevelopmentStages": "Bolalar rivojlanish bosqichlari",
+      "childDevelopmentStagesDesc": "Bolalarning yoshiga qarab rivojlanish bosqichlari va ularni kuzatish usullari.",
+      "commonColdInChildren": "Bolalarda tez-tez uchraydigan shamollash",
+      "commonColdInChildrenDesc": "Bolalarda shamollash belgilari, davolash va oldini olish usullari haqida ma'lumot.",
+      "readMore": "Ko'proq o'qish"
+    }
   },
-  "hero": {
-    "title": "Farzandlaringizni Ishonchli Qo'llarga topshiring!",
-    "subtitle": "Biz bolalaringiz uchun sog'liqni tiklash bo'yicha professional va samarali yechimlar taqdim etamiz.",
-    "description": "Har bir bola uchun individual yondashuvni qo'llab, sog'liqni yaxshilash va rivojlanishini qo'llab-quvvatlash xizmatlarimizni taqdim etamiz.",
-    "cta": "Boshlash",
-    "contact": "Biz bilan bog'lanish",
-    "freeConsultation": "BEPUL! Birinchi konsultatsiya bepul!"
+  "header": {
+    "servicesDescription": "Barcha xizmatlarimizni ko'ring",
+    "serviceDetails": "Xizmat tafsilotlari",
+    "serviceDetailsDescription": "Xizmatlarimiz haqida batafsil",
+    "pages": "Sahifalar",
+    "blogDescription": "So'nggi maqolalarimizni o'qing",
+    "news": "Yangiliklar",
+    "newsDescription": "Yangiliklarimiz bilan tanishing",
+    "contactDoctor": "Shifokor bilan bog'lanish",
+    "phoneNumber": "(+998) 95 281 70 70",
+    "allServices": "Barcha xizmatlar",
+    "blogArticles": "Blog maqolalari"
   },
   "services": {
     "title": "Asosiy xizmatlarimizni ko'ring",
@@ -112,7 +182,125 @@
     "logoped": "Logoped defektolog",
     "logopedDesc": "Nutq buzilishlarini korreksiya qilish: talaffuzni to'g'rilash, lug'at boyitish va kommunikativ ko'nikmalarni rivojlantirish.",
     "acupuncture": "Igna terapiya",
-    "acupunctureDesc": "An'anaviy tibbiyot usuli: igna terapiyasi orqali organizmning tabiiy tiklanish jarayonlarini faollashtirish."
+    "acupunctureDesc": "An'anaviy tibbiyot usuli: igna terapiyasi orqali organizmning tabiiy tiklanish jarayonlarini faollashtirish.",
+    "moreServices": "Ko'proq xizmatlarni ko'ring",
+    "moreServicesDesc": "Bizning boshqa xizmatlarimizni ham ko'rib chiqing va farzandlaringiz uchun eng yaxshi yechimni toping.",
+    "allServices": "Barcha xizmatlar",
+    "readMore": "Ko'proq o'qish",
+    "appointment": {
+      "title": "Navbat olish",
+      "subtitle": "Navbat belgilang",
+      "description": "Bizning klinikamizda sizning navbatingizni belgilashingiz mumkin.",
+      "fullName": "To'liq ismingiz",
+      "namePlaceholder": "Ismingiz",
+      "phone": "Telefon raqam",
+      "phonePlaceholder": "Telefon raqamingizni kiriting",
+      "email": "Emailingiz",
+      "emailPlaceholder": "Emailingiz",
+      "selectService": "Xizmatni tanlang",
+      "selectServicePlaceholder": "Xizmatni tanlang",
+      "date": "Sana",
+      "message": "Xabaringiz",
+      "messagePlaceholder": "Xabaringizni yozing",
+      "bookAppointment": "Navbat olish",
+      "workingHours": "Ish vaqti",
+      "schedule": [
+        { "day": "Dushanba - Juma", "time": "08:00 - 18:00" },
+        { "day": "Shanba", "time": "08:00 - 15:00" },
+        { "day": "Yakshanba", "time": "dam olish kuni" }
+      ],
+      "contactUs": "Biz bilan bog'lanish",
+      "contactDescription": "Biz bilan bog'laning va sizning navbatingizni belgilashingiz mumkin.",
+      "emailLabel": "Email manzilingiz",
+      "phoneLabel": "Telefon raqam",
+      "emailValue": "ismoilnigmonov2000@gmail.com",
+      "phoneValue": "+998952817070  +998998026232",
+      "successMessage": "Appointment muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
+      "errorMessage": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+      "loadingMessage": "Yuborilmoqda..."
+    },
+    "locations": {
+      "subtitle": "Bizning joylashuvlarimiz",
+      "title": "Bizning klinikamiz markazlarimiz",
+      "description": "Bizning klinikamiz markazlarimiz dunyoning turli qismlarida joylashgan va sizga eng yaqin joyda sifatli tibbiy xizmatni taqdim etamiz.",
+      "tashkent": "Toshkent shahar",
+      "samarkand": "Samarqand",
+      "tashkentRegion": "Toshkent viloyati",
+      "bukhara": "Buxoro",
+      "comingSoon": "Tez kunda",
+      "tashkentAddress": "Toshkent shahar, Chilonzor tumani, Zargarlik ko'chasi 25a"
+    },
+    "statistics": {
+      "doctors": "Shifokorlar",
+      "medicalStaff": "Tibbiy xodimlar",
+      "pediatricClinics": "Pediatra poliklinikasi",
+      "safeMonitoring": "Xavfsiz kuzatish"
+    },
+    "testimonials": {
+      "subtitle": "Foydalanuvchilarning fikrlari",
+      "title": "Foydalanuvchilarning fikrlari",
+      "description": "Foydalanuvchilarning fikrlari bizning xizmatlarimiz haqida to'liq ma'lumotlar olish uchun yordam beradi.",
+      "testimonial": "Pediatra markaziga muntazam boramiz. Farzandim LFK va massaj kursidan so'ng holati sezilarli yaxshilandi: qomati to'g'rilandi, uyqu va ishtahasi me'yoriga keldi. Xodimlar juda e'tiborli va har bir jarayonni batafsil tushuntirib berishadi.",
+      "parent": "Ota-ona"
+    },
+    "pricing": {
+      "subtitle": "Narxlar va planlar",
+      "title": "Narxlar va planlar",
+      "description": "Bizning xizmatlarimiz haqida to'liq ma'lumotlar olish uchun yordam beradi.",
+      "getMoreInfo": "Batafsil ma'lumot olish"
+    },
+    "details": {
+      "title": "Xizmatlar haqida batafsil",
+      "breadcrumb": "Bosh sahifa > Xizmatlar > Batafsil",
+      "backToServices": "Xizmatlar sahifasiga qaytish",
+      "services": [
+        {
+          "title": "Bolalar massaji",
+          "description": "Bolalar massaji mushak tonusini me'yorlash, qon aylanishini yaxshilash, uyquni normallashtirish va hazm jarayoniga ijobiy ta'sir ko'rsatadi. Yengil va xavfsiz texnikalar yordamida nerv tizimini tinchlantirishga, motor rivojlanishni qo'llab-quvvatlashga yordam beradi.",
+          "bullets": [
+            "Yangi tug'ilganlardan boshlab bosqichma-bosqich qo'llanadi",
+            "Kolik (qorin dam bo'lishi) alomatlarini yengillashtiradi",
+            "Uyqu sifati va ishtahani yaxshilaydi"
+          ]
+        },
+        {
+          "title": "LFK (davolovchi jismoniy tarbiya)",
+          "description": "LFK mushak-skelet tizimi muammolarida, qomat buzilishlarida va jarohatlardan keyingi reabilitatsiyada samarali. Mashqlar shifokor tavsiyasi asosida individual dastur bo'yicha o'tkaziladi.",
+          "bullets": [
+            "Qomatni tekislash va yassi oyoqlikda yordam beradi",
+            "Mushak kuchi va moslashuvchanlikni oshiradi",
+            "Koordinatsiya hamda muvozanatni rivojlantiradi"
+          ]
+        },
+        {
+          "title": "Gigromassaj (gidromassaj)",
+          "description": "Suv oqimlari bosimi yordamida tanaga ta'sir ko'rsatib, mushaklarni bo'shashtiradi, qon va limfa aylanishini faollashtiradi. Stressni kamaytirib, terining umumiy holatini yaxshilaydi.",
+          "bullets": [
+            "Sportdan keyin tiklanishni tezlashtiradi",
+            "Suv muhitida muloyim va yoqimli ta'sir",
+            "Qon aylanishi va metabolizmni rag'batlantiradi"
+          ]
+        },
+        {
+          "title": "Trenajor bilan reabilitatsiya",
+          "description": "Maxsus trenajyorlarda mashqlar mushak kuchini tiklash, bo'g'im harakatchanligini oshirish va funksional faoliyatni yaxshilashga qaratiladi. Bolaning yoshi va holatidan kelib chiqqan holda tanlanadi.",
+          "bullets": [
+            "Jarohat va operatsiyalardan keyin tiklanish",
+            "Nerv-mushak aloqasini kuchaytirish",
+            "Harakat hajmini bosqichma-bosqich kengaytirish"
+          ]
+        },
+        {
+          "title": "Logoped-defektolog",
+          "description": "Nutq buzilishlari (tutqusilik, tovush qo'yish muammolari, kechikkan nutq)ni korreksiya qilish. Lug'at boyligini kengaytirish, fonematik eshituvni rivojlantirish va to'g'ri talaffuzni shakllantirishga yordam beradi.",
+          "bullets": [
+            "Individual va guruh mashg'ulotlari",
+            "Uy sharoitida bajariladigan topshiriqlar",
+            "Muloqot ko'nikmalarini mustahkamlash"
+          ]
+        }
+      ]
+    }
   },
   "about": {
     "title": "Pediatrani barmoq uchingizda topishingiz mumkin",
@@ -123,19 +311,131 @@
     "ePrescription": "Elektron retsept oling",
     "ePrescriptionDesc": "Davolash tavsiyalari va retseptlar elektron ko'rinishda taqdim etiladi.",
     "satisfiedPatients": "Qoniqqan bemorlar",
-    "founder": "Pediatra asoschisi"
+    "founder": "Pediatra asoschisi",
+    "doctors": {
+      "subtitle": "Bizning shifokorlar",
+      "title": "Malakali shifokorlarimiz bilan tanishing",
+      "description": "Farzandingiz sog'lig'i uchun tajribali va g'amxo'r mutaxassislar.",
+      "consultations": "ta qabul",
+      "generalDoctor": "Umumiy shifokor",
+      "pediatrician": "Pediatr",
+      "pathology": "Patologiya",
+      "cardiology": "Kardiologiya"
+    },
+    "faq": {
+      "subtitle": "Mijozlar savollari",
+      "title": "Ko'p beriladigan savollar",
+      "description": "Qabul jarayoni, narxlar va xizmatlar bo'yicha tez-tez so'raladigan savollar javoblari.",
+      "questions": [
+        {
+          "question": "Qabul jarayoni qanday amalga oshiriladi?",
+          "answer": "Ro'yxatdan o'tish onlayn yoki telefon orqali. Shundan so'ng shifokor ko'rigiga vaqt belgilanadi."
+        },
+        {
+          "question": "Xizmatlar narxi qanday belgilanadi?",
+          "answer": "Narxlar xizmat turiga va davomiyligiga qarab belgilanadi. Aniq ma'lumot uchun aloqa qiling."
+        },
+        {
+          "question": "Hujjatlarni qanday taqdim etaman?",
+          "answer": "Shaxsni tasdiqlovchi hujjat va agar bo'lsa, oldingi tibbiy tavsiyalarni olib kelish kifoya."
+        },
+        {
+          "question": "Qabul joyi va formatlari qanday?",
+          "answer": "Markazimiz filiallarida oflayn qabul mavjud. Ayrim maslahatlarga onlayn formatda ham murojaat qilishingiz mumkin."
+        }
+      ]
+    }
+  },
+  "appointment": {
+    "title": "Navbat olish",
+    "subtitle": "Hozir navbat",
+    "description": "Sog'lom hayot sari birinchi qadamni biz bilan tashlang! Navbat olish uchun shakldagi ma'lumotlarni to'ldiring va qulay vaqtda professional tibbiy xizmatlardan foydalaning. Sifatli parvarish va e'tiborli yondashuv har bir bemor uchun kafolatlanadi.",
+    "bookAppointment": "Navbat belgilang",
+    "fullName": "To'liq ism",
+    "namePlaceholder": "Ismingiz",
+    "phoneNumber": "Telefon raqam",
+    "phonePlaceholder": "Telefon raqamingiz",
+    "service": "Xizmat",
+    "selectService": "Xizmatni tanlang",
+    "date": "Sana",
+    "additionalRequest": "Qo'shimcha so'rov",
+    "messagePlaceholder": "Xabaringiz",
+    "submit": "Navbat olish",
+    "submitting": "Yuborilmoqda...",
+    "successMessage": "So'rovingiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
+    "errorMessage": "Xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring.",
+    "workingHours": "Ish vaqti",
+    "schedule": [
+      { "day": "Dushanba - Juma", "time": "08:00 - 18:00" },
+      { "day": "Shanba", "time": "08:00 - 15:00" },
+      { "day": "Yakshanba", "time": "dam olish kuni" }
+    ],
+    "support": "Qo'llab-quvvatlash",
+    "supportDescription": "Savollaringiz bo'lsa, biz bilan bog'laning.",
+    "emailLabel": "Email manzil",
+    "phoneLabel": "Telefon raqam",
+    "emailValue": "ismoilnigmonov2000@gmail.com",
+    "phoneValue": "+998952817070",
+    "howToBook": {
+      "subtitle": "Bu yerda uchrashuvga yozilish bo'yicha batafsil ma'lumotlar bilan tanishishingiz mumkin.",
+      "title": "Qanday qilib uchrashuvga yozilish mumkin?",
+      "description": "Pediatr qabuliga yozilish uchun quyidagi oddiy bosqichlarni bajaring: Sizga eng yaqin pediatrni toping, kerakli xizmatlarni tanlang va uchrashuvga yoziling. Belgilangan vaqtda shifokor bilan uchrashing va o'zingiz va farzandingiz sog'lig'i uchun kerakli maslahatlarni oling. Jarayon tez, oson va qulay!",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Eng yaqin pediatrni topish"
+        },
+        {
+          "step": "02",
+          "title": "Xizmatlarni tanlash"
+        },
+        {
+          "step": "03",
+          "title": "Navbat olish"
+        },
+        {
+          "step": "04",
+          "title": "Shifokor bilan uchrashish"
+        }
+      ]
+    },
+    "services": ["Bolalar parvarishi", "Emlash", "Tekshiruv"]
   },
   "doctors": {
     "title": "Malakali shifokorlarimiz bilan tanishing",
     "subtitle": "Bizning shifokorlar",
-    "description": "Farzandingiz sog'lig'i uchun tajribali va g'amxo'r mutaxassislar.",
+    "description": "Sizning farzandingiz uchun g'amxo'r va tajribali mutaxassislar.",
     "consultations": "ta qabul",
     "quickFind": "Pediatrlarni tez va oson topish",
     "quickFindDesc": "Onlayn filtrlar va geolokatsiya yordamida yaqin atrofdagi mos pediatrlarni tezda toping, bo'sh vaqtlari va tajribasi bilan tanishing.",
     "ePrescription": "Elektron retsept va tavsiyalar",
     "ePrescriptionDesc": "Qabuldan so'ng retsept va uy sharoitida bajariladigan tavsiyalar elektron ko'rinishda yuboriladi, barcha hujjatlar shaxsiy kabinetda saqlanadi.",
-    "connectWithDoctor": "Shifokor bilan bog'lanish"
+    "connectWithDoctor": "Shifokor bilan bog'lanish",
+    "bestPediatricians": "Eng yaxshi va malakali pediatrlarni shu yerdan topishingiz mumkin.",
+    "findPediatricians": "Pediatrlarni tez va oson toping",
+    "findPediatriciansDesc": "O'z farzandingiz uchun ishonchli va tajribali shifokorlarni topish endi yanada oson! Bizning platformada malakali pediatrlar yordamida bolangiz sog'ligi uchun eng yaxshi g'amxo'rlik va maslahatlarni olishingiz mumkin.",
+    "satisfiedPatients": "Qoniqqan bemorlar",
+    "founder": "Pediatra asoschisi",
+    "services": {
+      "childMassage": "Bolalar massaji",
+      "lfk": "LFK",
+      "hydroMassage": "Gidromassaj",
+      "trainer": "Trenajor",
+      "logoped": "Logoped defektolog",
+      "acupuncture": "Igna terapiya"
+    },
+    "cta": {
+      "title": "Bizning xizmatlarimiz haqida to'liq ma'lumotlar olish uchun yordam beradi.",
+      "button": "Batafsil ma'lumot"
+    },
+    "specialties": {
+      "generalDoctor": "Umumiy shifokor",
+      "pediatrician": "Pediatr",
+      "pathology": "Patologiya",
+      "cardiology": "Kardiologiya"
+    }
   },
+
   "contact": {
     "title": "Aloqa",
     "subtitle": "Biz bilan bog'lanish",
@@ -143,18 +443,37 @@
     "ourOffice": "Bizning ofisimiz",
     "address": "Toshkent shahar, Chilonzor tumani, Zargarlik ko'chasi 25a",
     "callUs": "Bizga qo'ng'iroq qiling",
-    "phone": "+998952817070 | +998998026232",
-    "emailUs": "Elektron pochta",
-    "email": "pediatra@domain.com | support@info.com",
+    "email": "Elektron pochta",
+    "workingHours": "Ish vaqti",
+    "workingHoursDesc": "Dushanba – Shanba: 08:00",
+    "workingHoursDesc2": "Yakshanba: 18:00 gacha",
+    "sendMessage": "Xabar yuborish",
+    "sendMessageDesc": "Bizga xabar yuboring, tez orada javob beramiz.",
+    "fullName": "To'liq ism",
+    "namePlaceholder": "Ismingiz",
+    "phone": "Telefon",
+    "phonePlaceholder": "Telefon raqamingiz",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Emailingiz",
+    "subject": "Mavzu",
+    "subjectPlaceholder": "Mavzuni kiriting",
+    "messageText": "Xabar matni",
+    "messagePlaceholder": "Xabaringizni yozing",
+    "submit": "Yuborish",
+    "submitting": "Yuborilmoqda...",
+    "successMessage": "Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
+    "errorMessage": "Xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring.",
+    "phoneNumbers": ["+998952817070 |", "+998998026232"],
+    "emailValue": "ismoilnigmonov2000@gmail.com",
     "workingHours": "Ish vaqti",
     "schedule": "Dushanba – Shanba: 08:00, Yakshanba: 18:00 gacha",
     "sendMessage": "Xabar yuborish",
     "messageDesc": "Bizga xabar yuboring, tez orada javob beramiz.",
     "fullName": "To'liq ism",
     "namePlaceholder": "Ismingiz",
-    "phone": "Telefon",
+    "phoneNumber": "Telefon",
     "phonePlaceholder": "Telefon raqamingiz",
-    "email": "Email",
+    "emailAddress": "Email",
     "emailPlaceholder": "Emailingiz",
     "subject": "Mavzu",
     "subjectPlaceholder": "Mavzuni kiriting",
@@ -178,18 +497,40 @@
     "coldTreatment": "Bolalarda tez-tez uchraydigan shamollash va uning davolash usullari",
     "coldTreatmentDesc": "Shamollashning sabablari, belgilari, uy sharoitida davolash usullari va qachon shifokorga murojaat qilish kerakligi haqida ma'lumot."
   },
-  "footer": {
-    "newsletter": "Yangiliklarimizga obuna bo'ling",
-    "newsletterDesc": "Yangi maqolalar va yangiliklarni email orqali oling.",
-    "emailPlaceholder": "Email manzilingiz",
-    "subscribe": "Obuna bo'lish",
-    "description": "Farzandingiz salomatligi uchun ishonchli hamkor.",
-    "quickLinks": "Tezkor havolalar",
-    "usefulLinks": "Foydali havolalar",
-    "makeAppointment": "Navbat olish",
-    "schedule": "09:00 – 19:00, Dushanba – Shanba",
-    "schedule2": "10:00 – 17:00, Seshanba",
-    "callUsToday": "Bugun qo'ng'iroq qiling",
-    "phone": "(+62) 81 414 257"
+  "blog": {
+    "title": "Blog",
+    "subtitle": "So'nggi yangiliklar",
+    "description": "Yangiliklar va maqolalar",
+    "readMore": "Batafsil",
+    "featuredPost": {
+      "title": "Bolalarda eng keng tarqalgan kasalliklar va ularning davolash usullari",
+      "description": "Bolalarda shamollash, qizilcha, suvchechak, qizilcha va boshqa kasalliklar ko'p uchraydi. Ularning belgilari, davolash va oldini olish usullari haqida batafsil ma'lumot oling."
+    },
+    "posts": [
+      {
+        "title": "Bolalarda eng keng tarqalgan kasalliklar va ularning davolash usullari",
+        "excerpt": "Bolalarda shamollash, qizilcha, suvchechak kabi kasalliklar ko'p uchraydi. Ularning belgilari, davolash va oldini olish usullari haqida batafsil ma'lumot."
+      },
+      {
+        "title": "Farzandingizning sog'liqini qanday saqlash kerak",
+        "excerpt": "Bolalarning immunitetini mustahkamlash, to'g'ri ovqatlanish va muntazam tekshiruvlar orqali sog'liqni saqlash bo'yicha professional maslahatlar."
+      },
+      {
+        "title": "Bola kasal bo'lganda ruhiy salomatlikni saqlash uchun 6 maslahat",
+        "excerpt": "Kasal bolaning ruhiy holatini yaxshilash, stressni kamaytirish va tez tiklanishga yordam berish uchun amaliy tavsiyalar."
+      },
+      {
+        "title": "Bolalar rivojlanish bosqichlari va ularni kuzatish",
+        "excerpt": "Chaqaloqdan boshlab maktab yoshigacha bo'lgan rivojlanish bosqichlari, normal ko'rsatkichlar va ogohlantiruvchi belgilar."
+      },
+      {
+        "title": "Bolalarda motor rivojlanishni qo'llab-quvvatlash",
+        "excerpt": "Bolalarning yurish, gapirish va boshqa motor ko'nikmalarini rivojlantirishda ota-onalar qanday yordam berishi mumkin."
+      },
+      {
+        "title": "Bolalarda tez-tez uchraydigan shamollash va uning davolash usullari",
+        "excerpt": "Shamollashning sabablari, belgilari, uy sharoitida davolash usullari va qachon shifokorga murojaat qilish kerakligi haqida ma'lumot."
+      }
+    ]
   }
 }

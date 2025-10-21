@@ -1,7 +1,4 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Counter } from "@/components/counter";
 import {
@@ -29,10 +26,23 @@ import allergyIcon from "@/assets/icons/allergy.png";
 import screeningsIcon from "@/assets/icons/creenings.png";
 import pathologyIcon from "@/assets/icons/pathology.png";
 import cardiologyIcon from "@/assets/icons/cardiology.png";
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import BookingForm from "@/components/booking-form";
+import type { Metadata } from "next";
 
-export default function HomePage() {
-  const t = useTranslations();
+export const metadata: Metadata = {
+  title: "Babyland - Bolalar salomatligi markazi | Bosh sahifa",
+  description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari. Bolalar massaji, LFK, emlash, tekshiruv va boshqa tibbiy xizmatlar Toshkent shahrida.",
+  keywords: ["pediatriya", "bolalar doktori", "bolalar massaji", "LFK", "emlash", "Toshkent", "pediatra klinika", "bolalar salomatligi"],
+  openGraph: {
+    title: "Babyland - Bolalar salomatligi markazi",
+    description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
+    images: ['/Babyland1.svg'],
+  },
+};
+
+export default async function HomePage() {
+  const t = await getTranslations();
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -97,58 +107,23 @@ export default function HomePage() {
             {/* Booking Form Card - Overlapping */}
           </div>
         </div>
-        <div className="relative -mt-20 z-20">
-          <Card className="shadow-2xl border-0 bg-white max-w-6xl mx-auto rounded-2xl">
-            <CardContent className="p-6">
-              <form className="grid grid-cols-1 md:grid-cols-5 gap-4">
-                <div>
-                  <label className="mb-2 block text-sm font-semibold text-foreground">
-                    {t("common.name")}
-                  </label>
-                  <Input
-                    placeholder={t("common.yourName")}
-                    className="h-12 border-border/50 focus:border-primary rounded-lg"
-                  />
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-semibold text-foreground">
-                    {t("common.email")}
-                  </label>
-                  <Input
-                    type="email"
-                    placeholder={t("common.yourEmail")}
-                    className="h-12 border-border/50 focus:border-primary rounded-lg"
-                  />
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-semibold text-foreground">
-                    {t("common.service")}
-                  </label>
-                  <select className="w-full h-12 rounded-lg border border-border/50 bg-background px-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
-                    <option>{t("common.selectService")}</option>
-                    <option>{t("common.childCare")}</option>
-                    <option>{t("common.vaccination")}</option>
-                    <option>{t("common.allergyTest")}</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-semibold text-foreground">
-                    {t("common.date")}
-                  </label>
-                  <Input
-                    type="date"
-                    className="h-12 border-border/50 focus:border-primary rounded-lg"
-                  />
-                </div>
-                <div className="flex items-end">
-                  <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-semibold text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all rounded-lg">
-                    {t("common.bookAppointmentNow")}
-                  </Button>
-                </div>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
+        <BookingForm translations={{
+          name: t("common.name"),
+          email: t("common.email"),
+          service: t("common.service"),
+          date: t("common.date"),
+          yourName: t("common.yourName"),
+          yourEmail: t("common.yourEmail"),
+          selectService: t("common.selectService"),
+          childCare: t("common.childCare"),
+          vaccination: t("common.vaccination"),
+          allergyTest: t("common.allergyTest"),
+          screening: t("common.screening"),
+          pathology: t("common.pathology"),
+          cardiology: t("common.cardiology"),
+          acupuncture: t("common.acupuncture"),
+          bookAppointmentNow: t("common.bookAppointmentNow")
+        }} />
       </section>
 
       {/* About Section */}
@@ -356,10 +331,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <div className="mb-4 text-sm font-bold text-white uppercase tracking-wider">
-              Bizning xizmatlarimiz
+              {t("services.subtitle")}
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
-              Asosiy xizmatlarimizni ko&apos;ring
+              {t("services.title")}
             </h2>
           </div>
 
@@ -367,38 +342,33 @@ export default function HomePage() {
             {[
               {
                 icon: Heart,
-                title: "Bolalar massaji",
+                title: t("services.childMassage"),
                 color: "bg-emerald-500",
-                description:
-                  "Chaqaloq va bolalarda mushak tonusini me'yorlash, uyqu va hazmni yaxshilash hamda motor rivojlanishga ko'maklashadi.",
+                description: t("services.childMassageDesc"),
               },
               {
                 icon: TrendingUp,
-                title: "LFK",
+                title: t("services.lfk"),
                 color: "bg-teal-500",
-                description:
-                  "Davolovchi jismoniy tarbiya: qomat nuqsonlari va mushak-skelet muammolarini tuzatish, reabilitatsiya va moslashuvchanlikni oshirish.",
+                description: t("services.lfkDesc"),
               },
               {
                 icon: Syringe,
-                title: "Gidromassaj",
+                title: t("services.hydroMassage"),
                 color: "bg-cyan-500",
-                description:
-                  "Suv oqimlari yordamida amalga oshiriladigan massaj bo'lib, qon aylanishini yaxshilaydi va mushaklarni bo'shashtiradi.",
+                description: t("services.hydroMassageDesc"),
               },
               {
                 icon: Stethoscope,
-                title: "Trenajor",
+                title: t("services.trainer"),
                 color: "bg-emerald-500",
-                description:
-                  "Maxsus trenajyorlarda reabilitatsiya mashqlari: mushak kuchi, muvofiqlashtirish va harakat hajmini tiklashga yordam beradi.",
+                description: t("services.trainerDesc"),
               },
               {
                 icon: ClipboardCheck,
-                title: "Logoped defektolog",
+                title: t("services.logoped"),
                 color: "bg-teal-500",
-                description:
-                  "Nutq buzilishlarini korreksiya qilish: talaffuzni to'g'rilash, lug'at boyitish va kommunikativ ko'nikmalarni rivojlantirish.",
+                description: t("services.logopedDesc"),
               },
             ].map((service, i) => (
               <Card
@@ -419,7 +389,7 @@ export default function HomePage() {
                     href="/services"
                     className="text-sm font-bold text-primary hover:underline inline-flex items-center gap-1 group-hover:gap-2 transition-all"
                   >
-                    Ko&apos;proq o&apos;qish <ArrowRight className="h-4 w-4" />
+                    {t("services.readMore")} <ArrowRight className="h-4 w-4" />
                   </Link>
                 </CardContent>
               </Card>
@@ -433,18 +403,17 @@ export default function HomePage() {
                   </div>
                 </div>
                 <h3 className="mb-3 text-xl font-bold">
-                  Ko&apos;proq xizmatlarni ko&apos;ring
+                  {t("services.moreServices")}
                 </h3>
                 <p className="mb-6 text-sm text-white/90 leading-relaxed">
-                  Bizning boshqa xizmatlarimizni ham ko&apos;rib chiqing va
-                  farzandlaringiz uchun eng yaxshi yechimni toping.
+                  {t("services.moreServicesDesc")}
                 </p>
                 <Button
                   variant="secondary"
                   className="bg-white text-primary hover:bg-white/90 w-fit rounded-full font-semibold"
                 >
                   <Link href="/services/details">
-                    Barcha  xizmatlar
+                    {t("services.allServices")}
                   </Link>
                 </Button>
               </CardContent>
@@ -461,38 +430,36 @@ export default function HomePage() {
             {/* Left Side - Text and Locations */}
             <div>
               <div className="mb-4 text-sm font-bold text-primary uppercase tracking-wider">
-                Bizning joylashuvlarimiz
+                {t("common.locations.subtitle")}
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
-                Bizning klinikamiz markazlarimiz
+                {t("common.locations.title")}
               </h2>
               <p className="text-gray-600 text-lg mb-12 leading-relaxed">
-                Bizning klinikalarimiz dunyoning turli qismlarida joylashgan va
-                sizga eng yaqin joyda sifatli tibbiy xizmatni taqdim etamiz.
+                {t("common.locations.description")}
               </p>
 
               {/* Locations Grid */}
               <div className="grid grid-cols-2 gap-6">
                 {[
                   {
-                    city: "Toshkent ",
-                    address:
-                      "Toshkent shahar, Chilonzor tumani, zargarlik ko'chasi 25a",
+                    city: t("common.locations.tashkent"),
+                    address: t("common.locations.tashkentAddress"),
                     color: "bg-primary",
                   },
                   {
-                    city: "Toshkent viloyati",
-                    address: "Tez kunda",
+                    city: t("common.locations.tashkentRegion"),
+                    address: t("common.locations.comingSoon"),
                     color: "bg-primary",
                   },
                   {
-                    city: "Samarqand",
-                    address: "Tez kunda",
+                    city: t("common.locations.samarkand"),
+                    address: t("common.locations.comingSoon"),
                     color: "bg-blue-500",
                   },
                   {
-                    city: "Namangan",
-                    address: "Tez kunda",
+                    city: t("common.locations.namangan"),
+                    address: t("common.locations.comingSoon"),
                     color: "bg-blue-500",
                   },
                 ].map((location, i) => (
@@ -549,25 +516,25 @@ export default function HomePage() {
                 {[
                   {
                     count: 48,
-                    label: "Pediatr",
+                    label: t("common.statistics.pediatricians"),
                     iconType: "doctor",
                     highlight: false,
                   },
                   {
                     count: 120,
-                    label: "Tibbiy xodimlar",
+                    label: t("common.statistics.medicalStaff"),
                     iconType: "stethoscope",
                     highlight: false,
                   },
                   {
                     count: 92,
-                    label: "Pediatra poliklinikasi",
+                    label: t("common.statistics.pediatricClinics"),
                     iconType: "hospital",
                     highlight: true,
                   },
                   {
                     count: 231,
-                    label: "Xavfsiz kuzatish",
+                    label: t("common.statistics.safeMonitoring"),
                     iconType: "clipboard",
                     highlight: false,
                   },
@@ -659,33 +626,31 @@ export default function HomePage() {
             {/* Content */}
             <div className="space-y-6">
               <div className="text-sm font-bold text-primary uppercase tracking-wider">
-                Onlayn navbat olish
+                {t("common.booking.subtitle")}
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-balance leading-tight">
-                Navbat olishning oson yo&apos;li
+                {t("common.booking.title")}
               </h2>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                Bizning navbat olish tizimi juda oson va qulay. Faqat bir necha
-                bosqichda siz shifokor bilan uchrashuvni tashkil qilishingiz
-                mumkin. Barcha jarayon onlayn amalga oshiriladi va vaqt tejaydi.
+                {t("common.booking.description")}
               </p>
 
               <div className="space-y-6 pt-4">
                 {[
                   {
                     step: "01",
-                    title: "Eng yaqin Pediatrani qidirish",
+                    title: t("common.booking.findNearestPediatrician"),
                     icon: Search,
                   },
                   {
                     step: "02",
-                    title: "Xizmatni tanlash",
+                    title: t("common.booking.selectService"),
                     icon: ClipboardCheck,
                   },
-                  { step: "03", title: "Navbat olish", icon: Calendar },
+                  { step: "03", title: t("common.booking.bookAppointment"), icon: Calendar },
                   {
                     step: "04",
-                    title: "Shifokor bilan uchrashish",
+                    title: t("common.booking.meetDoctor"),
                     icon: Users,
                   },
                 ].map((item, i) => (
@@ -712,10 +677,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <div className="mb-4 text-sm font-bold text-primary uppercase tracking-wider">
-              So&apos;nggi yangiliklar
+              {t("common.news.subtitle")}
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              Yangiliklar va maqolalar
+              {t("common.news.title")}
             </h2>
           </div>
 
@@ -723,33 +688,28 @@ export default function HomePage() {
             {[
               {
                 image: "/baby-health-checkup.jpg",
-                title: "Eng keng tarqalgan bolalar kasalliklari",
-                description:
-                  "Bolalarda eng keng tarqalgan kasalliklar va ularning oldini olish usullari haqida batafsil ma'lumot.",
+                title: t("common.news.commonChildDiseases"),
+                description: t("common.news.commonChildDiseasesDesc"),
               },
               {
                 image: "/sick-child-with-thermometer.jpg",
-                title: "Farzandingizning sog'liqini qanday saqlash kerak",
-                description:
-                  "Bolalarning sog'liqini saqlash va himoya qilish bo'yicha professional maslahatlar va tavsiyalar.",
+                title: t("common.news.childHealthCare"),
+                description: t("common.news.childHealthCareDesc"),
               },
               {
                 image: "/mother-giving-medicine-to-child.jpg",
-                title: "Farzandingiz uchun eng yaxshi dori",
-                description:
-                  "Bolalar uchun dori-darmonlarni to'g'ri tanlash va ishlatish bo'yicha maslahatlar.",
+                title: t("common.news.bestMedicineForChild"),
+                description: t("common.news.bestMedicineForChildDesc"),
               },
               {
                 image: "/toddler-learning-to-walk.jpg",
-                title: "Bolalar rivojlanish bosqichlari",
-                description:
-                  "Bolalarning yoshiga qarab rivojlanish bosqichlari va ularni kuzatish usullari.",
+                title: t("common.news.childDevelopmentStages"),
+                description: t("common.news.childDevelopmentStagesDesc"),
               },
               {
                 image: "/baby-with-stuffy-nose.jpg",
-                title: "Bolalarda tez-tez uchraydigan shamollash",
-                description:
-                  "Bolalarda shamollash belgilari, davolash va oldini olish usullari haqida ma'lumot.",
+                title: t("common.news.commonColdInChildren"),
+                description: t("common.news.commonColdInChildrenDesc"),
               },
             ].map((article, i) => (
               <Card
@@ -776,7 +736,7 @@ export default function HomePage() {
                     href="/blog"
                     className="text-sm font-bold text-primary hover:underline inline-flex items-center gap-1 group-hover:gap-2 transition-all"
                   >
-                    Ko&apos;proq o&apos;qish <ArrowRight className="h-4 w-4" />
+                    {t("common.news.readMore")} <ArrowRight className="h-4 w-4" />
                   </Link>
                 </CardContent>
               </Card>

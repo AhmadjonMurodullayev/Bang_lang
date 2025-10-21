@@ -6,7 +6,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
@@ -24,8 +23,11 @@ import {
 } from "@/components/ui/collapsible";
 import ChangeLanguageC from "@/components/change-language";
 import { Link as IntlLink } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export function Header() {
+  const t = useTranslations();
   const [servicesOpen, setServicesOpen] = useState(false);
   const [pagesOpen, setPagesOpen] = useState(false);
   const [blogOpen, setBlogOpen] = useState(false);
@@ -42,7 +44,7 @@ export function Header() {
     <>
       {/* Main Header */}
       <header
-        className="w-full "
+        className="w-full"
         style={{
           backgroundImage: 'url("/backround.png")',
           backgroundSize: "cover",
@@ -52,64 +54,62 @@ export function Header() {
       >
         <div className="container mx-auto px-4">
           <div className="flex h-20 items-center justify-between">
-            {/* Logo */}
-            <IntlLink href="/" className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/25">
-                <div className="text-2xl font-bold text-white leading-none">
-                  +
-                </div>
-              </div>
-              <span className="text-2xl font-bold text-white tracking-tight">
-                Pediatra
+            {/* Logo - yaxshilangan joylashuv */}
+            <IntlLink href="/" className="flex items-center gap-2">
+              <Image 
+                src="/Babyland1.svg" 
+                alt="Babyland" 
+                width={50} 
+                height={50} 
+                className="object-contain"
+              />
+              <span className="text-2xl font-bold text-white tracking-tight drop-shadow-lg">
+                Babyland
               </span>
             </IntlLink>
 
             {/* Desktop Navigation */}
             <NavigationMenu className="hidden md:flex">
-              <NavigationMenuList className="gap-6">
+              <NavigationMenuList className="gap-4">
                 <NavigationMenuItem>
-                  <IntlLink href="/" legacyBehavior passHref>
-                    <NavigationMenuLink className="text-sm font-semibold text-white hover:text-white/80 transition-colors px-4 py-2">
-                      Bosh sahifa
-                    </NavigationMenuLink>
+                  <IntlLink href="/" className="text-sm font-semibold text-white hover:text-white/90 transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm">
+                    {t("common.home")}
                   </IntlLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <IntlLink href="/about" legacyBehavior passHref>
-                    <NavigationMenuLink className="text-sm font-semibold text-white hover:text-white/80 transition-colors px-4 py-2">
-                      Biz haqimizda
-                    </NavigationMenuLink>
+                  <IntlLink href="/about" className="text-sm font-semibold text-white hover:text-white/90 transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm">
+                    {t("common.about")}
                   </IntlLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-semibold text-white hover:text-white/80 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
-                    Xizmatlar
+                  <NavigationMenuTrigger className="text-sm font-semibold text-white hover:text-white/90 transition-all duration-200 bg-transparent hover:bg-white/10 backdrop-blur-sm data-[state=open]:bg-white/10 px-3 py-2 rounded-lg">
+                    {t("common.services")}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[400px] p-4 bg-white rounded-lg shadow-xl">
+                    <div className="w-[400px] p-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl border border-white/20">
                       <div className="grid gap-3">
                         <IntlLink
                           href="/services"
-                          className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
+                          className="block p-3 rounded-lg hover:bg-primary/10 transition-all duration-200 group"
                         >
                           <div className="font-semibold text-foreground group-hover:text-primary mb-1">
-                            Xizmatlar
+                            {t("common.services")}
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            Barcha xizmatlarimizni ko&apos;ring
+                            {t("header.servicesDescription")}
                           </div>
                         </IntlLink>
                         <IntlLink
                           href="/services/details"
-                          className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
+                          className="block p-3 rounded-lg hover:bg-primary/10 transition-all duration-200 group"
                         >
                           <div className="font-semibold text-foreground group-hover:text-primary mb-1">
-                            Xizmat tafsilotlari
+                            {t("header.serviceDetails")}
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            Xizmatlarimiz haqida batafsil
+                            {t("header.serviceDetailsDescription")}
                           </div>
                         </IntlLink>
                       </div>
@@ -118,26 +118,26 @@ export function Header() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-semibold text-white hover:text-white/80 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
-                    Sahifalar
+                  <NavigationMenuTrigger className="text-sm font-semibold text-white hover:text-white/90 transition-all duration-200 bg-transparent hover:bg-white/10 backdrop-blur-sm data-[state=open]:bg-white/10 px-3 py-2 rounded-lg">
+                    {t("header.pages")}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[400px] p-4 bg-white rounded-lg shadow-xl">
+                    <div className="w-[400px] p-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl border border-white/20">
                       <div className="grid gap-3">
                         <IntlLink
                           href="/appointment"
-                          className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
+                          className="block p-3 rounded-lg hover:bg-primary/10 transition-all duration-200 group"
                         >
                           <div className="font-semibold text-foreground group-hover:text-primary mb-1">
-                            Navbat olish
+                            {t("common.appointment")}
                           </div>
                         </IntlLink>
                         <IntlLink
                           href="/doctors"
-                          className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
+                          className="block p-3 rounded-lg hover:bg-primary/10 transition-all duration-200 group"
                         >
                           <div className="font-semibold text-foreground group-hover:text-primary mb-1">
-                            Shifokorlar
+                            {t("common.doctors")}
                           </div>
                         </IntlLink>
                       </div>
@@ -146,32 +146,32 @@ export function Header() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-semibold text-white hover:text-white/80 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
-                    Blog
+                  <NavigationMenuTrigger className="text-sm font-semibold text-white hover:text-white/90 transition-all duration-200 bg-transparent hover:bg-white/10 backdrop-blur-sm data-[state=open]:bg-white/10 px-3 py-2 rounded-lg">
+                    {t("common.blog")}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[400px] p-4 bg-white rounded-lg shadow-xl">
+                    <div className="w-[400px] p-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl border border-white/20">
                       <div className="grid gap-3">
                         <IntlLink
                           href="/blog"
-                          className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
+                          className="block p-3 rounded-lg hover:bg-primary/10 transition-all duration-200 group"
                         >
                           <div className="font-semibold text-foreground group-hover:text-primary mb-1">
-                            Blog
+                            {t("common.blog")}
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            So&apos;nggi maqolalarimizni o&apos;qing
+                            {t("header.blogDescription")}
                           </div>
                         </IntlLink>
                         <IntlLink
                           href="/blog"
-                          className="block p-3 rounded-lg hover:bg-primary/10 transition-colors group"
+                          className="block p-3 rounded-lg hover:bg-primary/10 transition-all duration-200 group"
                         >
                           <div className="font-semibold text-foreground group-hover:text-primary mb-1">
-                            Yangiliklar
+                            {t("header.news")}
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            Yangiliklarimiz bilan tanishing
+                            {t("header.newsDescription")}
                           </div>
                         </IntlLink>
                       </div>
@@ -180,29 +180,29 @@ export function Header() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <IntlLink href="/contact" legacyBehavior passHref>
-                    <NavigationMenuLink className="text-sm font-semibold text-white hover:text-white/80 transition-colors px-4 py-2">
-                      Aloqa
-                    </NavigationMenuLink>
+                  <IntlLink href="/contact" className="text-sm font-semibold text-white hover:text-white/90 transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm">
+                    {t("common.contact")}
                   </IntlLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
 
+            {/* Right section - yaxshilangan joylashuv */}
             <div className="hidden items-center gap-3 md:flex">
               {/* Language Switcher */}
               <ChangeLanguageC />
               
-              <div className="flex items-center gap-4 rounded-full px-6 py-3.5 shadow-lg shadow-primary/25">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#2AD396] backdrop-blur-sm">
-                  <Phone className="h-5 w-5 text-white" />
+              {/* Contact Button - yaxshilangan */}
+              <div className="flex items-center gap-3 rounded-full px-4 py-2.5 bg-white/10 backdrop-blur-sm shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-200">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/80 shadow-lg">
+                  <Phone className="h-4 w-4 text-white" />
                 </div>
                 <div className="text-left">
-                  <div className="text-xs text-white/90 font-medium mb-0.5">
-                    Shifokor bilan bog&apos;lanish
+                  <div className="text-xs text-white/90 font-medium">
+                    {t("header.contactDoctor")}
                   </div>
-                  <div className="text-sm font-bold text-white tracking-wide">
-                    (+62) 81 414 257
+                  <div className="text-sm font-bold text-white tracking-wide drop-shadow-sm">
+                    {t("header.phoneNumber")}
                   </div>
                 </div>
               </div>
@@ -215,7 +215,7 @@ export function Header() {
               onOpenChange={setDrawerOpen}
             >
               <DrawerTrigger asChild>
-                <button className="md:hidden text-white">
+                <button className="md:hidden text-white hover:text-white/80 transition-colors p-2 rounded-lg hover:bg-white/10 backdrop-blur-sm">
                   <Menu className="h-6 w-6" />
                 </button>
               </DrawerTrigger>
@@ -224,16 +224,18 @@ export function Header() {
                   <div className="flex items-center justify-between">
                     <IntlLink
                       href="/"
-                      className="flex items-center gap-3"
+                      className="flex items-center gap-2"
                       onClick={closeDrawer}
                     >
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/25">
-                        <div className="text-xl font-bold text-white leading-none">
-                          +
-                        </div>
-                      </div>
+                      <Image 
+                        src="/Babyland1.svg" 
+                        alt="Babyland" 
+                        width={40} 
+                        height={40} 
+                        className="object-contain"
+                      />
                       <span className="text-xl font-bold text-foreground tracking-tight">
-                        Pediatra
+                        Babyland
                       </span>
                     </IntlLink>
                     <DrawerClose asChild>
@@ -246,20 +248,20 @@ export function Header() {
 
                 {/* Navigation */}
                 <nav className="flex-1 p-6">
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     <IntlLink
                       href="/"
                       className="flex items-center text-lg font-semibold text-primary py-2"
                       onClick={closeDrawer}
                     >
-                      Bosh sahifa
+                      {t("common.home")}
                     </IntlLink>
                     <IntlLink
                       href="/about"
                       className="flex items-center text-lg font-semibold text-gray-700 hover:text-primary py-2 transition-colors"
                       onClick={closeDrawer}
                     >
-                      Biz haqimizda
+                      {t("common.about")}
                     </IntlLink>
 
                     {/* Services Dropdown */}
@@ -268,7 +270,7 @@ export function Header() {
                       onOpenChange={setServicesOpen}
                     >
                       <CollapsibleTrigger className="flex items-center justify-between w-full text-lg font-semibold text-gray-700 hover:text-primary py-2 transition-colors">
-                        Xizmatlar
+                        {t("common.services")}
                         {servicesOpen ? (
                           <ChevronUp className="h-4 w-4" />
                         ) : (
@@ -281,14 +283,14 @@ export function Header() {
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          Barcha xizmatlar
+                          {t("header.allServices")}
                         </IntlLink>
                         <IntlLink
                           href="/services/details"
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          Xizmat tafsilotlari
+                          {t("header.serviceDetails")}
                         </IntlLink>
                       </CollapsibleContent>
                     </Collapsible>
@@ -296,7 +298,7 @@ export function Header() {
                     {/* Pages Dropdown */}
                     <Collapsible open={pagesOpen} onOpenChange={setPagesOpen}>
                       <CollapsibleTrigger className="flex items-center justify-between w-full text-lg font-semibold text-gray-700 hover:text-primary py-2 transition-colors">
-                        Sahifalar
+                        {t("header.pages")}
                         {pagesOpen ? (
                           <ChevronUp className="h-4 w-4" />
                         ) : (
@@ -309,14 +311,14 @@ export function Header() {
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          Navbat olish
+                          {t("common.appointment")}
                         </IntlLink>
                         <IntlLink
                           href="/doctors"
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          Shifokorlar
+                          {t("common.doctors")}
                         </IntlLink>
                       </CollapsibleContent>
                     </Collapsible>
@@ -324,7 +326,7 @@ export function Header() {
                     {/* Blog Dropdown */}
                     <Collapsible open={blogOpen} onOpenChange={setBlogOpen}>
                       <CollapsibleTrigger className="flex items-center justify-between w-full text-lg font-semibold text-gray-700 hover:text-primary py-2 transition-colors">
-                        Blog
+                        {t("common.blog")}
                         {blogOpen ? (
                           <ChevronUp className="h-4 w-4" />
                         ) : (
@@ -337,14 +339,14 @@ export function Header() {
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          Blog maqolalari
+                          {t("header.blogArticles")}
                         </IntlLink>
                         <IntlLink
                           href="/blog"
                           className="block text-base text-gray-600 hover:text-primary py-1 transition-colors"
                           onClick={closeDrawer}
                         >
-                          Yangiliklar
+                          {t("header.news")}
                         </IntlLink>
                       </CollapsibleContent>
                     </Collapsible>
@@ -354,7 +356,7 @@ export function Header() {
                       className="flex items-center text-lg font-semibold text-gray-700 hover:text-primary py-2 transition-colors"
                       onClick={closeDrawer}
                     >
-                      Aloqa
+                      {t("common.contact")}
                     </IntlLink>
                   </div>
                 </nav>
@@ -366,16 +368,16 @@ export function Header() {
                     <ChangeLanguageC />
                   </div>
                   
-                  <div className="flex items-center gap-3 rounded-xl bg-primary p-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20">
-                      <Phone className="h-6 w-6 text-white" />
+                  <div className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-primary to-primary/80 p-4 shadow-lg">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                      <Phone className="h-5 w-5 text-white" />
                     </div>
                     <div>
                       <div className="text-xs text-white/90 font-medium">
-                        Shifokor bilan bog&apos;lanish
+                        {t("header.contactDoctor")}
                       </div>
-                      <div className="text-sm font-bold text-white">
-                        (+62) 81 414 257
+                      <div className="text-sm font-bold text-white drop-shadow-sm">
+                        {t("header.phoneNumber")}
                       </div>
                     </div>
                   </div>

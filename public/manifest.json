@@ -1,0 +1,21 @@
+{
+  "name": "Babyland - Bolalar salomatligi markazi",
+  "short_name": "Babyland",
+  "description": "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#23c99a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/Babyland1.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["medical", "health", "pediatrics"],
+  "lang": "uz",
+  "dir": "ltr"
+}

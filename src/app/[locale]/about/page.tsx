@@ -1,27 +1,30 @@
-"use client";
-
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import {
   Check,
-  Globe,
   Facebook,
   Twitter,
   Instagram,
   Star,
-  Plus,
 } from "lucide-react";
-import { Counter } from "@/components/counter";
 import Image from "next/image";
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import StatsCard from "@/components/stats-card";
+import FAQ from "@/components/faq";
+import type { Metadata } from "next";
 
-export default function AboutPage() {
-  const t = useTranslations();
+export const metadata: Metadata = {
+  title: "Biz haqimizda | Babyland - Bolalar salomatligi markazi",
+  description: "Babyland pediatriya markazi haqida batafsil ma'lumot. Professional shifokorlar, zamonaviy jihozlar va sifatli tibbiy xizmatlar.",
+  keywords: ["pediatriya markazi", "bolalar doktori", "tibbiy xizmatlar", "professional shifokorlar", "Toshkent"],
+  openGraph: {
+    title: "Biz haqimizda | Babyland",
+    description: "Babyland pediatriya markazi haqida batafsil ma'lumot",
+    images: ['/Babyland1.svg'],
+  },
+};
+
+export default async function AboutPage() {
+  const t = await getTranslations();
   
   return (
     <div className="min-h-screen">
@@ -63,22 +66,7 @@ export default function AboutPage() {
               <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-b from-blue-300 to-cyan-300 rounded-r-3xl -z-10 hidden lg:block"></div>
 
               {/* Floating Card */}
-              <Card className="absolute -bottom-6 left-0 shadow-xl max-w-xs border-0 rounded-lg">
-                <CardContent className="p-6 flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 flex-shrink-0">
-                    <Globe className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <Counter
-                      end={1742}
-                      duration={1500}
-                      className="text-3xl font-bold text-foreground"
-                      suffix="+"
-                    />
-                    <p className="text-sm text-muted-foreground">{t("about.satisfiedPatients")}</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <StatsCard count={1742} label={t("about.satisfiedPatients")} />
             </div>
 
             {/* Content */}
@@ -146,37 +134,37 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <div className="mb-4 text-sm font-semibold text-primary">Bizning shifokorlar</div>
-            <h2 className="mb-4 text-4xl font-bold">Malakali shifokorlarimiz bilan tanishing</h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">Farzandingiz sog&apos;lig&apos;i uchun tajribali va g&apos;amxo&apos;r mutaxassislar.</p>
+            <div className="mb-4 text-sm font-semibold text-primary">{t("about.doctors.subtitle")}</div>
+            <h2 className="mb-4 text-4xl font-bold">{t("about.doctors.title")}</h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">{t("about.doctors.description")}</p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 name: "Dr. Marlie Varga",
-                specialty: "General Doctor",
+                specialty: t("about.doctors.generalDoctor"),
                 consultations: 2214,
                 rating: 4.8,
                 image: "/female-doctor.png"
               },
               {
                 name: "Dr. Maysa Azer", 
-                specialty: "Pediatrician",
+                specialty: t("about.doctors.pediatrician"),
                 consultations: 1324,
                 rating: 5.0,
                 image: "/female-doctor-portrait.png"
               },
               {
                 name: "Dr. Ayda Ortega",
-                specialty: "Pathology", 
+                specialty: t("about.doctors.pathology"), 
                 consultations: 824,
                 rating: 4.7,
                 image: "/thoughtful-doctor.png"
               },
               {
                 name: "Dr. Valeria Costa",
-                specialty: "Cardiology",
+                specialty: t("about.doctors.cardiology"),
                 consultations: 974,
                 rating: 4.6,
                 image: "/female-doctor.png"
@@ -219,7 +207,7 @@ export default function AboutPage() {
                 <CardContent>
                   <div className="flex items-center gap-2 mb-3">
                     <Check className="h-4 w-4 text-emerald-600" />
-                    <span className="text-sm text-gray-600">{doctor.consultations} ta qabul</span>
+                    <span className="text-sm text-gray-600">{doctor.consultations} {t("about.doctors.consultations")}</span>
                   </div>
                   
                   <div className="flex items-center gap-2">
@@ -253,69 +241,29 @@ export default function AboutPage() {
             {/* Left Side - Accordion */}
             <div className="lg:col-span-2">
               <div className="mb-8">
-                <div className="mb-4 text-sm font-semibold text-teal-600">Mijozlar savollari</div>
-                <h2 className="mb-6 text-4xl font-bold text-gray-800">Ko&apos;p beriladigan savollar</h2>
-                <p className="text-gray-600 leading-relaxed">Qabul jarayoni, narxlar va xizmatlar bo&apos;yicha tez-tez so&apos;raladigan savollar javoblari.</p>
+                <div className="mb-4 text-sm font-semibold text-teal-600">{t("about.faq.subtitle")}</div>
+                <h2 className="mb-6 text-4xl font-bold text-gray-800">{t("about.faq.title")}</h2>
+                <p className="text-gray-600 leading-relaxed">{t("about.faq.description")}</p>
               </div>
 
               {/* Shadcn Accordion */}
-              <Accordion type="single" defaultValue="item-0" collapsible className="space-y-4">
-                <AccordionItem value="item-0" className="rounded-2xl overflow-hidden border-0 shadow-sm">
-                  <AccordionTrigger className="p-6 bg-gray-50 text-gray-800 hover:bg-gray-100 hover:no-underline rounded-2xl [&[data-state=open]]:rounded-b-none group">
-                    <div className="flex items-center gap-4 w-full">
-                      <div className="w-8 h-8 rounded-full bg-gray-300 group-hover:bg-emerald-500 flex items-center justify-center flex-shrink-0 transition-colors">
-                        <Plus className="h-4 w-4 text-gray-600 group-hover:text-white transition-colors" />
-                      </div>
-                      <span className="font-semibold text-left">Qabul jarayoni qanday amalga oshiriladi?</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white border-l-4 border-emerald-500 rounded-b-2xl">
-                    <p className="text-gray-600 leading-relaxed">Ro&apos;yxatdan o&apos;tish onlayn yoki telefon orqali. Shundan so&apos;ng shifokor ko&apos;rigiga vaqt belgilanadi.</p>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-1" className="rounded-2xl overflow-hidden border-0 shadow-sm">
-                  <AccordionTrigger className="p-6 bg-gray-50 text-gray-800 hover:bg-gray-100 hover:no-underline rounded-2xl [&[data-state=open]]:rounded-b-none group">
-                    <div className="flex items-center gap-4 w-full">
-                      <div className="w-8 h-8 rounded-full bg-gray-300 group-hover:bg-emerald-500 flex items-center justify-center flex-shrink-0 transition-colors">
-                        <Plus className="h-4 w-4 text-gray-600 group-hover:text-white transition-colors" />
-                      </div>
-                      <span className="font-semibold text-left">Xizmatlar narxi qanday belgilanadi?</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white border-l-4 border-emerald-500 rounded-b-2xl">
-                    <p className="text-gray-600 leading-relaxed">Narxlar xizmat turiga va davomiyligiga qarab belgilanadi. Aniq ma&apos;lumot uchun aloqa qiling.</p>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-2" className="rounded-2xl overflow-hidden border-0 shadow-sm">
-                  <AccordionTrigger className="p-6 bg-gray-50 text-gray-800 hover:bg-gray-100 hover:no-underline rounded-2xl [&[data-state=open]]:rounded-b-none group">
-                    <div className="flex items-center gap-4 w-full">
-                      <div className="w-8 h-8 rounded-full bg-gray-300 group-hover:bg-emerald-500 flex items-center justify-center flex-shrink-0 transition-colors">
-                        <Plus className="h-4 w-4 text-gray-600 group-hover:text-white transition-colors" />
-                      </div>
-                      <span className="font-semibold text-left">Hujjatlarni qanday taqdim etaman?</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white border-l-4 border-emerald-500 rounded-b-2xl">
-                    <p className="text-gray-600 leading-relaxed">Shaxsni tasdiqlovchi hujjat va agar bo&apos;lsa, oldingi tibbiy tavsiyalarni olib kelish kifoya.</p>
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-3" className="rounded-2xl overflow-hidden border-0 shadow-sm">
-                  <AccordionTrigger className="p-6 bg-gray-50 text-gray-800 hover:bg-gray-100 hover:no-underline rounded-2xl [&[data-state=open]]:rounded-b-none group">
-                    <div className="flex items-center gap-4 w-full">
-                      <div className="w-8 h-8 rounded-full bg-gray-300 group-hover:bg-emerald-500 flex items-center justify-center flex-shrink-0 transition-colors">
-                        <Plus className="h-4 w-4 text-gray-600 group-hover:text-white transition-colors" />
-                      </div>
-                      <span className="font-semibold text-left">Qabul joyi va formatlari qanday?</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white border-l-4 border-emerald-500 rounded-b-2xl">
-                    <p className="text-gray-600 leading-relaxed">Markazimiz filiallarida oflayn qabul mavjud. Ayrim maslahatlarga onlayn formatda ham murojaat qilishingiz mumkin.</p>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+                  <FAQ questions={(() => {
+                    try {
+                      return t.raw("about.faq.questions") || [
+                        {
+                          question: "Bizning klinikamiz qanday xizmatlar ko'rsatadi?",
+                          answer: "Bizning klinikamiz bolalar uchun to'liq tibbiy xizmatlar ko'rsatadi: umumiy tekshiruv, emlash, massaj, LFK va boshqa reabilitatsiya xizmatlari."
+                        }
+                      ];
+                    } catch {
+                      return [
+                        {
+                          question: "Bizning klinikamiz qanday xizmatlar ko'rsatadi?",
+                          answer: "Bizning klinikamiz bolalar uchun to'liq tibbiy xizmatlar ko'rsatadi: umumiy tekshiruv, emlash, massaj, LFK va boshqa reabilitatsiya xizmatlari."
+                        }
+                      ];
+                    }
+                  })()} />
             </div>
 
             {/* Right Side - Doctor Image */}

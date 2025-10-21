@@ -16,9 +16,64 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Pediatra - Bolalar salomatligi",
-  description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
-  generator: "v0.app",
+  title: "Babyland - Bolalar salomatligi markazi",
+  description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari. Bolalar massaji, LFK, emlash va boshqa tibbiy xizmatlar.",
+  keywords: ["pediatriya", "bolalar doktori", "bolalar massaji", "LFK", "emlash", "Toshkent", "pediatra klinika"],
+  authors: [{ name: "Babyland" }],
+  creator: "Babyland",
+  publisher: "Babyland",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://babyland.uz'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'uz': '/uz',
+      'ru': '/ru',
+    },
+  },
+  openGraph: {
+    title: "Babyland - Bolalar salomatligi markazi",
+    description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
+    url: 'https://babyland.uz',
+    siteName: 'Babyland',
+    images: [
+      {
+        url: '/Babyland1.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Babyland Logo',
+      },
+    ],
+    locale: 'uz_UZ',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Babyland - Bolalar salomatligi markazi",
+    description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
+    images: ['/Babyland1.svg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/Babyland1.svg',
+    shortcut: '/Babyland1.svg',
+    apple: '/Babyland1.svg',
+  },
+  manifest: '/manifest.json',
 };
 
 export default async function LocaleLayout({
@@ -33,7 +88,7 @@ export default async function LocaleLayout({
   
   return (
     <html lang={locale}>
-      <body className={`font-sans ${poppins.variable} antialiased`}>
+      <body className={`font-sans ${poppins.variable} antialiased`} suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
           <Suspense fallback={null}>
             <Header />

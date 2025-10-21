@@ -1,8 +1,5 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
-import { Counter } from "@/components/counter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -16,15 +13,29 @@ import {
   Twitter,
 } from "lucide-react";
 import Link from "next/link";
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import CounterWrapper from "@/components/counter-wrapper";
 import childIcon from "@/assets/icons/child.png";
 import vaccinationsIcon from "@/assets/icons/vaccinations.png";
 import allergyIcon from "@/assets/icons/allergy.png";
 import screeningsIcon from "@/assets/icons/creenings.png";
 import pathologyIcon from "@/assets/icons/pathology.png";
 import cardiologyIcon from "@/assets/icons/cardiology.png";
-const Doctors = () => {
-  const t = useTranslations();
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Shifokorlar | Babyland - Bolalar salomatligi markazi",
+  description: "Babyland pediatriya markazining professional shifokorlari. Tajribali bolalar doktorlari va tibbiy mutaxassislar.",
+  keywords: ["bolalar doktori", "pediatriya shifokorlari", "professional doktorlar", "tibbiy mutaxassislar"],
+  openGraph: {
+    title: "Shifokorlar | Babyland",
+    description: "Professional pediatriya shifokorlari",
+    images: ['/Babyland1.svg'],
+  },
+};
+
+export default async function Doctors() {
+  const t = await getTranslations();
   
   return (
     <>
@@ -54,13 +65,13 @@ const Doctors = () => {
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <div className="mb-4 text-sm font-semibold text-primary">
-              Bizning shifokorlar
+              {t("doctors.subtitle")}
             </div>
             <h2 className="mb-4 text-4xl font-bold">
-              Malakali shifokorlarimiz bilan tanishing
+              {t("doctors.title")}
             </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
-              Sizning farzandingiz uchun gʻamxoʻr va tajribali mutaxassislar.
+              {t("doctors.description")}
             </p>
           </div>
 
@@ -68,56 +79,56 @@ const Doctors = () => {
             {[
               {
                 name: "Dr. Marlie Varga",
-                specialty: "General Doctor",
+                specialty: t("doctors.specialties.generalDoctor"),
                 consultations: 2214,
                 rating: 4.8,
                 image: "/female-doctor.png",
               },
               {
                 name: "Dr. Maysa Azer",
-                specialty: "Pediatrician",
+                specialty: t("doctors.specialties.pediatrician"),
                 consultations: 1324,
                 rating: 5.0,
                 image: "/female-doctor-portrait.png",
               },
               {
                 name: "Dr. Ayda Ortega",
-                specialty: "Pathology",
+                specialty: t("doctors.specialties.pathology"),
                 consultations: 824,
                 rating: 4.7,
                 image: "/thoughtful-doctor.png",
               },
               {
                 name: "Dr. Valeria Costa",
-                specialty: "Cardiology",
+                specialty: t("doctors.specialties.cardiology"),
                 consultations: 974,
                 rating: 4.6,
                 image: "/female-doctor.png",
               },
               {
                 name: "Dr. Marlie Varga",
-                specialty: "General Doctor",
+                specialty: t("doctors.specialties.generalDoctor"),
                 consultations: 2214,
                 rating: 4.8,
                 image: "/female-doctor.png",
               },
               {
                 name: "Dr. Maysa Azer",
-                specialty: "Pediatrician",
+                specialty: t("doctors.specialties.pediatrician"),
                 consultations: 1324,
                 rating: 5.0,
                 image: "/female-doctor-portrait.png",
               },
               {
                 name: "Dr. Ayda Ortega",
-                specialty: "Pathology",
+                specialty: t("doctors.specialties.pathology"),
                 consultations: 824,
                 rating: 4.7,
                 image: "/thoughtful-doctor.png",
               },
               {
                 name: "Dr. Valeria Costa",
-                specialty: "Cardiology",
+                specialty: t("doctors.specialties.cardiology"),
                 consultations: 974,
                 rating: 4.6,
                 image: "/female-doctor.png",
@@ -163,7 +174,7 @@ const Doctors = () => {
                   <div className="flex items-center gap-2 mb-3">
                     <Check className="h-4 w-4 text-emerald-600" />
                     <span className="text-sm text-gray-600">
-                      {doctor.consultations} ta qabul
+                      {doctor.consultations} {t("doctors.consultations")}
                     </span>
                   </div>
 
@@ -217,14 +228,14 @@ const Doctors = () => {
                     <Globe className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <Counter
+                    <CounterWrapper
                       end={1742}
                       duration={1500}
                       className="text-3xl font-bold text-foreground"
                       suffix="+"
                     />
                     <p className="text-sm text-muted-foreground">
-                      Satisfied Patients
+                      {t("doctors.satisfiedPatients")}
                     </p>
                   </div>
                 </CardContent>
@@ -234,17 +245,13 @@ const Doctors = () => {
             {/* Content */}
             <div>
               <div className="mb-4 text-sm font-semibold text-primary">
-                Eng yaxshi va malakali pediatrlarni shu yerdan topishingiz
-                mumkin.
+                {t("doctors.bestPediatricians")}
               </div>
               <h2 className="mb-6 text-4xl font-bold text-balance">
-                Pediatrlarni tez va oson toping
+                {t("doctors.findPediatricians")}
               </h2>
               <p className="mb-8 text-muted-foreground leading-relaxed">
-                O&apos;z farzandingiz uchun ishonchli va tajribali shifokorlarni
-                topish endi yanada oson! Bizning platformada malakali pediatrlar
-                yordamida bolangiz sog&apos;ligi uchun eng yaxshi g&apos;amxo&apos;rlik va
-                maslahatlarni olishingiz mumkin.
+                {t("doctors.findPediatriciansDesc")}
               </p>
 
               <div className="grid gap-6 sm:grid-cols-2">
@@ -254,12 +261,10 @@ const Doctors = () => {
                   </div>
                   <div>
                     <h4 className="mb-1 font-semibold">
-                      Pediatrlarni tez va oson topish
+                      {t("doctors.quickFind")}
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      Onlayn filtrlar va geolokatsiya yordamida yaqin atrofdagi
-                      mos pediatrlarni tezda toping, bo‘sh vaqtlari va tajribasi
-                      bilan tanishing.
+                      {t("doctors.quickFindDesc")}
                     </p>
                   </div>
                 </div>
@@ -269,12 +274,10 @@ const Doctors = () => {
                   </div>
                   <div>
                     <h4 className="mb-1 font-semibold">
-                      Elektron retsept va tavsiyalar
+                      {t("doctors.ePrescription")}
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      Qabuldan so‘ng retsept va uy sharoitida bajariladigan
-                      tavsiyalar elektron ko‘rinishda yuboriladi, barcha
-                      hujjatlar shaxsiy kabinetda saqlanadi.
+                      {t("doctors.ePrescriptionDesc")}
                     </p>
                   </div>
                 </div>
@@ -295,7 +298,7 @@ const Doctors = () => {
                     Dr. Monica Hopkins
                   </h4>
                   <p className="text-sm text-primary font-medium">
-                    Pediatra Founder
+                    {t("doctors.founder")}
                   </p>
                 </div>
                 <div className="ml-auto">
@@ -317,12 +320,12 @@ const Doctors = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
             {[
-              { image: childIcon, label: "Bolalar massaji" },
-              { image: vaccinationsIcon, label: "LFK" },
-              { image: allergyIcon, label: "Gidromassaj" },
-              { image: screeningsIcon, label: "Trenajor" },
-              { image: pathologyIcon, label: "Logoped defektolog" },
-              { image: cardiologyIcon, label: "Igna terapiya" },
+              { image: childIcon, label: t("doctors.services.childMassage") },
+              { image: vaccinationsIcon, label: t("doctors.services.lfk") },
+              { image: allergyIcon, label: t("doctors.services.hydroMassage") },
+              { image: screeningsIcon, label: t("doctors.services.trainer") },
+              { image: pathologyIcon, label: t("doctors.services.logoped") },
+              { image: cardiologyIcon, label: t("doctors.services.acupuncture") },
             ].map((service, i) => (
               <div key={i} className="group cursor-pointer">
                 <div className="bg-white rounded-2xl p-8 shadow-sm border-2 border-transparent hover:border-primary hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
@@ -346,6 +349,7 @@ const Doctors = () => {
           </div>
         </div>
       </section>
+      
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="bg-gray-50 rounded-3xl p-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
@@ -358,8 +362,7 @@ const Doctors = () => {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-1">
-                  Bizning xizmatlarimiz haqida toʻliq maʼlumotlar olish uchun
-                  yordam beradi.
+                  {t("doctors.cta.title")}
                 </h2>
               </div>
             </div>
@@ -374,7 +377,7 @@ const Doctors = () => {
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-white h-12 px-8 text-base font-semibold shadow-lg hover:shadow-xl transition-all rounded-full w-full sm:w-auto"
                 >
-                  Batafsil maʼlumot <ArrowRight className="h-5 w-5" />
+                  {t("doctors.cta.button")} <ArrowRight className="h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -383,6 +386,4 @@ const Doctors = () => {
       </section>
     </>
   );
-};
-
-export default Doctors;
+}

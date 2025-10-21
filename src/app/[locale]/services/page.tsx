@@ -1,11 +1,7 @@
-"use client";
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Counter } from "@/components/counter";
 import Link from "next/link";
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import {
   TrendingUp,
   Syringe,
@@ -22,9 +18,34 @@ import {
   Heart,
   User,
 } from "lucide-react";
+import CounterWrapper from "@/components/counter-wrapper";
+import ServicesAppointmentForm from "@/components/services-appointment-form";
+import type { Metadata } from "next";
 
-export default function ServicesPage() {
-  const t = useTranslations();
+export const metadata: Metadata = {
+  title: "Xizmatlar | Babyland - Bolalar salomatligi markazi",
+  description: "Bolalar massaji, LFK, emlash, tekshiruv va boshqa professional pediatriya xizmatlari. Navbat olish va maslahat olish.",
+  keywords: ["bolalar massaji", "LFK", "emlash", "pediatriya xizmatlari", "navbat olish", "bolalar tekshiruvi"],
+  openGraph: {
+    title: "Xizmatlar | Babyland",
+    description: "Professional pediatriya xizmatlari va navbat olish",
+    images: ['/Babyland1.svg'],
+  },
+};
+
+export default async function ServicesPage() {
+  const t = await getTranslations();
+  
+  // Safe raw translation getter with fallback
+  const getRawTranslation = (key: string, fallback: unknown) => {
+    try {
+      const value = t.raw(key);
+      return value || fallback;
+    } catch (error) {
+      console.warn(`Raw translation error for key "${key}":`, error);
+      return fallback;
+    }
+  };
   
   return (
     <div className="min-h-screen">
@@ -52,10 +73,10 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <div className="mb-4 text-sm font-bold  uppercase tracking-wider">
-              Bizning xizmatlarimiz
+              {t("services.subtitle")}
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4 ">
-              Asosiy xizmatlarimizni ko&apos;ring
+              {t("services.title")}
             </h2>
           </div>
 
@@ -63,38 +84,33 @@ export default function ServicesPage() {
             {[
               {
                 icon: Heart,
-                title: "Bolalar massaji",
+                title: t("services.childMassage"),
                 color: "bg-emerald-500",
-                description:
-                  "Chaqaloq va bolalarda mushak tonusini meʼyorlash, uyqu va hazmni yaxshilash hamda motor rivojlanishga koʼmaklashadi.",
+                description: t("services.childMassageDesc"),
               },
               {
                 icon: TrendingUp,
-                title: "LFK",
+                title: t("services.lfk"),
                 color: "bg-teal-500",
-                description:
-                  "Davolovchi jismoniy tarbiya: qomat nuqsonlari va mushak-skelet muammolarini tuzatish, reabilitatsiya va moslashuvchanlikni oshirish.",
+                description: t("services.lfkDesc"),
               },
               {
                 icon: Syringe,
-                title: "Gidromassaj",
+                title: t("services.hydroMassage"),
                 color: "bg-cyan-500",
-                description:
-                  "Suv oqimlari yordamida amalga oshiriladigan massaj boʼlib, qon aylanishini yaxshilaydi va mushaklarni boʼshashtiradi.",
+                description: t("services.hydroMassageDesc"),
               },
               {
                 icon: Stethoscope,
-                title: "Trenajor",
+                title: t("services.trainer"),
                 color: "bg-emerald-500",
-                description:
-                  "Maxsus trenajyorlarda reabilitatsiya mashqlari: mushak kuchi, muvofiqlashtirish va harakat hajmini tiklashga yordam beradi.",
+                description: t("services.trainerDesc"),
               },
               {
                 icon: ClipboardCheck,
-                title: "Logoped defektolog",
+                title: t("services.logoped"),
                 color: "bg-teal-500",
-                description:
-                  "Nutq buzilishlarini korreksiya qilish: talaffuzni toʼgʼrilash, lugʼat boyitish va kommunikativ koʼnikmalarni rivojlantirish.",
+                description: t("services.logopedDesc"),
               },
             ].map((service, i) => (
               <Card
@@ -115,7 +131,7 @@ export default function ServicesPage() {
                     href="/services"
                     className="text-sm font-bold text-primary hover:underline inline-flex items-center gap-1 group-hover:gap-2 transition-all"
                   >
-                    Ko&apos;proq o&apos;qish <ArrowRight className="h-4 w-4" />
+                    {t("services.readMore")} <ArrowRight className="h-4 w-4" />
                   </Link>
                 </CardContent>
               </Card>
@@ -129,17 +145,16 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <h3 className="mb-3 text-xl font-bold">
-                  Ko&apos;proq xizmatlarni ko&apos;ring
+                  {t("services.moreServices")}
                 </h3>
                 <p className="mb-6 text-sm text-white/90 leading-relaxed">
-                  Bizning boshqa xizmatlarimizni ham ko&apos;rib chiqing va
-                  farzandlaringiz uchun eng yaxshi yechimni toping.
+                  {t("services.moreServicesDesc")}
                 </p>
                 <Button
                   variant="secondary"
                   className="bg-white text-primary hover:bg-white/90 w-fit rounded-full font-semibold"
                 >
-                  <Link href="/services/details">Barcha xizmatlar</Link>
+                  <Link href="/services/details">{t("services.allServices")}</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -152,101 +167,68 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-2 items-start">
             {/* Form */}
-            <Card className="shadow-2xl border-0">
-              <CardContent className="p-10">
-                <form className="space-y-6">
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    <div>
-                      <label className="mb-2 block text-sm font-semibold">
-                        To&apos;liq ismingiz
-                      </label>
-                      <Input placeholder="Ismingiz" className="h-12" />
-                    </div>
-                    <div>
-                      <label className="mb-2 block text-sm font-semibold">
-                        Emailingiz
-                      </label>
-                      <Input
-                        type="email"
-                        placeholder="Emailingiz"
-                        className="h-12"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-semibold">
-                      Xizmatni tanlang
-                    </label>
-                    <select className="w-full h-12 rounded-lg border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
-                      <option>Xizmatni tanlang</option>
-                      <option>Bolalar massaji</option>
-                      <option>LFK</option>
-                      <option>Gidromassaj</option>
-                      <option>Trenajor</option>
-                      <option>Logoped defektolog</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-semibold">
-                      Sana
-                    </label>
-                    <Input type="date" className="h-12" />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-semibold">
-                      Xabaringiz
-                    </label>
-                    <textarea
-                      className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm min-h-[100px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                      placeholder="Xabaringizni yozing"
-                    />
-                  </div>
-                  <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full shadow-lg">
-                    Navbat olish
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <ServicesAppointmentForm 
+              translations={{
+                fullName: t("services.appointment.fullName"),
+                namePlaceholder: t("services.appointment.namePlaceholder"),
+                phone: t("services.appointment.phone"),
+                phonePlaceholder: t("services.appointment.phonePlaceholder"),
+                email: t("services.appointment.email"),
+                emailPlaceholder: t("services.appointment.emailPlaceholder"),
+                selectService: t("services.appointment.selectService"),
+                selectServicePlaceholder: t("services.appointment.selectServicePlaceholder"),
+                date: t("services.appointment.date"),
+                message: t("services.appointment.message"),
+                messagePlaceholder: t("services.appointment.messagePlaceholder"),
+                bookAppointment: t("services.appointment.bookAppointment"),
+                childMassage: t("services.childMassage"),
+                lfk: t("services.lfk"),
+                hydroMassage: t("services.hydroMassage"),
+                trainer: t("services.trainer"),
+                logoped: t("services.logoped"),
+                successMessage: t("services.appointment.successMessage"),
+                errorMessage: t("services.appointment.errorMessage"),
+                loadingMessage: t("services.appointment.loadingMessage")
+              }}
+            />
 
             {/* Info */}
             <div className="text-white">
               <div className="mb-4 text-sm font-bold uppercase tracking-wider">
-                Navbat olish
+                {t("services.appointment.title")}
               </div>
               <h2 className="mb-6 text-4xl lg:text-5xl font-bold">
-                Navbat belgilang
+                {t("services.appointment.subtitle")}
               </h2>
               <p className="mb-10 text-white/90 leading-relaxed text-lg">
-                Bizning klinikamizda sizning navbatingizni belgilashingiz
-                mumkin.
+                {t("services.appointment.description")}
               </p>
 
               <div className="mb-10">
-                <h3 className="mb-6 text-2xl font-bold">Ish vaqti</h3>
+                <h3 className="mb-6 text-2xl font-bold">{t("services.appointment.workingHours")}</h3>
                 <div className="space-y-4">
-                  {[
-                    { day: "Dushanba - Juma", time: "08:00 - 18:00" },
-                    { day: "Shanba", time: "08:00 - 15:00" },
-                    { day: "Yakshanba", time: "dam olish kuni" },
-                  ].map((schedule, i) => (
-                    <div
-                      key={i}
-                      className="flex justify-between items-center py-2 border-b border-white/20"
-                    >
-                      <span className="text-white/90">{schedule.day}</span>
-                      <span className="font-semibold">{schedule.time}</span>
-                    </div>
-                  ))}
+                      {getRawTranslation("services.appointment.schedule", [
+                        { day: "Dushanba - Juma", time: "08:00 - 18:00" },
+                        { day: "Shanba", time: "08:00 - 15:00" },
+                        { day: "Yakshanba", time: "dam olish kuni" }
+                      ]).map((schedule: { day: string; time: string }, i: number) => (
+                        <div
+                          key={i}
+                          className="flex justify-between items-center py-2 border-b border-white/20"
+                        >
+                          <span className="text-white/90">{schedule.day}</span>
+                          <span className="font-semibold">{schedule.time}</span>
+                        </div>
+                      ))}
                 </div>
               </div>
 
               <div className="mb-10">
                 <h3 className="mb-6 text-2xl font-bold">
-                  Biz bilan bog&apos;lanish
+                  {t("services.appointment.contactUs")}
                 </h3>
                 <p className="mb-6 text-white/90 leading-relaxed">
-                  Biz bilan bog&apos;laning va sizning navbatingizni belgilashingiz
-                  mumkin.
+                  {t("services.appointment.contactDescription")}
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="flex items-center gap-2 rounded-2xl bg-white/10 p-2 backdrop-blur-sm border border-white/20">
@@ -255,10 +237,10 @@ export default function ServicesPage() {
                     </div>
                     <div>
                       <div className="text-xs text-white/70 mb-1">
-                        Email manzilingiz
+                        {t("services.appointment.emailLabel")}
                       </div>
                       <div className="text-sm font-semibold">
-                        ismoilnigmonov2000@gmail.com
+                        {t("services.appointment.emailValue")}
                       </div>
                     </div>
                   </div>
@@ -268,10 +250,10 @@ export default function ServicesPage() {
                     </div>
                     <div>
                       <div className="text-xs text-white/70 mb-1">
-                        Telefon raqam
+                        {t("services.appointment.phoneLabel")}
                       </div>
                       <div className="text-sm font-semibold">
-                        +998952817070  +998998026232
+                        {t("services.appointment.phoneValue")}
                       </div>
                     </div>
                   </div>
@@ -289,39 +271,36 @@ export default function ServicesPage() {
             {/* Left Side - Text and Locations */}
             <div>
               <div className="mb-4 text-sm font-bold text-primary uppercase tracking-wider">
-                Bizning joylashuvlarimiz
+                {t("services.locations.subtitle")}
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
-                Bizning klinikamiz markazlarimiz
+                {t("services.locations.title")}
               </h2>
               <p className="text-gray-600 text-lg mb-12 leading-relaxed">
-                Bizning klinikamiz markazlarimiz dunyoning turli qismlarida
-                joylashgan va sizga eng yaqin joyda sifatli tibbiy xizmatni
-                taqdim etamiz.
+                {t("services.locations.description")}
               </p>
 
               {/* Locations Grid */}
               <div className="grid grid-cols-2 gap-6">
                 {[
                   {
-                    city: "Toshkent shahar",
-                    address:
-                      "Toshkent shahar, Chilonzor tumani, Zargarlik koʼchasi 25a",
+                    city: t("services.locations.tashkent"),
+                    address: t("services.locations.tashkentAddress"),
                     color: "bg-primary",
                   },
                   {
-                    city: "Samarqand",
-                    address: "Tez kunda",
+                    city: t("services.locations.samarkand"),
+                    address: t("services.locations.comingSoon"),
                     color: "bg-primary",
                   },
                   {
-                    city: "Toshkent viloyati",
-                    address: "Tez kunda",
+                    city: t("services.locations.tashkentRegion"),
+                    address: t("services.locations.comingSoon"),
                     color: "bg-blue-500",
                   },
                   {
-                    city: "Buxoro",
-                    address: "Tez kunda",
+                    city: t("services.locations.bukhara"),
+                    address: t("services.locations.comingSoon"),
                     color: "bg-blue-500",
                   },
                 ].map((location, i) => (
@@ -378,25 +357,25 @@ export default function ServicesPage() {
                 {[
                   {
                     count: 48,
-                    label: "Shifokorlar",
+                    label: t("services.statistics.doctors"),
                     iconType: "doctor",
                     highlight: false,
                   },
                   {
                     count: 120,
-                    label: "Tibbiy xodimlar",
+                    label: t("services.statistics.medicalStaff"),
                     iconType: "stethoscope",
                     highlight: false,
                   },
                   {
                     count: 92,
-                    label: "Pediatra poliklinikasi",
+                    label: t("services.statistics.pediatricClinics"),
                     iconType: "hospital",
                     highlight: true,
                   },
                   {
                     count: 231,
-                    label: "Xavfsiz kuzatish",
+                    label: t("services.statistics.safeMonitoring"),
                     iconType: "clipboard",
                     highlight: false,
                   },
@@ -450,7 +429,7 @@ export default function ServicesPage() {
                           : ""
                       } pt-16 pb-7 px-6 text-center text-white`}
                     >
-                      <Counter
+                      <CounterWrapper
                         end={stat.count}
                         duration={1200}
                         className="text-4xl sm:text-5xl font-extrabold tracking-tight"
@@ -473,14 +452,13 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <div className="mb-4 text-sm font-bold text-white/80 uppercase tracking-wider">
-              Foydalanuvchilarning fikrlari
+              {t("services.testimonials.subtitle")}
             </div>
             <h2 className="mb-4 text-4xl lg:text-5xl font-bold text-white">
-              Foydalanuvchilarning fikrlari
+              {t("services.testimonials.title")}
             </h2>
             <p className="mx-auto max-w-2xl text-white/90 text-lg">
-              Foydalanuvchilarning fikrlari bizning xizmatlarimiz haqida toʻliq
-              maʼlumotlar olish uchun yordam beradi.
+              {t("services.testimonials.description")}
             </p>
           </div>
 
@@ -492,11 +470,7 @@ export default function ServicesPage() {
               >
                 <CardContent className="p-8">
                   <p className="mb-6 text-muted-foreground leading-relaxed">
-                    Pediatra markaziga muntazam boramiz. Farzandim LFK va massaj
-                    kursidan soʼng holati sezilarli yaxshilandi: qomati
-                    toʼgʼrilandi, uyqu va ishtahasi meʼyoriga keldi. Xodimlar
-                    juda eʼtiborli va har bir jarayonni batafsil tushuntirib
-                    berishadi.
+                    {t("services.testimonials.testimonial")}
                   </p>
                   <div className="flex items-center gap-4">
                     <div className="h-14 w-14 overflow-hidden rounded-full ring-2 ring-primary/20 flex items-center justify-center">
@@ -504,7 +478,7 @@ export default function ServicesPage() {
                     </div>
                     <div>
                       <h4 className="font-bold">Jane Doe</h4>
-                      <p className="text-sm text-muted-foreground">Ota-ona</p>
+                      <p className="text-sm text-muted-foreground">{t("services.testimonials.parent")}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -519,32 +493,31 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <div className="mb-4 text-sm font-bold text-primary uppercase tracking-wider">
-              Narxlar va planlar
+              {t("services.pricing.subtitle")}
             </div>
             <h2 className="mb-4 text-4xl lg:text-5xl font-bold">
-              Narxlar va planlar
+              {t("services.pricing.title")}
             </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
-              Bizning xizmatlarimiz haqida toʻliq maʼlumotlar olish uchun yordam
-              beradi.
+              {t("services.pricing.description")}
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
             <Card className="hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary">
               <CardContent className="p-10">
-                <h3 className="mb-6 text-3xl font-bold">Bolalar massaji</h3>
+                <h3 className="mb-6 text-3xl font-bold">{t("services.childMassage")}</h3>
                 <div className="mb-8">
                   <span className="text-5xl font-bold">$92</span>
                   <span className="text-muted-foreground text-lg">/month</span>
                 </div>
                 <ul className="mb-10 space-y-4">
                   {[
-                    "Bolalar massaji",
-                    "LFK",
-                    "Gidromassaj",
-                    "Trenajor",
-                    "Logoped defektolog",
+                    t("services.childMassage"),
+                    t("services.lfk"),
+                    t("services.hydroMassage"),
+                    t("services.trainer"),
+                    t("services.logoped"),
                   ].map((feature, i) => (
                     <li key={i} className="flex items-center gap-3 text-base">
                       <Check className="h-5 w-5 text-primary flex-shrink-0" />
@@ -553,20 +526,20 @@ export default function ServicesPage() {
                   ))}
                 </ul>
                 <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full shadow-lg">
-                  Batafsil maʼlumot olish
+                  {t("services.pricing.getMoreInfo")}
                 </Button>
               </CardContent>
             </Card>
 
             <Card className="hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary">
               <CardContent className="p-10">
-                <h3 className="mb-6 text-3xl font-bold">LFK</h3>
+                <h3 className="mb-6 text-3xl font-bold">{t("services.lfk")}</h3>
                 <div className="mb-8">
                   <span className="text-5xl font-bold">$82</span>
                   <span className="text-muted-foreground text-lg">/month</span>
                 </div>
                 <ul className="mb-10 space-y-4">
-                  {["LFK", "Gidromassaj", "Trenajor", "Logoped defektolog"].map(
+                  {[t("services.lfk"), t("services.hydroMassage"), t("services.trainer"), t("services.logoped")].map(
                     (feature, i) => (
                       <li key={i} className="flex items-center gap-3 text-base">
                         <Check className="h-5 w-5 text-primary flex-shrink-0" />
@@ -576,7 +549,7 @@ export default function ServicesPage() {
                   )}
                 </ul>
                 <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full shadow-lg">
-                  Batafsil maʼlumot olish
+                  {t("services.pricing.getMoreInfo")}
                 </Button>
               </CardContent>
             </Card>

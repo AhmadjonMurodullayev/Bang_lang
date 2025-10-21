@@ -1,13 +1,33 @@
-"use client";
-
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import ContactForm from "@/components/contact-form";
+import type { Metadata } from "next";
 
-export default function ContactPage() {
-  const t = useTranslations();
+export const metadata: Metadata = {
+  title: "Bog'lanish | Babyland - Bolalar salomatligi markazi",
+  description: "Babyland pediatriya markazi bilan bog'laning. Manzil, telefon raqamlar, email va ish vaqti. Savollar uchun bizga murojaat qiling.",
+  keywords: ["bog'lanish", "manzil", "telefon", "email", "ish vaqti", "pediatriya markazi"],
+  openGraph: {
+    title: "Bog'lanish | Babyland",
+    description: "Biz bilan bog'laning va savollar bering",
+    images: ['/Babyland1.svg'],
+  },
+};
+
+export default async function ContactPage() {
+  const t = await getTranslations();
+  
+  // Safe raw translation getter with fallback
+  const getRawTranslation = (key: string, fallback: unknown) => {
+    try {
+      const value = t.raw(key);
+      return value || fallback;
+    } catch (error) {
+      console.warn(`Raw translation error for key "${key}":`, error);
+      return fallback;
+    }
+  };
   
   return (
     <div className="min-h-screen">
@@ -55,18 +75,21 @@ export default function ContactPage() {
               },
               {
                 icon: <Phone className="h-7 w-7 text-white" />,
-                title: "Bizga qoʼngʼiroq qiling",
-                lines: ["+998952817070 |", "+998998026232"],
+                title: t("contact.callUs"),
+                lines: getRawTranslation("contact.phoneNumbers", ["+998952817070 |", "+998998026232"]),
               },
               {
                 icon: <Mail className="h-7 w-7 text-white" />,
-                title: "Elektron pochta",
-                lines: ["ismoilnigmonov2000@gmail.com"],
+                title: t("contact.email"),
+                lines: [t("contact.emailValue")],
               },
               {
                 icon: <Clock className="h-7 w-7 text-white" />,
-                title: "Ish vaqti",
-                lines: ["Dushanba – Shanba: 08:00", "Yakshanba: 18:00 gacha"],
+                title: t("contact.workingHours"),
+                lines: [
+                  t("contact.workingHoursDesc"), 
+                  t("contact.workingHoursDesc2")
+                ],
               },
             ].map((item, i) => (
               <div
@@ -82,7 +105,7 @@ export default function ContactPage() {
                 <h3 className="mb-2 text-lg font-semibold text-gray-800">
                   {item.title}
                 </h3>
-                {item.lines.map((line, j) => (
+                {item.lines.map((line: string, j: number) => (
                   <p key={j} className="text-sm text-gray-500">
                     {line}
                   </p>
@@ -109,56 +132,24 @@ export default function ContactPage() {
             </Card>
 
             {/* Contact Form */}
-            <Card>
-              <CardContent className="p-8">
-                <h3 className="mb-6 text-2xl font-bold">Xabar yuborish</h3>
-                <p className="mb-6 text-sm text-muted-foreground">
-                  Bizga xabar yuboring, tez orada javob beramiz.
-                </p>
-                <form className="space-y-4">
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <label className="mb-2 block text-sm font-medium">
-                        Toʼliq ism
-                      </label>
-                      <Input placeholder="Ismingiz" />
-                    </div>
-                    <div>
-                      <label className="mb-2 block text-sm font-medium">
-                        Telefon
-                      </label>
-                      <Input type="tel" placeholder="Telefon raqamingiz" />
-                    </div>
-                  </div>
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <label className="mb-2 block text-sm font-medium">
-                        Email
-                      </label>
-                      <Input type="email" placeholder="Emailingiz" />
-                    </div>
-                    <div>
-                      <label className="mb-2 block text-sm font-medium">
-                        Mavzu
-                      </label>
-                      <Input placeholder="Mavzuni kiriting" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium">
-                      Xabar matni
-                    </label>
-                    <textarea
-                      className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm min-h-[120px]"
-                      placeholder="Xabaringizni yozing"
-                    />
-                  </div>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-                    Yuborish
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <ContactForm translations={{
+              sendMessage: t("contact.sendMessage"),
+              sendMessageDesc: t("contact.sendMessageDesc"),
+              fullName: t("contact.fullName"),
+              namePlaceholder: t("contact.namePlaceholder"),
+              phone: t("contact.phone"),
+              phonePlaceholder: t("contact.phonePlaceholder"),
+              emailLabel: t("contact.emailLabel"),
+              emailPlaceholder: t("contact.emailPlaceholder"),
+              subject: t("contact.subject"),
+              subjectPlaceholder: t("contact.subjectPlaceholder"),
+              messageText: t("contact.messageText"),
+              messagePlaceholder: t("contact.messagePlaceholder"),
+              submit: t("contact.submit"),
+              submitting: t("contact.submitting"),
+              successMessage: t("contact.successMessage"),
+              errorMessage: t("contact.errorMessage")
+            }} />
           </div>
         </div>
       </section>

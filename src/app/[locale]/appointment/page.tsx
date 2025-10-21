@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+// Removed unused imports
 import {
   Mail,
   Phone,
@@ -10,9 +8,35 @@ import {
   ClipboardCheck,
 } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import { getTranslations } from 'next-intl/server';
+import AppointmentForm from "@/components/appointment-form";
+import type { Metadata } from "next";
 
-const Appointment = () => {
+export const metadata: Metadata = {
+  title: "Navbat olish | Babyland - Bolalar salomatligi markazi",
+  description: "Babyland pediatriya markazida navbat oling. Online navbat olish, telefon orqali yozilish va maslahat olish.",
+  keywords: ["navbat olish", "online navbat", "pediatriya navbat", "bolalar doktori", "maslahat"],
+  openGraph: {
+    title: "Navbat olish | Babyland",
+    description: "Online navbat olish va maslahat olish",
+    images: ['/Babyland1.svg'],
+  },
+};
+
+export default async function Appointment() {
+  const t = await getTranslations();
+  
+  // Safe raw translation getter with fallback
+  const getRawTranslation = (key: string, fallback: unknown) => {
+    try {
+      const value = t.raw(key);
+      return value || fallback;
+    } catch (error) {
+      console.warn(`Raw translation error for key "${key}":`, error);
+      return fallback;
+    }
+  };
+  
   return (
     <>
       <section
@@ -28,11 +52,11 @@ const Appointment = () => {
         className=" py-24"
       >
         <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-4 text-5xl font-bold text-white">Navbat olish</h1>
+          <h1 className="mb-4 text-5xl font-bold text-white">{t("appointment.title")}</h1>
           <div className="flex items-center justify-center gap-2 text-white/90">
-            <span>Bosh sahifa</span>
+            <span>{t("common.home")}</span>
             <span>{">"}</span>
-            <span>Navbat olish</span>
+            <span>{t("appointment.title")}</span>
           </div>
         </div>
       </section>
@@ -41,83 +65,43 @@ const Appointment = () => {
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-2 items-start">
             {/* Form */}
-            <Card className="shadow-2xl border-0">
-              <CardContent className="p-10">
-                <form className="space-y-6">
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    <div>
-                      <label className="mb-2 block text-sm font-semibold">
-                        Toʼliq ism
-                      </label>
-                      <Input placeholder="Ismingiz" className="h-12" />
-                    </div>
-                    <div>
-                      <label className="mb-2 block text-sm font-semibold">
-                        Email
-                      </label>
-                      <Input
-                        type="email"
-                        placeholder="Emailingiz"
-                        className="h-12"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-semibold">
-                      Xizmat
-                    </label>
-                    <select className="w-full h-12 rounded-lg border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
-                      <option>Xizmatni tanlang</option>
-                      <option>Bolalar parvarishi</option>
-                      <option>Emlash</option>
-                      <option>Tekshiruv</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-semibold">
-                      Sana
-                    </label>
-                    <Input type="date" className="h-12" />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-semibold">
-                      Qoʼshimcha soʼrov
-                    </label>
-                    <textarea
-                      className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm min-h-[200px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                      placeholder="Xabaringiz"
-                    />
-                  </div>
-                  <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full shadow-lg">
-                    Navbat olish
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <AppointmentForm translations={{
+              fullName: t("appointment.fullName"),
+              namePlaceholder: t("appointment.namePlaceholder"),
+              phoneNumber: t("appointment.phoneNumber"),
+              phonePlaceholder: t("appointment.phonePlaceholder"),
+              service: t("appointment.service"),
+              selectService: t("appointment.selectService"),
+              date: t("appointment.date"),
+              additionalRequest: t("appointment.additionalRequest"),
+              messagePlaceholder: t("appointment.messagePlaceholder"),
+              submit: t("appointment.submit"),
+              submitting: t("appointment.submitting"),
+              successMessage: t("appointment.successMessage"),
+              errorMessage: t("appointment.errorMessage"),
+                  services: getRawTranslation("appointment.services", ["Bolalar parvarishi", "Emlash", "Tekshiruv"])
+            }} />
 
             {/* Info */}
             <div className="text-black">
               <div className="mb-4 text-sm font-bold uppercase tracking-wider">
-                Hozir navbat
+                {t("appointment.subtitle")}
               </div>
               <h2 className="mb-6 text-4xl lg:text-5xl font-bold">
-                Navbat belgilang
+                {t("appointment.bookAppointment")}
               </h2>
               <p className="mb-7 text-black/90 leading-relaxed text-lg">
-                Sog‘lom hayot sari birinchi qadamni biz bilan tashlang! Navbat
-                olish uchun shakldagi maʼlumotlarni to‘ldiring va qulay vaqtda
-                professional tibbiy xizmatlardan foydalaning. Sifatli parvarish
-                va e’tiborli yondashuv har bir bemor uchun kafolatlanadi.
+                {t("appointment.description")}
               </p>
 
               <div className="mb-5">
-                <h3 className="mb-6 text-2xl font-bold">Ish vaqti</h3>
-                <div className="space-y-4">
-                  {[
-                    { day: "Dushanba - Juma", time: "08:00 - 18:00" },
-                    { day: "Shanba", time: "08:00 - 15:00" },
-                    { day: "Yakshanba", time: "dam olish kuni" },
-                  ].map((schedule, i) => (
+                <h3 className="mb-6 text-2xl font-bold">{t("appointment.workingHours")}</h3>
+                    <div className="space-y-4">
+                      {getRawTranslation("appointment.schedule", [
+                        { day: "Dushanba - Juma", time: "08:00 - 18:00" },
+                        { day: "Shanba", time: "08:00 - 15:00" },
+                        { day: "Yakshanba", time: "dam olish kuni" }
+                      ]).map((schedule: { day: string; time: string }, i: number) => (
                     <div
                       key={i}
                       className="flex justify-between items-center py-2 border-b border-white/20"
@@ -130,9 +114,9 @@ const Appointment = () => {
               </div>
 
               <div className="mb-5">
-                <h3 className="mb-4 text-2xl font-bold">Qoʼllab-quvvatlash</h3>
+                <h3 className="mb-4 text-2xl font-bold">{t("appointment.support")}</h3>
                 <p className="mb-4 text-black/90 leading-relaxed">
-                  Savollaringiz boʼlsa, biz bilan bogʼlaning.
+                  {t("appointment.supportDescription")}
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="flex items-center gap-4 rounded-2xl bg-white/10 p-5 backdrop-blur-sm border border-white/20">
@@ -141,10 +125,10 @@ const Appointment = () => {
                     </div>
                     <div>
                       <div className="text-xs text-black/70 mb-1">
-                        Email manzil
+                        {t("appointment.emailLabel")}
                       </div>
                       <div className="text-sm font-semibold">
-                        ismoilnigmonov2000@gmail.com
+                        {t("appointment.emailValue")}
                       </div>
                     </div>
                   </div>
@@ -154,9 +138,9 @@ const Appointment = () => {
                     </div>
                     <div>
                       <div className="text-xs text-black/70 mb-1">
-                        Telefon raqam
+                        {t("appointment.phoneLabel")}
                       </div>
-                      <div className="text-sm font-semibold">+998952817070</div>
+                      <div className="text-sm font-semibold">{t("appointment.phoneValue")}</div>
                     </div>
                   </div>
                 </div>
@@ -185,43 +169,33 @@ const Appointment = () => {
             {/* Content */}
             <div className="space-y-6">
               <div className="text-sm font-bold text-primary uppercase tracking-wider">
-                Bu yerda uchrashuvga yozilish bo&apos;yicha batafsil ma&apos;lumotlar
-                bilan tanishishingiz mumkin.
+                {t("appointment.howToBook.subtitle")}
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold text-balance leading-tight">
-                Qanday qilib uchrashuvga yozilish mumkin?
+                {t("appointment.howToBook.title")}
               </h2>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                Pediatr qabuliga yozilish uchun quyidagi oddiy bosqichlarni
-                bajaring: Sizga eng yaqin pediatrni toping, kerakli xizmatlarni
-                tanlang va uchrashuvga yoziling. Belgilangan vaqtda shifokor
-                bilan uchrashing va o&apos;zingiz va farzandingiz sog&apos;lig&apos;i uchun
-                kerakli maslahatlarni oling. Jarayon tez, oson va qulay!
+                {t("appointment.howToBook.description")}
               </p>
 
-              <div className="space-y-6 pt-4">
-                {[
-                  {
-                    step: "01",
-                    title: "Eng yaqin pediatrni topish",
-                    icon: Search,
-                  },
-                  {
-                    step: "02",
-                    title: "Xizmatlarni tanlash     ",
-                    icon: ClipboardCheck,
-                  },
-                  { step: "03", title: "Navbat olish", icon: Calendar },
-                  { step: "04", title: "Shifokor bilan uchrashish", icon: Users },
-                ].map((item, i) => (
+                  <div className="space-y-6 pt-4">
+                    {getRawTranslation("appointment.howToBook.steps", [
+                      { step: "01", title: "Eng yaqin pediatrni topish" },
+                      { step: "02", title: "Xizmatlarni tanlash" },
+                      { step: "03", title: "Navbat olish" },
+                      { step: "04", title: "Shifokor bilan uchrashish" }
+                    ]).map((step: { step: string; title: string }, i: number) => (
                   <div key={i} className="flex gap-4 items-center">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white font-bold text-lg flex-shrink-0">
-                      {item.step}
+                      {step.step}
                     </div>
                     <div className="flex items-center gap-3">
-                      <item.icon className="h-6 w-6 text-primary" />
+                      {i === 0 && <Search className="h-6 w-6 text-primary" />}
+                      {i === 1 && <ClipboardCheck className="h-6 w-6 text-primary" />}
+                      {i === 2 && <Calendar className="h-6 w-6 text-primary" />}
+                      {i === 3 && <Users className="h-6 w-6 text-primary" />}
                       <h4 className="font-semibold text-foreground text-lg">
-                        {item.title}
+                        {step.title}
                       </h4>
                     </div>
                   </div>
@@ -233,6 +207,4 @@ const Appointment = () => {
       </section>
     </>
   );
-};
-
-export default Appointment;
+}
