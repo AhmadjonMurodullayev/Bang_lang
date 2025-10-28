@@ -40,14 +40,8 @@ export const metadata: Metadata = {
     description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
     url: 'https://babyland.uz',
     siteName: 'Babyland',
-    images: [
-      {
-        url: '/Babyland1.svg',
-        width: 1200,
-        height: 630,
-        alt: 'Babyland Logo',
-      },
-    ],
+  
+    images: "novbat.jpg",
     locale: 'uz_UZ',
     type: 'website',
   },
