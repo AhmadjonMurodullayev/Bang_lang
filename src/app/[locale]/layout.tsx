@@ -18,23 +18,8 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Babyland - Bolalar salomatligi markazi",
   description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari. Bolalar massaji, LFK, emlash va boshqa tibbiy xizmatlar.",
-  keywords: ["pediatriya", "bolalar doktori", "bolalar massaji", "LFK", "emlash", "Toshkent", "pediatra klinika"],
-  authors: [{ name: "Babyland" }],
-  creator: "Babyland",
-  publisher: "Babyland",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://babyland.uz'),
-  alternates: {
-    canonical: '/',
-    languages: {
-      'uz': '/uz',
-      'ru': '/ru',
-    },
-  },
+  // ... qolgan metadata o'zgarmaydi
+  
   openGraph: {
     title: "Babyland - Bolalar salomatligi markazi",
     description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
@@ -42,7 +27,7 @@ export const metadata: Metadata = {
     siteName: 'Babyland',
     images: [
       {
-        url: '/novbat.jpg',
+        url: 'https://babyland.uz/novbat.jpg', // To'liq URL
         width: 1200,
         height: 630,
         alt: 'Babyland - Bolalar salomatligi markazi'
@@ -55,26 +40,72 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Babyland - Bolalar salomatligi markazi",
     description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
-    images: ['/hero-image.png'],
+    images: ['https://babyland.uz/novbat.jpg'], // To'liq URL
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  icons: {
-    icon: '/Babyland1.svg',
-    shortcut: '/Babyland1.svg',
-    apple: '/Babyland1.svg',
-  },
-  manifest: '/manifest.json',
+  
+  // ... qolgan qismlari
 };
+
+// export const metadata: Metadata = {
+//   title: "Babyland - Bolalar salomatligi markazi",
+//   description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari. Bolalar massaji, LFK, emlash va boshqa tibbiy xizmatlar.",
+//   keywords: ["pediatriya", "bolalar doktori", "bolalar massaji", "LFK", "emlash", "Toshkent", "pediatra klinika"],
+//   authors: [{ name: "Babyland" }],
+//   creator: "Babyland",
+//   publisher: "Babyland",
+//   formatDetection: {
+//     email: false,
+//     address: false,
+//     telephone: false,
+//   },
+//   metadataBase: new URL('https://babyland.uz'),
+//   alternates: {
+//     canonical: '/',
+//     languages: {
+//       'uz': '/uz',
+//       'ru': '/ru',
+//     },
+//   },
+//   openGraph: {
+//     title: "Babyland - Bolalar salomatligi markazi",
+//     description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
+//     url: 'https://babyland.uz',
+//     siteName: 'Babyland',
+//     images: [
+//       {
+//         url: '/novbat.jpg',
+//         width: 1200,
+//         height: 630,
+//         alt: 'Babyland - Bolalar salomatligi markazi'
+//       }
+//     ],
+//     locale: 'uz_UZ',
+//     type: 'website',
+//   },
+//   twitter: {
+//     card: 'summary_large_image',
+//     title: "Babyland - Bolalar salomatligi markazi",
+//     description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
+//     images: ['/novbat.jpg'],
+//   },
+//   robots: {
+//     index: true,
+//     follow: true,
+//     googleBot: {
+//       index: true,
+//       follow: true,
+//       'max-video-preview': -1,
+//       'max-image-preview': 'large',
+//       'max-snippet': -1,
+//     },
+//   },
+//   icons: {
+//     icon: '/Babyland1.svg',
+//     shortcut: '/Babyland1.svg',
+//     apple: '/Babyland1.svg',
+//   },
+//   manifest: '/manifest.json',
+// };
 
 export default async function LocaleLayout({
   children,
