@@ -40,8 +40,14 @@ export const metadata: Metadata = {
     description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
     url: 'https://babyland.uz',
     siteName: 'Babyland',
-  
-    images: "novbat.jpg",
+    images: [
+      {
+        url: '/novbat.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Babyland - Bolalar salomatligi markazi'
+      }
+    ],
     locale: 'uz_UZ',
     type: 'website',
   },
@@ -49,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Babyland - Bolalar salomatligi markazi",
     description: "Farzandingiz salomatligi uchun professional pediatriya xizmatlari",
-    images: ['/Babyland1.svg'],
+    images: ['/hero-image.png'],
   },
   robots: {
     index: true,
