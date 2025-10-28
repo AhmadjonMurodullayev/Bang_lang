@@ -56,7 +56,7 @@ export default async function AboutPage() {
             <div className="relative">
               <div className="relative aspect-[3/4] overflow-hidden rounded-3xl shadow-soft max-w-md mx-auto">
                 <Image
-                  src="/mother-giving-medicine-to-child.jpg"
+                  src="/Kasimov_photography-155.jpg"
                   alt="Mother and child"
                   fill
                   className="object-cover"
@@ -101,7 +101,7 @@ export default async function AboutPage() {
               <div className="flex items-center gap-4 pt-8">
                 <div className="h-14 w-14 overflow-hidden rounded-full border-2 border-primary/20">
                   <Image
-                    src="/female-doctor.png"
+                    src="/doctor9.jpg"
                     alt="Dr. Monica Hopkins"
                     width={56}
                     height={56}
@@ -146,28 +146,28 @@ export default async function AboutPage() {
                 specialty: t("about.doctors.generalDoctor"),
                 consultations: 2214,
                 rating: 4.8,
-                image: "/female-doctor.png"
+                image: "/doctor1.jpg"
               },
               {
                 name: "Dr. Maysa Azer", 
                 specialty: t("about.doctors.pediatrician"),
                 consultations: 1324,
                 rating: 5.0,
-                image: "/female-doctor-portrait.png"
+                image: "/doctor2.jpg"
               },
               {
                 name: "Dr. Ayda Ortega",
                 specialty: t("about.doctors.pathology"), 
                 consultations: 824,
                 rating: 4.7,
-                image: "/thoughtful-doctor.png"
+                image: "/doctor3.jpg"
               },
               {
                 name: "Dr. Valeria Costa",
                 specialty: t("about.doctors.cardiology"),
                 consultations: 974,
                 rating: 4.6,
-                image: "/female-doctor.png"
+                image: "/doctor4.jpg"
               }
             ].map((doctor, i) => (
               <Card
@@ -276,7 +276,7 @@ export default async function AboutPage() {
                 {/* Doctor Image */}
                 <div className="relative aspect-[3/4] overflow-hidden rounded-tl-3xl rounded-bl-3xl shadow-lg">
                   <Image
-                    src="/doctor-with-child-patient.jpg"
+                    src="/novbat.jpg"
                     alt="Doctor consultation"
                     fill
                     className="object-cover"

@@ -93,7 +93,7 @@ export default async function HomePage() {
                   <div className="absolute  rounded-full  "></div>
                   <div className="relative aspect-[4/4] overflow-hidden rounded-3xl ">
                     <Image
-                      src="/hero-image.png"
+                      src="/Kasimov_photography-120.jpg"
                       alt="Doctor with child"
                       width={500}
                       height={350}
@@ -138,7 +138,7 @@ export default async function HomePage() {
               {/* Main image */}
               <div className="relative aspect-[3/4] overflow-hidden rounded-3xl shadow-2xl max-w-md">
                 <Image
-                  src="/doctor-with-child-patient.jpg"
+                  src="/Kasimov_photography-155.jpg"
                   alt="Doctor with child"
                   width={500}
                   height={667}
@@ -207,7 +207,7 @@ export default async function HomePage() {
                 <div className="hidden lg:flex justify-end items-start">
                   <div className="w-56 h-56 rounded-2xl overflow-hidden shadow-xl">
                     <Image
-                      src="/doctor-with-child-patient.jpg"
+                      src="/Kasimov_photography-86.jpg"
                       alt="Doctor with baby"
                       width={224}
                       height={224}
@@ -221,7 +221,7 @@ export default async function HomePage() {
               <div className="flex items-center gap-4 pt-8">
                 <div className="h-14 w-14 overflow-hidden rounded-full border-2 border-primary/20">
                   <Image
-                    src="/female-doctor.png"
+                    src="/doctor10.jpg"
                     alt="Dr. Monica Hopkins"
                     width={56}
                     height={56}
@@ -612,9 +612,11 @@ export default async function HomePage() {
           <div className="grid gap-16 lg:grid-cols-2 items-center">
             {/* Image */}
             <div className="relative">
-              <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-soft">
+              <div className="aspect-[4/4] overflow-hidden rounded-3xl shadow-soft">
                 <Image
-                  src="/pediatrician-with-child-patient.jpg"
+                  // src="/pediatrician-with-child-patient.jpg"
+                  src="/novbat.jpg"
+                  // src="/novbat2.jpg"
                   alt="Doctor with tablet and child"
                   width={600}
                   height={450}
