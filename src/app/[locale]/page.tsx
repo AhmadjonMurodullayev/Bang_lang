@@ -93,7 +93,8 @@ export default async function HomePage() {
                   <div className="absolute  rounded-full  "></div>
                   <div className="relative aspect-[4/4] overflow-hidden rounded-3xl ">
                     <Image
-                      src="/Kasimov_photography-120.jpg"
+                      // src="/Kasimov_photography-120.jpg"
+                      src="/home.png"
                       alt="Doctor with child"
                       width={500}
                       height={350}

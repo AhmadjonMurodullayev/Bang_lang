@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: 'Babyland',
     images: [
       {
-        url: 'https://babyland.uz/novbat.jpg', // To'liq URL
+        url: '/novbat.jpg', // To'liq URL
         width: 1200,
         height: 630,
         alt: 'Babyland - Bolalar salomatligi markazi'

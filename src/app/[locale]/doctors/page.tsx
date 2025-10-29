@@ -13,7 +13,7 @@ import {
   Twitter,
 } from "lucide-react";
 import Link from "next/link";
-import { getTranslations } from 'next-intl/server';
+import { getTranslations } from "next-intl/server";
 import CounterWrapper from "@/components/counter-wrapper";
 import childIcon from "@/assets/icons/child.png";
 import vaccinationsIcon from "@/assets/icons/vaccinations.png";
@@ -25,18 +25,24 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Shifokorlar | Babyland - Bolalar salomatligi markazi",
-  description: "Babyland pediatriya markazining professional shifokorlari. Tajribali bolalar doktorlari va tibbiy mutaxassislar.",
-  keywords: ["bolalar doktori", "pediatriya shifokorlari", "professional doktorlar", "tibbiy mutaxassislar"],
+  description:
+    "Babyland pediatriya markazining professional shifokorlari. Tajribali bolalar doktorlari va tibbiy mutaxassislar.",
+  keywords: [
+    "bolalar doktori",
+    "pediatriya shifokorlari",
+    "professional doktorlar",
+    "tibbiy mutaxassislar",
+  ],
   openGraph: {
     title: "Shifokorlar | Babyland",
     description: "Professional pediatriya shifokorlari",
-    images: ['/Babyland1.svg'],
+    images: ["/Babyland1.svg"],
   },
 };
 
 export default async function Doctors() {
   const t = await getTranslations();
-  
+
   return (
     <>
       <section
@@ -52,7 +58,9 @@ export default async function Doctors() {
         className=" py-20"
       >
         <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-4 text-5xl font-bold text-white">{t("common.doctors")}</h1>
+          <h1 className="mb-4 text-5xl font-bold text-white">
+            {t("common.doctors")}
+          </h1>
           <div className="flex items-center justify-center gap-2 text-white/90">
             <span>{t("common.home")}</span>
             <span>{">"}</span>
@@ -67,9 +75,7 @@ export default async function Doctors() {
             <div className="mb-4 text-sm font-semibold text-primary">
               {t("doctors.subtitle")}
             </div>
-            <h2 className="mb-4 text-4xl font-bold">
-              {t("doctors.title")}
-            </h2>
+            <h2 className="mb-4 text-4xl font-bold">{t("doctors.title")}</h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
               {t("doctors.description")}
             </p>
@@ -78,76 +84,82 @@ export default async function Doctors() {
           <div className="grid text-center  gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                name: "Dr. Marlie Varga",
+                name: "Rahmatova Dildora ",
                 specialty: t("doctors.specialties.generalDoctor"),
                 consultations: 2214,
                 rating: 4.8,
                 image: "/doctor1.jpg",
               },
               {
-                name: "Dr. Maysa Azer",
+                name: "Toirjonova Nilufar",
                 specialty: t("doctors.specialties.pediatrician"),
                 consultations: 1324,
                 rating: 5.0,
                 image: "/doctor2.jpg",
               },
               {
-                name: "Dr. Ayda Ortega",
+                name: "Asatillayev Ulug'bek ",
                 specialty: t("doctors.specialties.pathology"),
                 consultations: 824,
                 rating: 4.7,
                 image: "/doctor3.jpg",
               },
               {
-                name: "Dr. Valeria Costa",
+                name: "Qodirov Tolibjon",
                 specialty: t("doctors.specialties.cardiology"),
                 consultations: 974,
                 rating: 4.6,
                 image: "/doctor6.jpg",
               },
               {
-                name: "Dr. Marlie Varga",
+                name: "Davurova Umida ",
                 specialty: t("doctors.specialties.generalDoctor"),
                 consultations: 2214,
                 rating: 4.8,
                 image: "/doctor5.jpg",
               },
               {
-                name: "Dr. Maysa Azer",
+                name: "Xasanova Shaxnoza ",
                 specialty: t("doctors.specialties.pediatrician"),
                 consultations: 1324,
                 rating: 5.0,
                 image: "/doctor4.jpg",
               },
               {
-                name: "Dr. Ayda Ortega",
+                name: "Mirzaaxmedova Yulduz ",
                 specialty: t("doctors.specialties.pathology"),
                 consultations: 824,
                 rating: 4.7,
                 image: "/doctor7.jpg",
               },
               {
-                name: "Dr. Valeria Costa",
+                name: "Maxmudova Durdona",
                 specialty: t("doctors.specialties.cardiology"),
                 consultations: 974,
                 rating: 4.6,
                 image: "/doctor8.jpg",
               },
-                {
-                name: "Dr. Valeria Costa",
+              {
+                name: "Muzaffar G'ofurjonov",
                 specialty: t("doctors.specialties.cardiology"),
                 consultations: 974,
                 rating: 4.6,
                 image: "/doctor9.jpg",
               },
-                {
-                name: "Dr. Valeria Costa",
+              {
+                name: "Yaqubova Sayyora",
                 specialty: t("doctors.specialties.cardiology"),
                 consultations: 974,
                 rating: 4.6,
                 image: "/doctor10.jpg",
               },
-              
+              {
+                name: "Nigmonov Ismoil",
+                specialty: t("doctors.specialties.cardiology"),
+                consultations: 974,
+                rating: 4.6,
+                image: "/doctor11.jpg",
+              },
             ].map((doctor, i) => (
               <Card
                 key={i}
@@ -340,7 +352,10 @@ export default async function Doctors() {
               { image: allergyIcon, label: t("doctors.services.hydroMassage") },
               { image: screeningsIcon, label: t("doctors.services.trainer") },
               { image: pathologyIcon, label: t("doctors.services.logoped") },
-              { image: cardiologyIcon, label: t("doctors.services.acupuncture") },
+              {
+                image: cardiologyIcon,
+                label: t("doctors.services.acupuncture"),
+              },
             ].map((service, i) => (
               <div key={i} className="group cursor-pointer">
                 <div className="bg-white rounded-2xl p-8 shadow-sm border-2 border-transparent hover:border-primary hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
@@ -364,7 +379,7 @@ export default async function Doctors() {
           </div>
         </div>
       </section>
-      
+
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="bg-gray-50 rounded-3xl p-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
