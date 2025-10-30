@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Facebook, Twitter, Instagram, Linkedin, Phone, Clock } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Link as IntlLink } from '@/i18n/routing';
@@ -32,12 +33,12 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div>
-            <IntlLink href="/" className="mb-4 flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <div className="text-2xl font-bold text-white">+</div>
-              </div>
-              <span className="text-2xl font-bold">Pediatra</span>
-            </IntlLink>
+            <Link href="/" className="mb-4 flex items-center gap-2">
+                <div className="text-2xl font-bold text-white">
+                  <Image src="/Babyland1.svg" alt="Logo" width={50} height={50} />
+                </div>
+                <span className="text-2xl font-bold">Babyland</span>
+            </Link>
             <p className="mb-6 text-sm text-slate-400">{t("footer.brandDescription")}</p>
             <div className="flex gap-3">
               <Link

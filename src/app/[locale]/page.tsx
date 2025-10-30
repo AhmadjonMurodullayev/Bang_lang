@@ -162,46 +162,35 @@ export default async function HomePage() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-4 pt-4">
                 <div className="space-y-4">
-                  <div className="flex gap-3 items-start">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary flex-shrink-0 mt-0.5">
-                      <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
-                    </div>
-                    <h4 className="font-semibold text-gray-700 text-sm">
-                      {t("common.preventChildObesity")}
-                    </h4>
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary flex-shrink-0 mt-0.5">
-                      <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
-                    </div>
-                    <h4 className="font-semibold text-gray-700 text-sm">
-                      {t("common.diabetesSignsInChildren")}
-                    </h4>
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary flex-shrink-0 mt-0.5">
-                      <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
-                    </div>
-                    <h4 className="font-semibold text-gray-700 text-sm">
-                      {t("common.newbornCare")}
-                    </h4>
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary flex-shrink-0 mt-0.5">
-                      <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
-                    </div>
-                    <h4 className="font-semibold text-gray-700 text-sm">
-                      {t("common.adhdScreeningInChildren")}
-                    </h4>
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary flex-shrink-0 mt-0.5">
-                      <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
-                    </div>
-                    <h4 className="font-semibold text-gray-700 text-sm">
-                      {t("common.supportForClients")}
-                    </h4>
-                  </div>
+                  {(() => {
+                    try {
+                      const items = (t.raw("about.items") as string[]) || [];
+                      if (items.length > 0) {
+                        return items.map((text, i) => (
+                          <div key={i} className="flex gap-3 items-start">
+                            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary flex-shrink-0 mt-0.5">
+                              <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
+                            </div>
+                            <h4 className="font-semibold text-gray-700 text-sm">{text}</h4>
+                          </div>
+                        ));
+                      }
+                    } catch {}
+                    return [
+                      t("common.preventChildObesity"),
+                      t("common.diabetesSignsInChildren"),
+                      t("common.newbornCare"),
+                      t("common.adhdScreeningInChildren"),
+                      t("common.supportForClients"),
+                    ].map((text, i) => (
+                      <div key={i} className="flex gap-3 items-start">
+                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary flex-shrink-0 mt-0.5">
+                          <Check className="h-3.5 w-3.5 text-white stroke-[3]" />
+                        </div>
+                        <h4 className="font-semibold text-gray-700 text-sm">{text}</h4>
+                      </div>
+                    ));
+                  })()}
                 </div>
 
                 {/* Small image on right */}
@@ -218,35 +207,13 @@ export default async function HomePage() {
                 </div>
               </div>
 
+              {/* Closing paragraph */}
+              <p className="text-gray-600 leading-relaxed text-base pt-2">
+                {(() => { try { return t("about.closing"); } catch { return ""; } })()}
+              </p>
+
               {/* Doctor Info */}
-              <div className="flex items-center gap-4 pt-8">
-                <div className="h-14 w-14 overflow-hidden rounded-full border-2 border-primary/20">
-                  <Image
-                    src="/doctor10.jpg"
-                    alt="Dr. Monica Hopkins"
-                    width={56}
-                    height={56}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-800 text-base">
-                    Dr. Monika Hopkins
-                  </h4>
-                  <p className="text-sm text-primary font-medium">
-                    {t("about.founder")}
-                  </p>
-                </div>
-                <div className="ml-auto">
-                  <Image
-                    src="/signature.jpg"
-                    alt="Signature"
-                    width={120}
-                    height={40}
-                    className="h-10 opacity-60"
-                  />
-                </div>
-              </div>
+            
             </div>
           </div>
         </div>

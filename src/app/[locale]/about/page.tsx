@@ -1,45 +1,50 @@
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Check,
-  Facebook,
-  Twitter,
-  Instagram,
-  Star,
-} from "lucide-react";
+import { Check, Facebook, Twitter, Instagram, Star } from "lucide-react";
 import Image from "next/image";
-import { getTranslations } from 'next-intl/server';
+import { getTranslations } from "next-intl/server";
 import StatsCard from "@/components/stats-card";
 import FAQ from "@/components/faq";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Biz haqimizda | Babyland - Bolalar salomatligi markazi",
-  description: "Babyland pediatriya markazi haqida batafsil ma'lumot. Professional shifokorlar, zamonaviy jihozlar va sifatli tibbiy xizmatlar.",
-  keywords: ["pediatriya markazi", "bolalar doktori", "tibbiy xizmatlar", "professional shifokorlar", "Toshkent"],
+  description:
+    "Babyland pediatriya markazi haqida batafsil ma'lumot. Professional shifokorlar, zamonaviy jihozlar va sifatli tibbiy xizmatlar.",
+  keywords: [
+    "pediatriya markazi",
+    "bolalar doktori",
+    "tibbiy xizmatlar",
+    "professional shifokorlar",
+    "Toshkent",
+  ],
   openGraph: {
     title: "Biz haqimizda | Babyland",
     description: "Babyland pediatriya markazi haqida batafsil ma'lumot",
-    images: ['/Babyland1.svg'],
+    images: ["/Babyland1.svg"],
   },
 };
 
 export default async function AboutPage() {
   const t = await getTranslations();
-  
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section   style={{
-            backgroundImage: 'url("/backround.png")',
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            height: "400px",
-            display: "flex",
-            alignItems: "center"
-          }}>
+      <section
+        style={{
+          backgroundImage: 'url("/backround.png")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: "400px",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
         <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-4 text-5xl font-bold text-white">{t("common.about")}</h1>
+          <h1 className="mb-4 text-5xl font-bold text-white">
+            {t("common.about")}
+          </h1>
           <div className="flex items-center justify-center gap-2 text-white/90">
             <span>{t("common.home")}</span>
             <span>{">"}</span>
@@ -71,8 +76,12 @@ export default async function AboutPage() {
 
             {/* Content */}
             <div>
-              <div className="mb-4 text-sm font-semibold text-primary">{t("about.subtitle")}</div>
-              <h2 className="mb-6 text-4xl font-bold text-balance">{t("about.title")}</h2>
+              <div className="mb-4 text-sm font-semibold text-primary">
+                {t("about.subtitle")}
+              </div>
+              <h2 className="mb-6 text-4xl font-bold text-balance">
+                {t("about.title")}
+              </h2>
               <p className="mb-8 text-muted-foreground leading-relaxed">
                 {t("about.description")}
               </p>
@@ -83,8 +92,12 @@ export default async function AboutPage() {
                     <Check className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="mb-1 font-semibold">{t("about.allDoctors")}</h4>
-                    <p className="text-sm text-muted-foreground">{t("about.allDoctorsDesc")}</p>
+                    <h4 className="mb-1 font-semibold">
+                      {t("about.allDoctors")}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {t("about.allDoctorsDesc")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -92,8 +105,12 @@ export default async function AboutPage() {
                     <Check className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="mb-1 font-semibold">{t("about.ePrescription")}</h4>
-                    <p className="text-sm text-muted-foreground">{t("about.ePrescriptionDesc")}</p>
+                    <h4 className="mb-1 font-semibold">
+                      {t("about.ePrescription")}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {t("about.ePrescriptionDesc")}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -109,8 +126,12 @@ export default async function AboutPage() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-800 text-base">Dr. Monica Hopkins</h4>
-                  <p className="text-sm text-primary font-medium">{t("about.founder")}</p>
+                  <h4 className="font-bold text-gray-800 text-base">
+                    Dr. Monica Hopkins
+                  </h4>
+                  <p className="text-sm text-primary font-medium">
+                    {t("about.founder")}
+                  </p>
                 </div>
                 <div className="ml-auto">
                   <Image
@@ -128,47 +149,52 @@ export default async function AboutPage() {
       </section>
 
       {/* Why Choose Section */}
-  
 
       {/* Doctors Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <div className="mb-4 text-sm font-semibold text-primary">{t("about.doctors.subtitle")}</div>
-            <h2 className="mb-4 text-4xl font-bold">{t("about.doctors.title")}</h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">{t("about.doctors.description")}</p>
+            <div className="mb-4 text-sm font-semibold text-primary">
+              {t("about.doctors.subtitle")}
+            </div>
+            <h2 className="mb-4 text-4xl font-bold">
+              {t("about.doctors.title")}
+            </h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              {t("about.doctors.description")}
+            </p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                name: "Dr. Marlie Varga",
-                specialty: t("about.doctors.generalDoctor"),
+                name: "Raxmatova Dildora",
+                specialty: t("doctors.specialties.rehabMasseur"),
                 consultations: 2214,
                 rating: 4.8,
-                image: "/doctor1.jpg"
+                image: "/doctor1.jpg",
               },
               {
-                name: "Dr. Maysa Azer", 
-                specialty: t("about.doctors.pediatrician"),
+                name: "Toirjonova Nilufar",
+                specialty: t("doctors.specialties.childMassageNurse"),
                 consultations: 1324,
                 rating: 5.0,
-                image: "/doctor2.jpg"
+                image: "/doctor2.jpg",
               },
               {
-                name: "Dr. Ayda Ortega",
-                specialty: t("about.doctors.pathology"), 
+                name: "Asatillayev Ulug'bek",
+                specialty: t("doctors.specialties.lfkInstructor"),
                 consultations: 824,
                 rating: 4.7,
-                image: "/doctor3.jpg"
+                image: "/doctor3.jpg",
               },
               {
-                name: "Dr. Valeria Costa",
-                specialty: t("about.doctors.cardiology"),
+                name: "Xasanova Shaxnoza",
+                specialty: t("doctors.specialties.childMassageNurse"),
                 consultations: 974,
                 rating: 4.6,
-                image: "/doctor4.jpg"
-              }
+                image: "/doctor4.jpg",
+              },
             ].map((doctor, i) => (
               <Card
                 key={i}
@@ -181,7 +207,7 @@ export default async function AboutPage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  
+
                   {/* Hover Overlay with Social Icons */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex gap-4">
@@ -196,22 +222,28 @@ export default async function AboutPage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Doctor Info Overlay */}
                   <div className="absolute bottom-0 rounded-2xl left-0 right-0 bg-gradient-to-r from-blue-600 to-blue-300 p-4">
-                    <h3 className="text-lg font-bold text-white mb-1">{doctor.name}</h3>
+                    <h3 className="text-lg font-bold text-white mb-1">
+                      {doctor.name}
+                    </h3>
                     <p className="text-sm text-white/90">{doctor.specialty}</p>
                   </div>
                 </div>
-                
+
                 <CardContent>
                   <div className="flex items-center gap-2 mb-3">
                     <Check className="h-4 w-4 text-emerald-600" />
-                    <span className="text-sm text-gray-600">{doctor.consultations} {t("about.doctors.consultations")}</span>
+                    <span className="text-sm text-gray-600">
+                      {doctor.consultations} {t("about.doctors.consultations")}
+                    </span>
                   </div>
-                  
+
                   <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-gray-800">{doctor.rating}</span>
+                    <span className="text-lg font-bold text-gray-800">
+                      {doctor.rating}
+                    </span>
                     <div className="flex gap-1">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <Star
@@ -219,7 +251,8 @@ export default async function AboutPage() {
                           className={`h-4 w-4 ${
                             star <= Math.floor(doctor.rating)
                               ? "text-yellow-400 fill-current"
-                              : star === Math.ceil(doctor.rating) && doctor.rating % 1 !== 0
+                              : star === Math.ceil(doctor.rating) &&
+                                doctor.rating % 1 !== 0
                               ? "text-yellow-400 fill-current opacity-50"
                               : "text-gray-300"
                           }`}
@@ -241,29 +274,43 @@ export default async function AboutPage() {
             {/* Left Side - Accordion */}
             <div className="lg:col-span-2">
               <div className="mb-8">
-                <div className="mb-4 text-sm font-semibold text-teal-600">{t("about.faq.subtitle")}</div>
-                <h2 className="mb-6 text-4xl font-bold text-gray-800">{t("about.faq.title")}</h2>
-                <p className="text-gray-600 leading-relaxed">{t("about.faq.description")}</p>
+                <div className="mb-4 text-sm font-semibold text-teal-600">
+                  {t("about.faq.subtitle")}
+                </div>
+                <h2 className="mb-6 text-4xl font-bold text-gray-800">
+                  {t("about.faq.title")}
+                </h2>
+                <p className="text-gray-600 leading-relaxed">
+                  {t("about.faq.description")}
+                </p>
               </div>
 
               {/* Shadcn Accordion */}
-                  <FAQ questions={(() => {
-                    try {
-                      return t.raw("about.faq.questions") || [
+              <FAQ
+                questions={(() => {
+                  try {
+                    return (
+                      t.raw("about.faq.questions") || [
                         {
-                          question: "Bizning klinikamiz qanday xizmatlar ko'rsatadi?",
-                          answer: "Bizning klinikamiz bolalar uchun to'liq tibbiy xizmatlar ko'rsatadi: umumiy tekshiruv, emlash, massaj, LFK va boshqa reabilitatsiya xizmatlari."
-                        }
-                      ];
-                    } catch {
-                      return [
-                        {
-                          question: "Bizning klinikamiz qanday xizmatlar ko'rsatadi?",
-                          answer: "Bizning klinikamiz bolalar uchun to'liq tibbiy xizmatlar ko'rsatadi: umumiy tekshiruv, emlash, massaj, LFK va boshqa reabilitatsiya xizmatlari."
-                        }
-                      ];
-                    }
-                  })()} />
+                          question:
+                            "Bizning klinikamiz qanday xizmatlar ko'rsatadi?",
+                          answer:
+                            "Bizning klinikamiz bolalar uchun to'liq tibbiy xizmatlar ko'rsatadi: umumiy tekshiruv, emlash, massaj, LFK va boshqa reabilitatsiya xizmatlari.",
+                        },
+                      ]
+                    );
+                  } catch {
+                    return [
+                      {
+                        question:
+                          "Bizning klinikamiz qanday xizmatlar ko'rsatadi?",
+                        answer:
+                          "Bizning klinikamiz bolalar uchun to'liq tibbiy xizmatlar ko'rsatadi: umumiy tekshiruv, emlash, massaj, LFK va boshqa reabilitatsiya xizmatlari.",
+                      },
+                    ];
+                  }
+                })()}
+              />
             </div>
 
             {/* Right Side - Doctor Image */}
@@ -272,7 +319,7 @@ export default async function AboutPage() {
                 {/* Decorative Background Shapes */}
                 <div className="absolute -left-8 -top-8 -bottom-8 w-32 bg-gradient-to-b from-blue-200/30 to-cyan-200/30 rounded-l-3xl -z-10"></div>
                 <div className="absolute -left-4 -top-4 w-16 h-16 bg-emerald-200/40 rounded-full -z-10"></div>
-                
+
                 {/* Doctor Image */}
                 <div className="relative aspect-[3/4] overflow-hidden rounded-tl-3xl rounded-bl-3xl shadow-lg">
                   <Image
@@ -287,8 +334,6 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
-
-  
     </div>
   );
 }

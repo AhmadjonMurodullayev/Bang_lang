@@ -2,7 +2,7 @@
   "hero": {
     "freeConsultation": "Bepul maslahat",
     "title": "Farzandingiz salomatligi bizning asosiy mas'uliyatimiz",
-    "description": "Professional pediatriya xizmatlari va zamonaviy tibbiy yondashuv bilan farzandingizni sog'lom va baxtli qilib tarbiyalaymiz",
+    "description": "Biz bolalaringiz uchun sog‘liqni tiklash bo‘yicha professional va samarali yechimlar taqdim etamiz. Har bir bola uchun individual yondashuvni qo‘llab, sog‘liqni yaxshilash va rivojlanishini qo‘llab-quvvatlash xizmatlarimizni taqdim etamiz.",
     "cta": "Navbat olish",
     "watchVideo": "Video ko'rish",
     "contact": "Biz bilan bog'lanish"
@@ -17,8 +17,8 @@
     "pricing": "Narxlar",
     "usefulLinks": "Foydali havolalar",
     "disclaimer": "Rad etish",
-    "workingHours1": "09:00 – 19:00, Dushanba – Shanba",
-    "workingHours2": "10:00 – 17:00, Seshanba",
+    "workingHours1": "Dushanba – Juma: 08:00 – 18:00",
+    "workingHours2": "Shanba: 08:00 – 15:00, Yakshanba: dam olish kuni",
     "callToday": "Bugun qo'ng'iroq qiling",
     "phoneNumber": "(+998) 95 281 70 70",
     "copyright": "Copyright © 2024. Barcha huquqlar himoyalangan."
@@ -27,7 +27,7 @@
     "home": "Bosh sahifa",
     "about": "Biz haqimizda",
     "services": "Xizmatlar",
-    "doctors": "Shifokorlar",
+    "doctors": "Mutaxassislar",
     "appointment": "Navbat olish",
     "blog": "Blog",
     "contact": "Aloqa",
@@ -303,9 +303,17 @@
     }
   },
   "about": {
-    "title": "Pediatrani barmoq uchingizda topishingiz mumkin",
+    "title": "Babyland - Bolalaringiz uchun sog‘liqni tiklash va rivojlantirish xizmatlari",
     "subtitle": "Pediatra haqida",
-    "description": "Biz bolalar salomatligi uchun zamonaviy yondashuv va mehr bilan xizmat ko'rsatamiz. Har bir bola individual ehtiyojlaridan kelib chiqib ko'rikdan o'tkaziladi, profilaktika va davolash rejalari esa shifokorlarimiz tomonidan puxta tuziladi.",
+    "description": "Siz bolangizning sog‘lig‘ini yaxshilashni istaysizmi? Babyland da biz bolalaringizga quyidagi xizmatlarni taklif etamiz:",
+    "items": [
+      "CME (MEDEK): diqqat, motorika va xotirani yaxshilashga qaratilgan harakat terapiyasi.",
+      "LFK: harakat funksiyalarini rivojlantirish va mushak tonusini normallashtirish.",
+      "Bolalar massaji: sog‘lom rivojlanish uchun individual massaj.",
+      "Gidromassaj: mushaklarni bo‘shashtiruvchi va tinchlantiruvchi muolaja.",
+      "Igna terapiya: asab tizimi va qon aylanishini faollashtirish, motorikani qo‘llab-quvvatlash."
+    ],
+    "closing": "Bizning xizmatlarimizga ishonch hosil qiling va bolangizni sog‘lom hamda baxtli qilishga yordam berish uchun hoziroq biz bilan bog‘laning!",
     "allDoctors": "Turli yo'nalishdagi shifokorlar",
     "allDoctorsDesc": "Pediatr, kardiolog, logoped-defektolog va boshqa mutaxassislar bir joyda.",
     "ePrescription": "Elektron retsept oling",
@@ -313,8 +321,8 @@
     "satisfiedPatients": "Qoniqqan bemorlar",
     "founder": "Pediatra asoschisi",
     "doctors": {
-      "subtitle": "Bizning shifokorlar",
-      "title": "Malakali shifokorlarimiz bilan tanishing",
+      "subtitle": "Bizning mutaxassislar",
+      "title": "Malakali mutaxassislarimiz bilan tanishing",
       "description": "Farzandingiz sog'lig'i uchun tajribali va g'amxo'r mutaxassislar.",
       "consultations": "ta qabul",
       "generalDoctor": "Umumiy shifokor",
@@ -402,7 +410,7 @@
     "services": ["Bolalar parvarishi", "Emlash", "Tekshiruv"]
   },
   "doctors": {
-    "title": "Malakali shifokorlarimiz bilan tanishing",
+    "title": "Malakali mutaxassislarimiz bilan tanishing",
     "subtitle": "Bizning shifokorlar",
     "description": "Sizning farzandingiz uchun g'amxo'r va tajribali mutaxassislar.",
     "consultations": "ta qabul",
@@ -448,8 +456,8 @@
     "callUs": "Bizga qo'ng'iroq qiling",
     "email": "Elektron pochta",
     "workingHours": "Ish vaqti",
-    "workingHoursDesc": "Dushanba – Shanba: 08:00",
-    "workingHoursDesc2": "Yakshanba: 18:00 gacha",
+    "workingHoursDesc": "Dushanba – Juma: 08:00 – 18:00",
+    "workingHoursDesc2": "Shanba: 08:00 – 15:00, Yakshanba: dam olish kuni",
     "sendMessage": "Xabar yuborish",
     "sendMessageDesc": "Bizga xabar yuboring, tez orada javob beramiz.",
     "fullName": "To'liq ism",
@@ -469,7 +477,7 @@
     "phoneNumbers": ["+998952817070 |", "+998998026232"],
     "emailValue": "ismoilnigmonov2000@gmail.com",
     "workingHours": "Ish vaqti",
-    "schedule": "Dushanba – Shanba: 08:00, Yakshanba: 18:00 gacha",
+    "schedule": "Dushanba – Juma: 08:00 – 18:00; Shanba: 08:00 – 15:00; Yakshanba: dam olish kuni",
     "sendMessage": "Xabar yuborish",
     "messageDesc": "Bizga xabar yuboring, tez orada javob beramiz.",
     "fullName": "To'liq ism",
