@@ -76,7 +76,7 @@ export default async function Doctors() {
               {t("doctors.subtitle")}
             </div>
             <h2 className="mb-4 text-3xl font-bold">{t("doctors.title")}</h2>
-            <p className="mx-auto min-w-2xl text-muted-foreground">
+            <p className="mx-auto max-w-2xl text-muted-foreground">
               {t("doctors.description")}
             </p>
           </div>
