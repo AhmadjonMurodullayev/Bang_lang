@@ -429,10 +429,13 @@
       "button": "Получить подробную информацию"
     },
     "specialties": {
-      "generalDoctor": "Врач общей практики",
+      "neurologistChild": "Детский невропатолог",
       "pediatrician": "Педиатр",
-      "pathology": "Патология",
-      "cardiology": "Кардиология"
+      "speechDefectologist": "Логопед-дефектолог",
+      "childMassageNurse": "Детская массажная медсестра",
+      "rehabMasseur": "Массажист-реабилитолог",
+      "lfkInstructor": "Инструктор ЛФК",
+      "cmeTherapist": "CME терапевт"
     }
   },
 

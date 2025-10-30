@@ -94,7 +94,7 @@ export default async function HomePage() {
                   <div className="relative aspect-[4/4] overflow-hidden rounded-3xl ">
                     <Image
                       // src="/Kasimov_photography-120.jpg"
-                      src="/home.png"
+                      src="/home-image.png"
                       alt="Doctor with child"
                       width={500}
                       height={350}
@@ -139,7 +139,7 @@ export default async function HomePage() {
               {/* Main image */}
               <div className="relative aspect-[3/4] overflow-hidden rounded-3xl shadow-2xl max-w-md">
                 <Image
-                  src="/Kasimov_photography-155.jpg"
+                  src="/home-section.jpg"
                   alt="Doctor with child"
                   width={500}
                   height={667}
@@ -608,72 +608,78 @@ export default async function HomePage() {
       </section>
 
       {/* Easy Booking Steps Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-16 lg:grid-cols-2 items-center">
-            {/* Image */}
-            <div className="relative">
-              <div className="aspect-[4/4] overflow-hidden rounded-3xl shadow-soft">
-                <Image
-                  // src="/pediatrician-with-child-patient.jpg"
-                  src="/novbat.jpg"
-                  // src="/novbat2.jpg"
-                  alt="Doctor with tablet and child"
-                  width={600}
-                  height={450}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
+<section className="py-14 sm:py-20 lg:py-24 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 items-center">
 
-            {/* Content */}
-            <div className="space-y-6">
-              <div className="text-sm font-bold text-primary uppercase tracking-wider">
-                {t("common.booking.subtitle")}
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-balance leading-tight">
-                {t("common.booking.title")}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                {t("common.booking.description")}
-              </p>
-
-              <div className="space-y-6 pt-4">
-                {[
-                  {
-                    step: "01",
-                    title: t("common.booking.findNearestPediatrician"),
-                    icon: Search,
-                  },
-                  {
-                    step: "02",
-                    title: t("common.booking.selectService"),
-                    icon: ClipboardCheck,
-                  },
-                  { step: "03", title: t("common.booking.bookAppointment"), icon: Calendar },
-                  {
-                    step: "04",
-                    title: t("common.booking.meetDoctor"),
-                    icon: Users,
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-center">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white font-bold text-lg flex-shrink-0">
-                      {item.step}
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <item.icon className="h-6 w-6 text-primary" />
-                      <h4 className="font-semibold text-foreground text-lg">
-                        {item.title}
-                      </h4>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* Image */}
+      <div className="relative">
+        <div className="aspect-[3/4] sm:aspect-[4/4] overflow-hidden rounded-2xl shadow-soft">
+          <Image
+            src="/novbat.jpg"
+            alt="Doctor with tablet and child"
+            width={600}
+            height={450}
+            className="h-full w-full object-cover"
+          />
         </div>
-      </section>
+      </div>
+
+      {/* Content */}
+      <div className="space-y-4 sm:space-y-6">
+        <div className="text-xs sm:text-sm font-bold text-primary uppercase tracking-wider">
+          {t("common.booking.subtitle")}
+        </div>
+
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+          {t("common.booking.title")}
+        </h2>
+
+        <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
+          {t("common.booking.description")}
+        </p>
+
+        <div className="space-y-4 sm:space-y-6 pt-2 sm:pt-4">
+          {[
+            {
+              step: "01",
+              title: t("common.booking.findNearestPediatrician"),
+              icon: Search,
+            },
+            {
+              step: "02",
+              title: t("common.booking.selectService"),
+              icon: ClipboardCheck,
+            },
+            { step: "03", title: t("common.booking.bookAppointment"), icon: Calendar },
+            {
+              step: "04",
+              title: t("common.booking.meetDoctor"),
+              icon: Users,
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="flex gap-3 items-center sm:gap-4"
+            >
+              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary text-white font-bold text-base sm:text-lg flex-shrink-0">
+                {item.step}
+              </div>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <item.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                <h4 className="font-semibold text-foreground text-base sm:text-lg">
+                  {item.title}
+                </h4>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* News & Articles Section */}
       <section className="py-24 bg-white">

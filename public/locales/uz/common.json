@@ -429,10 +429,13 @@
       "button": "Batafsil ma'lumot"
     },
     "specialties": {
-      "generalDoctor": "Umumiy shifokor",
+      "neurologistChild": "Bolalar nevropatologi",
       "pediatrician": "Pediatr",
-      "pathology": "Patologiya",
-      "cardiology": "Kardiologiya"
+      "speechDefectologist": "Logoped-defektolog",
+      "childMassageNurse": "Bolalar massaj hamshirasi",
+      "rehabMasseur": "Massajist-rehabilitolog",
+      "lfkInstructor": "LFK instruktori",
+      "cmeTherapist": "CME terapevti"
     }
   },
 

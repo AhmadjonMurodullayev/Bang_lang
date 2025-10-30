@@ -75,90 +75,108 @@ export default async function Doctors() {
             <div className="mb-4 text-sm font-semibold text-primary">
               {t("doctors.subtitle")}
             </div>
-            <h2 className="mb-4 text-4xl font-bold">{t("doctors.title")}</h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
+            <h2 className="mb-4 text-3xl font-bold">{t("doctors.title")}</h2>
+            <p className="mx-auto min-w-2xl text-muted-foreground">
               {t("doctors.description")}
             </p>
           </div>
-
-          <div className="grid text-center  gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid text-center gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                name: "Rahmatova Dildora ",
-                specialty: t("doctors.specialties.generalDoctor"),
+                name: "Rahmatova Dildora",
+                specialties: ["doctors.specialties.rehabMasseur"],
                 consultations: 2214,
                 rating: 4.8,
                 image: "/doctor1.jpg",
               },
               {
                 name: "Toirjonova Nilufar",
-                specialty: t("doctors.specialties.pediatrician"),
+                specialties: ["doctors.specialties.childMassageNurse"],
                 consultations: 1324,
                 rating: 5.0,
                 image: "/doctor2.jpg",
               },
               {
-                name: "Asatillayev Ulug'bek ",
-                specialty: t("doctors.specialties.pathology"),
+                name: "Asatillayev Ulug'bek",
+                specialties: [
+                  "doctors.specialties.rehabMasseur",
+                  "doctors.specialties.lfkInstructor",
+                ],
                 consultations: 824,
                 rating: 4.7,
                 image: "/doctor3.jpg",
               },
               {
                 name: "Qodirov Tolibjon",
-                specialty: t("doctors.specialties.cardiology"),
+                specialties: [
+                  "doctors.specialties.rehabMasseur",
+                  "doctors.specialties.lfkInstructor",
+                ],
                 consultations: 974,
                 rating: 4.6,
                 image: "/doctor6.jpg",
               },
               {
-                name: "Davurova Umida ",
-                specialty: t("doctors.specialties.generalDoctor"),
+                name: "Davurova Umida",
+                specialties: ["doctors.specialties.generalDoctor"],
                 consultations: 2214,
                 rating: 4.8,
                 image: "/doctor5.jpg",
               },
               {
-                name: "Xasanova Shaxnoza ",
-                specialty: t("doctors.specialties.pediatrician"),
+                name: "Xasanova Shaxnoza",
+                specialties: ["doctors.specialties.childMassageNurse"],
                 consultations: 1324,
                 rating: 5.0,
                 image: "/doctor4.jpg",
               },
               {
-                name: "Mirzaaxmedova Yulduz ",
-                specialty: t("doctors.specialties.pathology"),
+                name: "Mirzaaxmedova Yulduz",
+                specialties: ["doctors.specialties.speechDefectologist"],
                 consultations: 824,
                 rating: 4.7,
                 image: "/doctor7.jpg",
               },
               {
                 name: "Maxmudova Durdona",
-                specialty: t("doctors.specialties.cardiology"),
+                specialties: ["doctors.specialties.childMassageNurse"],
                 consultations: 974,
                 rating: 4.6,
                 image: "/doctor8.jpg",
               },
               {
                 name: "Muzaffar G'ofurjonov",
-                specialty: t("doctors.specialties.cardiology"),
+                specialties: ["doctors.specialties.pediatrician"],
                 consultations: 974,
                 rating: 4.6,
                 image: "/doctor9.jpg",
               },
               {
                 name: "Yaqubova Sayyora",
-                specialty: t("doctors.specialties.cardiology"),
+                specialties: ["doctors.specialties.neurologistChild"],
                 consultations: 974,
                 rating: 4.6,
                 image: "/doctor10.jpg",
               },
               {
                 name: "Nigmonov Ismoil",
-                specialty: t("doctors.specialties.cardiology"),
+                specialties: [
+                  "doctors.specialties.cmeTherapist",
+                  "doctors.specialties.lfkInstructor",
+                ],
                 consultations: 974,
                 rating: 4.6,
                 image: "/doctor11.jpg",
+              },
+              {
+                name: "Zaynitdinov Muzaffar",
+                specialties: [
+                  "doctors.specialties.rehabMasseur",
+                  "doctors.specialties.lfkInstructor",
+                ],
+                consultations: 974,
+                rating: 4.6,
+                image: "/doctor12.JPEG",
               },
             ].map((doctor, i) => (
               <Card
@@ -173,7 +191,6 @@ export default async function Doctors() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
 
-                  {/* Hover Overlay with Social Icons */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex gap-4">
                       <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-emerald-600 transition-colors">
@@ -193,7 +210,15 @@ export default async function Doctors() {
                     <h3 className="text-lg font-bold text-white mb-1">
                       {doctor.name}
                     </h3>
-                    <p className="text-sm text-white/90">{doctor.specialty}</p>
+
+                    <p className="text-sm text-white/90">
+                      {doctor.specialties.map((s, i) => (
+                        <span key={i}>
+                          {t(s)}
+                          {i !== doctor.specialties.length - 1 && " / "}
+                        </span>
+                      ))}
+                    </p>
                   </div>
                 </div>
 
@@ -239,7 +264,7 @@ export default async function Doctors() {
             <div className="relative">
               <div className="relative aspect-[3/4] overflow-hidden rounded-3xl shadow-soft max-w-md mx-auto">
                 <Image
-                  src="/Kasimov_photography-155.jpg"
+                  src="/home-section.jpg"
                   alt="Mother and child"
                   fill
                   className="object-cover"
