@@ -118,7 +118,7 @@ export default async function Doctors() {
               },
               {
                 name: "Davurova Umida",
-                specialties: ["doctors.specialties.generalDoctor"],
+                specialties: ["doctors.specialties.childMassageNurse"],
                 consultations: 2214,
                 rating: 4.8,
                 image: "/doctor5.jpg",
