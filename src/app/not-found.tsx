@@ -24,7 +24,7 @@ export default function NotFound() {
           Kechirasiz, siz qidirayotgan sahifa mavjud emas.
         </p>
         <p className="text-lg text-gray-500 mb-8">
-          URL noto‘g‘ri kiritilgan yoki sahifa o‘chirilgan bo‘lishi mumkin.
+          URL noto&apos;g&apos;ri kiritilgan yoki sahifa o&apos;chirilgan bo&apos;lishi mumkin.
         </p>
 
         {/* Action buttons */}
@@ -61,11 +61,11 @@ export default function NotFound() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-800 mb-2">Foydali ma'lumotlar:</h4>
+              <h4 className="font-semibold text-gray-800 mb-2">Foydali ma&apos;lumotlar:</h4>
               <ul className="space-y-1 text-gray-600">
                 <li><Link href="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
                 <li><Link href="/doctors" className="hover:text-primary transition-colors">Shifokorlar</Link></li>
-                <li><Link href="/contact" className="hover:text-primary transition-colors">Qo‘llab-quvvatlash</Link></li>
+                <li><Link href="/contact" className="hover:text-primary transition-colors">Qo&apos;llab-quvvatlash</Link></li>
                 <li><Link href="/" className="hover:text-primary transition-colors">Bosh sahifa</Link></li>
               </ul>
             </div>
@@ -75,7 +75,7 @@ export default function NotFound() {
         {/* Contact */}
         <div className="mt-8 text-center">
           <p className="text-gray-600 mb-2">
-            Agar muammo davom etsa, biz bilan bog‘laning:
+            Agar muammo davom etsa, biz bilan bog&apos;laning:
           </p>
           <p className="text-primary font-semibold text-lg">
             📞 +998 (90) 123-45-67
