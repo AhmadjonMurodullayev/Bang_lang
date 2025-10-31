@@ -18,8 +18,8 @@ import {
   ClipboardList,
   UserRound,
 } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import { Link as IntlLink } from '@/i18n/routing';
 import childIcon from "@/assets/icons/child.png";
 import vaccinationsIcon from "@/assets/icons/vaccinations.png";
 import allergyIcon from "@/assets/icons/allergy.png";
@@ -283,12 +283,12 @@ export default async function HomePage() {
               >
                 {t("common.bookAppointment")}
               </Button>
-              <Link
+              <IntlLink
                 href="/about"
                 className="text-gray-700 hover:text-primary text-base font-semibold flex items-center justify-center gap-2 transition-colors"
               >
                 {t("common.learnMore")} <ArrowRight className="h-5 w-5" />
-              </Link>
+              </IntlLink>
             </div>
           </div>
         </div>
@@ -353,12 +353,12 @@ export default async function HomePage() {
                   <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
-                  <Link
+                  <IntlLink
                     href="/services"
                     className="text-sm font-bold text-primary hover:underline inline-flex items-center gap-1 group-hover:gap-2 transition-all"
                   >
                     {t("services.readMore")} <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </IntlLink>
                 </CardContent>
               </Card>
             ))}
@@ -380,9 +380,9 @@ export default async function HomePage() {
                   variant="secondary"
                   className="bg-white text-primary hover:bg-white/90 w-fit rounded-full font-semibold"
                 >
-                  <Link href="/services/details">
+                  <IntlLink href="/services/details">
                     {t("services.allServices")}
-                  </Link>
+                  </IntlLink>
                 </Button>
               </CardContent>
             </Card>
@@ -708,12 +708,12 @@ export default async function HomePage() {
                   <p className="mb-6 text-sm text-muted-foreground leading-relaxed line-clamp-3">
                     {article.description}
                   </p>
-                  <Link
+                  <IntlLink
                     href="/blog"
                     className="text-sm font-bold text-primary hover:underline inline-flex items-center gap-1 group-hover:gap-2 transition-all"
                   >
                     {t("common.news.readMore")} <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </IntlLink>
                 </CardContent>
               </Card>
             ))}

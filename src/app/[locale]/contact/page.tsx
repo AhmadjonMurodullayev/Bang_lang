@@ -1,23 +1,31 @@
 import { Card } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { getTranslations } from 'next-intl/server';
+import { getTranslations } from "next-intl/server";
 import ContactForm from "@/components/contact-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Bog'lanish | Babyland - Bolalar salomatligi markazi",
-  description: "Babyland pediatriya markazi bilan bog'laning. Manzil, telefon raqamlar, email va ish vaqti. Savollar uchun bizga murojaat qiling.",
-  keywords: ["bog'lanish", "manzil", "telefon", "email", "ish vaqti", "pediatriya markazi"],
+  description:
+    "Babyland pediatriya markazi bilan bog'laning. Manzil, telefon raqamlar, email va ish vaqti. Savollar uchun bizga murojaat qiling.",
+  keywords: [
+    "bog'lanish",
+    "manzil",
+    "telefon",
+    "email",
+    "ish vaqti",
+    "pediatriya markazi",
+  ],
   openGraph: {
     title: "Bog'lanish | Babyland",
     description: "Biz bilan bog'laning va savollar bering",
-    images: ['/Babyland1.svg'],
+    images: ["/Babyland1.svg"],
   },
 };
 
 export default async function ContactPage() {
   const t = await getTranslations();
-  
+
   // Safe raw translation getter with fallback
   const getRawTranslation = (key: string, fallback: unknown) => {
     try {
@@ -28,7 +36,7 @@ export default async function ContactPage() {
       return fallback;
     }
   };
-  
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -45,7 +53,9 @@ export default async function ContactPage() {
         className=" py-20"
       >
         <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-4 text-5xl font-bold text-white">{t("contact.title")}</h1>
+          <h1 className="mb-4 text-5xl font-bold text-white">
+            {t("contact.title")}
+          </h1>
           <div className="flex items-center justify-center gap-2 text-white/90">
             <span>{t("common.home")}</span>
             <span>{">"}</span>
@@ -69,14 +79,15 @@ export default async function ContactPage() {
               {
                 icon: <MapPin className="h-7 w-7 text-white" />,
                 title: t("contact.ourOffice"),
-                lines: [
-                  t("contact.address"),
-                ],
+                lines: [t("contact.address")],
               },
               {
                 icon: <Phone className="h-7 w-7 text-white" />,
                 title: t("contact.callUs"),
-                lines: getRawTranslation("contact.phoneNumbers", ["+998952817070 |", "+998998026232"]),
+                lines: getRawTranslation("contact.phoneNumbers", [
+                  "+998952817070 |",
+                  "+998998026232",
+                ]),
               },
               {
                 icon: <Mail className="h-7 w-7 text-white" />,
@@ -87,8 +98,8 @@ export default async function ContactPage() {
                 icon: <Clock className="h-7 w-7 text-white" />,
                 title: t("contact.workingHours"),
                 lines: [
-                  t("contact.workingHoursDesc"), 
-                  t("contact.workingHoursDesc2")
+                  t("contact.workingHoursDesc"),
+                  t("contact.workingHoursDesc2"),
                 ],
               },
             ].map((item, i) => (
@@ -120,7 +131,7 @@ export default async function ContactPage() {
             <Card className="overflow-hidden">
               <div className="aspect-[4/4] bg-muted">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999.1870106527062!2d69.16063887659553!3d41.26126390380801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae89c1564c9547%3A0xc8af944454712a43!2z0JfQsNGA0LPQsNGA0LvQuNC6INGD0LvQuNGG0LAsINCi0LDRiNC60LXQvdGCLCBUYXNoa2VudCwg0KPQt9Cx0LXQutC40YHRgtCw0L0!5e0!3m2!1sru!2s!4v1760962611647!5m2!1sru!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1499.3218757724096!2d69.184987!3d41.273092!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b53794ef631%3A0x43b45d5da1c8e6a1!2sBABYLAND!5e0!3m2!1sru!2sus!4v1761911176176!5m2!1sru!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -132,24 +143,26 @@ export default async function ContactPage() {
             </Card>
 
             {/* Contact Form */}
-            <ContactForm translations={{
-              sendMessage: t("contact.sendMessage"),
-              sendMessageDesc: t("contact.sendMessageDesc"),
-              fullName: t("contact.fullName"),
-              namePlaceholder: t("contact.namePlaceholder"),
-              phone: t("contact.phone"),
-              phonePlaceholder: t("contact.phonePlaceholder"),
-              emailLabel: t("contact.emailLabel"),
-              emailPlaceholder: t("contact.emailPlaceholder"),
-              subject: t("contact.subject"),
-              subjectPlaceholder: t("contact.subjectPlaceholder"),
-              messageText: t("contact.messageText"),
-              messagePlaceholder: t("contact.messagePlaceholder"),
-              submit: t("contact.submit"),
-              submitting: t("contact.submitting"),
-              successMessage: t("contact.successMessage"),
-              errorMessage: t("contact.errorMessage")
-            }} />
+            <ContactForm
+              translations={{
+                sendMessage: t("contact.sendMessage"),
+                sendMessageDesc: t("contact.sendMessageDesc"),
+                fullName: t("contact.fullName"),
+                namePlaceholder: t("contact.namePlaceholder"),
+                phone: t("contact.phone"),
+                phonePlaceholder: t("contact.phonePlaceholder"),
+                emailLabel: t("contact.emailLabel"),
+                emailPlaceholder: t("contact.emailPlaceholder"),
+                subject: t("contact.subject"),
+                subjectPlaceholder: t("contact.subjectPlaceholder"),
+                messageText: t("contact.messageText"),
+                messagePlaceholder: t("contact.messagePlaceholder"),
+                submit: t("contact.submit"),
+                submitting: t("contact.submitting"),
+                successMessage: t("contact.successMessage"),
+                errorMessage: t("contact.errorMessage"),
+              }}
+            />
           </div>
         </div>
       </section>

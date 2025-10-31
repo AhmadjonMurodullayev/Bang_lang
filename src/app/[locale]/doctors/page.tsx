@@ -12,8 +12,8 @@ import {
   Star,
   Twitter,
 } from "lucide-react";
-import Link from "next/link";
 import { getTranslations } from "next-intl/server";
+import { Link as IntlLink } from "@/i18n/routing";
 import CounterWrapper from "@/components/counter-wrapper";
 import childIcon from "@/assets/icons/child.png";
 import vaccinationsIcon from "@/assets/icons/vaccinations.png";
@@ -83,18 +83,21 @@ export default async function Doctors() {
           <div className="grid text-center gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
+                name: "Nigmonov Ismoil",
+                specialties: [
+                  "doctors.specialties.cmeTherapist",
+                  "doctors.specialties.lfkInstructor",
+                ],
+                consultations: 974,
+                rating: 4.6,
+                image: "/doctor11.jpg",
+              },
+              {
                 name: "Rahmatova Dildora",
-                specialties: ["doctors.specialties.rehabMasseur"],
+                specialties: ["doctors.specialties.childMassageNurse"],
                 consultations: 2214,
                 rating: 4.8,
                 image: "/doctor1.jpg",
-              },
-              {
-                name: "Toirjonova Nilufar",
-                specialties: ["doctors.specialties.childMassageNurse"],
-                consultations: 1324,
-                rating: 5.0,
-                image: "/doctor2.jpg",
               },
               {
                 name: "Asatillayev Ulug'bek",
@@ -107,6 +110,14 @@ export default async function Doctors() {
                 image: "/doctor3.jpg",
               },
               {
+                name: "Toirjonova Nilufar",
+                specialties: ["doctors.specialties.childMassageNurse"],
+                consultations: 1324,
+                rating: 5.0,
+                image: "/doctor2.jpg",
+              },
+
+              {
                 name: "Qodirov Tolibjon",
                 specialties: [
                   "doctors.specialties.rehabMasseur",
@@ -117,13 +128,6 @@ export default async function Doctors() {
                 image: "/doctor6.jpg",
               },
               {
-                name: "Davurova Umida",
-                specialties: ["doctors.specialties.childMassageNurse"],
-                consultations: 2214,
-                rating: 4.8,
-                image: "/doctor5.jpg",
-              },
-              {
                 name: "Xasanova Shaxnoza",
                 specialties: ["doctors.specialties.childMassageNurse"],
                 consultations: 1324,
@@ -131,11 +135,14 @@ export default async function Doctors() {
                 image: "/doctor4.jpg",
               },
               {
-                name: "Mirzaaxmedova Yulduz",
-                specialties: ["doctors.specialties.speechDefectologist"],
-                consultations: 824,
-                rating: 4.7,
-                image: "/doctor7.jpg",
+                name: "Zaynitdinov Muzaffar",
+                specialties: [
+                  "doctors.specialties.rehabMasseur",
+                  "doctors.specialties.lfkInstructor",
+                ],
+                consultations: 974,
+                rating: 4.6,
+                image: "/doctor12.JPEG",
               },
               {
                 name: "Maxmudova Durdona",
@@ -144,6 +151,22 @@ export default async function Doctors() {
                 rating: 4.6,
                 image: "/doctor8.jpg",
               },
+              {
+                name: "Davurova Umida",
+                specialties: ["doctors.specialties.hydroMasseur"],
+                consultations: 2214,
+                rating: 4.8,
+                image: "/doctor5.jpg",
+              },
+
+              {
+                name: "Mirzaaxmedova Yulduz",
+                specialties: ["doctors.specialties.speechDefectologist"],
+                consultations: 824,
+                rating: 4.7,
+                image: "/doctor7.jpg",
+              },
+
               {
                 name: "Muzaffar G'ofurjonov",
                 specialties: ["doctors.specialties.pediatrician"],
@@ -157,26 +180,6 @@ export default async function Doctors() {
                 consultations: 974,
                 rating: 4.6,
                 image: "/doctor10.jpg",
-              },
-              {
-                name: "Nigmonov Ismoil",
-                specialties: [
-                  "doctors.specialties.cmeTherapist",
-                  "doctors.specialties.lfkInstructor",
-                ],
-                consultations: 974,
-                rating: 4.6,
-                image: "/doctor11.jpg",
-              },
-              {
-                name: "Zaynitdinov Muzaffar",
-                specialties: [
-                  "doctors.specialties.rehabMasseur",
-                  "doctors.specialties.lfkInstructor",
-                ],
-                consultations: 974,
-                rating: 4.6,
-                image: "/doctor12.JPEG",
               },
             ].map((doctor, i) => (
               <Card
@@ -320,6 +323,7 @@ export default async function Doctors() {
                     </p>
                   </div>
                 </div>
+
                 <div className="flex gap-4">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-1">
                     <Check className="h-4 w-4 text-primary" />
@@ -333,34 +337,33 @@ export default async function Doctors() {
                     </p>
                   </div>
                 </div>
-              </div>
-              {/* Doctor Info */}
-              <div className="flex items-center gap-4 pt-8">
-                <div className="h-14 w-14 overflow-hidden rounded-full border-2 border-primary/20">
-                  <Image
-                    src="/doctor9.jpg"
-                    alt="Dr. Monica Hopkins"
-                    width={56}
-                    height={56}
-                    className="object-cover"
-                  />
+
+                <div className="flex gap-4">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-1">
+                    <Check className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="mb-1 font-semibold">
+                      {t("doctors.roadmap_title")}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {t("doctors.roadmap_description")}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-gray-800 text-base">
-                    Dr. Monica Hopkins
-                  </h4>
-                  <p className="text-sm text-primary font-medium">
-                    {t("doctors.founder")}
-                  </p>
-                </div>
-                <div className="ml-auto">
-                  <Image
-                    src="/signature.jpg"
-                    alt="Signature"
-                    width={40}
-                    height={40}
-                    className="opacity-60"
-                  />
+
+                <div className="flex gap-4">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-1">
+                    <Check className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="mb-1 font-semibold">
+                      {t("doctors.result_title")}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {t("doctors.result_description")}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -424,7 +427,7 @@ export default async function Doctors() {
 
             {/* Right buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center">
-              <Link
+              <IntlLink
                 href="/about"
                 className="text-gray-700 hover:text-primary text-base font-semibold flex items-center justify-center gap-2 transition-colors"
               >
@@ -434,7 +437,7 @@ export default async function Doctors() {
                 >
                   {t("doctors.cta.button")} <ArrowRight className="h-5 w-5" />
                 </Button>
-              </Link>
+              </IntlLink>
             </div>
           </div>
         </div>

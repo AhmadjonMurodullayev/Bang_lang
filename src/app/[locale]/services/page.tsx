@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { getTranslations } from 'next-intl/server';
+import { Link as IntlLink } from '@/i18n/routing';
 import {
   TrendingUp,
   Syringe,
@@ -127,12 +127,12 @@ export default async function ServicesPage() {
                   <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
-                  <Link
+                  <IntlLink
                     href="/services"
                     className="text-sm font-bold text-primary hover:underline inline-flex items-center gap-1 group-hover:gap-2 transition-all"
                   >
                     {t("services.readMore")} <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </ IntlLink>
                 </CardContent>
               </Card>
             ))}
@@ -154,7 +154,7 @@ export default async function ServicesPage() {
                   variant="secondary"
                   className="bg-white text-primary hover:bg-white/90 w-fit rounded-full font-semibold"
                 >
-                  <Link href="/services/details">{t("services.allServices")}</Link>
+                  <IntlLink href="/services/details">{t("services.allServices")}</IntlLink>
                 </Button>
               </CardContent>
             </Card>

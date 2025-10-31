@@ -10,7 +10,6 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { EnIcon } from "@/assets/icons/en-icon";
 import { UzIcon } from "@/assets/icons/uz-icon";
 import { RuIcon } from "@/assets/icons/ru-icon";
 import { useRouter, usePathname } from '@/i18n/routing';
@@ -19,7 +18,6 @@ import { useLocale } from 'next-intl';
 const languages = [
   { code: "uz", name: "O'zbekcha", icon: UzIcon },
   { code: "ru", name: "Русский", icon: RuIcon },
-  { code: "en", name: "English", icon: EnIcon },
 ];
 
 export default function ChangeLanguageC() {
@@ -64,7 +62,7 @@ export default function ChangeLanguageC() {
                     <span className="w-[20px] block h-[15px] flex-shrink-0">
                       {React.createElement(lang.icon)}
                     </span>
-                    <span className="group-hover:text-white">{lang.name}</span>
+                    <span className="group-hover:text-black">{lang.name}</span>
                   </span>
                 </DropdownMenuItem>
               </DropdownMenuGroup>
