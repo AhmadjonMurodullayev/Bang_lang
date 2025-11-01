@@ -3,10 +3,7 @@ import { Button } from "@/components/ui/button";
 import { getTranslations } from 'next-intl/server';
 import { Link as IntlLink } from '@/i18n/routing';
 import {
-  TrendingUp,
-  Syringe,
   Stethoscope,
-  ClipboardCheck,
   Mail,
   Phone,
   Check,
@@ -15,9 +12,14 @@ import {
   ClipboardList,
   UserRound,
   Plus,
-  Heart,
   User,
 } from "lucide-react";
+import Image from "next/image";
+import childIcon from "@/assets/icons/baby-massage.png";
+import vaccinationsIcon from "@/assets/icons/LFK.jpeg";
+import allergyIcon from "@/assets/icons/CME.png";
+import screeningsIcon from "@/assets/icons/treanjor.jpg";
+import pathologyIcon from "@/assets/icons/logoped.png";
 import CounterWrapper from "@/components/counter-wrapper";
 import ServicesAppointmentForm from "@/components/services-appointment-form";
 import type { Metadata } from "next";
@@ -83,33 +85,28 @@ export default async function ServicesPage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {[
               {
-                icon: Heart,
+                image: childIcon,
                 title: t("services.childMassage"),
-                color: "bg-emerald-500",
                 description: t("services.childMassageDesc"),
               },
               {
-                icon: TrendingUp,
+                image: vaccinationsIcon,
                 title: t("services.lfk"),
-                color: "bg-teal-500",
                 description: t("services.lfkDesc"),
               },
               {
-                icon: Syringe,
-                title: t("services.hydroMassage"),
-                color: "bg-cyan-500",
-                description: t("services.hydroMassageDesc"),
+                image: allergyIcon,
+                title: t("services.cme"),
+                description: t("services.cmeDesc"),
               },
               {
-                icon: Stethoscope,
+                image: screeningsIcon,
                 title: t("services.trainer"),
-                color: "bg-emerald-500",
                 description: t("services.trainerDesc"),
               },
               {
-                icon: ClipboardCheck,
+                image: pathologyIcon,
                 title: t("services.logoped"),
-                color: "bg-teal-500",
                 description: t("services.logopedDesc"),
               },
             ].map((service, i) => (
@@ -119,9 +116,15 @@ export default async function ServicesPage() {
               >
                 <CardContent className="p-10">
                   <div
-                    className={`mb-6 flex h-16 w-16 items-center justify-center rounded-full ${service.color} group-hover:scale-110 transition-all duration-300 shadow-lg`}
+                    className={`mb-6 flex h-16 w-16 items-center justify-center rounded-full  group-hover:scale-110 transition-all duration-300 shadow-lg p-3`}
                   >
-                    <service.icon className="h-8 w-8 text-white" />
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={64}
+                      height={64}
+                      className="object-contain"
+                    />
                   </div>
                   <h3 className="mb-3 text-xl font-bold">{service.title}</h3>
                   <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
@@ -183,9 +186,13 @@ export default async function ServicesPage() {
                 bookAppointment: t("services.appointment.bookAppointment"),
                 childMassage: t("services.childMassage"),
                 lfk: t("services.lfk"),
-                hydroMassage: t("services.hydroMassage"),
+                cme: t("services.cme"),
                 trainer: t("services.trainer"),
                 logoped: t("services.logoped"),
+                orthoped: t("common.orthoped"),
+                pediatrician: t("common.pediatrician"),
+                neurologist: t("common.neurologist"),
+                acupuncture: t("common.acupuncture"),
                 successMessage: t("services.appointment.successMessage"),
                 errorMessage: t("services.appointment.errorMessage"),
                 loadingMessage: t("services.appointment.loadingMessage")
@@ -515,7 +522,7 @@ export default async function ServicesPage() {
                   {[
                     t("services.childMassage"),
                     t("services.lfk"),
-                    t("services.hydroMassage"),
+                    t("services.cme"),
                     t("services.trainer"),
                     t("services.logoped"),
                   ].map((feature, i) => (
@@ -539,7 +546,7 @@ export default async function ServicesPage() {
                   <span className="text-muted-foreground text-lg">/month</span>
                 </div>
                 <ul className="mb-10 space-y-4">
-                  {[t("services.lfk"), t("services.hydroMassage"), t("services.trainer"), t("services.logoped")].map(
+                  {[t("services.lfk"), t("services.cme"), t("services.trainer"), t("services.logoped")].map(
                     (feature, i) => (
                       <li key={i} className="flex items-center gap-3 text-base">
                         <Check className="h-5 w-5 text-primary flex-shrink-0" />

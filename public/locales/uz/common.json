@@ -49,16 +49,12 @@
     "service": "Xizmat",
     "date": "Sana",
     "yourName": "Sizning ismingiz",
-    "booking": {
-      "bookAppointment": "Navbat olish",
-      "meetDoctor": "Shifokor bilan uchrashish"
-    },
-
     "language": "Til",
     "selectLanguage": "Til tanlash",
     "emailAddress": "Email",
     "date": "Sana",
     "phoneNumber": "Telefon",
+    "phonePlaceholder": "Telefon raqamingiz",
     "subject": "Mavzu",
     "message": "Xabar matni",
     "send": "Yuborish",
@@ -107,10 +103,16 @@
     "supportForClients": "Mijozlar uchun qo'llab-quvvatlash",
     "childCare": "Bolalar massaji",
     "vaccination": "LFK",
+    "cme": "CME",
     "allergyTest": "Gidromassaj",
+    "trainer": "Trenajor",
     "screening": "Tekshiruv",
     "pathology": "Patologiya",
     "cardiology": "Kardiologiya",
+    "logoped": "Logoped-defektolog",
+    "orthoped": "Ortoped",
+    "pediatrician": "Pediatr",
+    "neurologist": "Nevropatolog",
     "acupuncture": "Igna terapiya",
     "freeConsultation": "Bepul onlayn konsultatsiya",
     "freeConsultationDesc": "Bizning professional shifokorlarimizdan bepul maslahat oling.",
@@ -137,6 +139,7 @@
       "description": "Bizning navbat olish tizimi juda oson va qulay. Faqat bir necha bosqichda siz shifokor bilan uchrashuvni tashkil qilishingiz mumkin. Barcha jarayon onlayn amalga oshiriladi va vaqt tejaydi.",
       "findNearestPediatrician": "Eng yaqin Pediatrani qidirish",
       "selectService": "Xizmatni tanlash",
+      "bookAppointment": "Navbat olish",
       "meetDoctor": "Shifokor bilan uchrashish"
     },
     "news": {
@@ -174,9 +177,10 @@
     "childMassage": "Bolalar massaji",
     "childMassageDesc": "Chaqaloq va bolalarda mushak tonusini me'yorlash, uyqu va hazmni yaxshilash hamda motor rivojlanishga ko'maklashadi.",
     "lfk": "LFK",
-    "lfkDesc": "Davolovchi jismoniy tarbiya: qomat nuqsonlari va mushak-skelet muammolarini tuzatish, reabilitatsiya va moslashuvchanlikni oshirish.",
     "hydroMassage": "Gidromassaj",
-    "hydroMassageDesc": "Suv oqimlari yordamida amalga oshiriladigan massaj bo'lib, qon aylanishini yaxshilaydi va mushaklarni bo'shashtiradi.",
+    "lfkDesc": "Davolovchi jismoniy tarbiya: qomat nuqsonlari va mushak-skelet muammolarini tuzatish, reabilitatsiya va moslashuvchanlikni oshirish.",
+    "cme": "Cuevas Medek Exercises (CME)",
+    "cmeDesc": "Bolalar motor rivojlanishini rag'batlantirishga qaratilgan maxsus terapiya usuli. Kuchli va dinamik harakatlar orqali mushak kuchi, muvozanat va harakat ko'nikmalarini rivojlantirishga yordam beradi.",
     "trainer": "Trenajor",
     "trainerDesc": "Maxsus trenajyorlarda reabilitatsiya mashqlari: mushak kuchi, muvofiqlashtirish va harakat hajmini tiklashga yordam beradi.",
     "logoped": "Logoped defektolog",
@@ -298,6 +302,56 @@
             "Uy sharoitida bajariladigan topshiriqlar",
             "Muloqot ko'nikmalarini mustahkamlash"
           ]
+        },
+        {
+          "title": "Igna terapiya",
+          "description": "An'anaviy Xitoy tibbiyotiga asoslangan davolash usuli bo'lib, tananing ma'lum nuqtalariga ingichka steril ignalar kiritish orqali turli kasalliklarni davolash va oldini olish. Organizmning tabiiy shifo jarayonlarini faollashtirishga yordam beradi.",
+          "bullets": [
+            "Og'riqni kamaytirish (orqa, bo'yin, bosh og'rig'i)",
+            "Stress va bezovtalikni kamaytirish",
+            "Uyqu sifatini yaxshilash",
+            "Immunitet tizimini mustahkamlash"
+          ]
+        },
+        {
+          "title": "Ortoped",
+          "description": "Bolalar mushak-skelet tizimi kasalliklarini tashxislash va davolashga ixtisoslashgan mutaxassis. Qomat buzilishlari, yassi oyoqlik, bo'g'im muammolari va skelet tizimi anomaliyalarini korreksiya qilish bilan shug'ullanadi.",
+          "bullets": [
+            "Qomat buzilishlarini tashxislash va davolash",
+            "Yassi oyoqlik muammolarini yechish",
+            "Bo'g'im va suyak kasalliklarini davolash",
+            "Individual reabilitatsiya dasturlari"
+          ]
+        },
+        {
+          "title": "Pediatr",
+          "description": "Yangi tug'ilganlardan 18 yoshgacha bo'lgan bolalar salomatligini kuzatish, kasalliklarni oldini olish va davolash bilan shug'ulanadigan mutaxassis shifokor. Muntazam tibbiy ko'rik, emlash va rivojlanish monitoringini amalga oshiradi.",
+          "bullets": [
+            "Muntazam tibbiy ko'rik va monitoring",
+            "Emlash va profilaktika",
+            "Kasalliklarni tashxislash va davolash",
+            "Ota-onalarga maslahat berish"
+          ]
+        },
+        {
+          "title": "Nevropatolog",
+          "description": "Bolalar nerv tizimi kasalliklarini tashxislash va davolashga ixtisoslashgan mutaxassis. Migren, epilepsiya, rivojlanish kechikishlari, diqqat yetishmovchiligi va boshqa nevrologik muammolarni hal qilish bilan shug'ullanadi.",
+          "bullets": [
+            "Nerv tizimi kasalliklarini tashxislash",
+            "Migren va bosh og'rig'larini davolash",
+            "Rivojlanish kechikishlarini kuzatish",
+            "Individual davolash rejalari"
+          ]
+        },
+        {
+          "title": "Cuevas Medek Exercises (CME)",
+          "description": "Bolalar motor rivojlanishini rag'batlantirishga qaratilgan maxsus terapiya usuli. Kuchli va dinamik harakatlar orqali bolaning mushak kuchi, muvozanati va harakat ko'nikmalarini rivojlantirishga yordam beradi.",
+          "bullets": [
+            "Motor rivojlanishni tezlashtirish",
+            "Mushak kuchi va muvozanatni oshirish",
+            "Kuchli va dinamik mashqlar",
+            "Individual dastur asosida amalga oshiriladi"
+          ]
         }
       ]
     }
@@ -384,6 +438,18 @@
     "phoneLabel": "Telefon raqam",
     "emailValue": "ismoilnigmonov2000@gmail.com",
     "phoneValue": "+998952817070",
+    "services": [
+      "Bolalar massaji",
+      "LFK",
+      "CME",
+      "Trenajor",
+      "Gidromassaj",
+      "Logoped-defektolog",
+      "Ortoped",
+      "Pediatr",
+      "Nevropatolog",
+      "Igna terapiya"
+    ],
     "howToBook": {
       "subtitle": "Bu yerda uchrashuvga yozilish bo'yicha batafsil ma'lumotlar bilan tanishishingiz mumkin.",
       "title": "Qanday qilib uchrashuvga yozilish mumkin?",
@@ -424,7 +490,7 @@
     "findPediatriciansDesc": "O‘z farzandingiz uchun ishonchli va tajribali reabilitologlarni topish endi yanada oson! Platformamiz orqali malakali pediatr va nevropatologlar yordamida bolangiz sog‘lig‘i uchun eng yaxshi g‘amxo‘rlik va maslahatlarni olishingiz mumkin.",
     "satisfiedPatients": "Qoniqqan bemorlar",
     "founder": "Pediatra asoschisi",
-    "roadmap_title": "Qadamma-qaqadam yo‘l xaritasi",
+    "roadmap_title": "Qadamma-qadam yo‘l xaritasi",
     "roadmap_description": "Mutaxassislar bolangiz rivoji uchun individual yo'riqnoma tuzadilar va sizni har bir bosqichda yo‘naltirib boradilar.",
     "result_title":"Natijalarga yo‘naltirilgan yondashuv",
     "result_description":"Mutaxassislar bolaning har bir o‘zgarishini kuzatib boradi va rivojlanish jarayonida kerakli tuzatishlarni kiritadi.",

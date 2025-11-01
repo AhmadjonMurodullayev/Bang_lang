@@ -79,7 +79,18 @@ export default async function Appointment() {
               submitting: t("appointment.submitting"),
               successMessage: t("appointment.successMessage"),
               errorMessage: t("appointment.errorMessage"),
-                  services: getRawTranslation("appointment.services", ["Bolalar parvarishi", "Emlash", "Tekshiruv"])
+                  services: getRawTranslation("appointment.services", [
+                "Bolalar massaji",
+                "LFK",
+                "CME",
+                "Trenajor",
+                "Gidromassaj",
+                "Logoped-defektolog",
+                "Ortoped",
+                "Pediatr",
+                "Nevropatolog",
+                "Igna terapiya"
+              ])
             }} />
 
             {/* Info */}
@@ -141,6 +152,7 @@ export default async function Appointment() {
                         {t("appointment.phoneLabel")}
                       </div>
                       <div className="text-sm font-semibold">{t("appointment.phoneValue")}</div>
+                         <div className="text-sm font-semibold">+998998026232</div>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin, Phone, Clock } from "lucide-react"
+import { Facebook, Instagram, Phone, Clock, Send, MessageCircle } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -42,28 +42,36 @@ export function Footer() {
             <p className="mb-6 text-sm text-slate-400">{t("footer.brandDescription")}</p>
             <div className="flex gap-3">
               <Link
-                href="#"
+                href="https://www.facebook.com/share/1Br2JZWNxA/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 hover:bg-primary transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 hover:bg-primary transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
+                href="https://www.instagram.com/babyland_uz_?igsh=ZWN2Z25la2R4Zms4&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 hover:bg-primary transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
+                href="https://t.me/Babyland_clinic"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 hover:bg-primary transition-colors"
               >
-                <Linkedin className="h-5 w-5" />
+                <Send className="h-5 w-5" />
+              </Link>
+              <Link
+                href="https://wa.me/qr/Y6JP7RUMU4FHE1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 hover:bg-primary transition-colors"
+              >
+                <MessageCircle className="h-5 w-5" />
               </Link>
             </div>
           </div>

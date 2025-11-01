@@ -20,12 +20,12 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { Link as IntlLink } from '@/i18n/routing';
-import childIcon from "@/assets/icons/child.png";
-import vaccinationsIcon from "@/assets/icons/vaccinations.png";
-import allergyIcon from "@/assets/icons/allergy.png";
-import screeningsIcon from "@/assets/icons/creenings.png";
-import pathologyIcon from "@/assets/icons/pathology.png";
-import cardiologyIcon from "@/assets/icons/cardiology.png";
+import childIcon from "@/assets/icons/baby-massage.png";
+import vaccinationsIcon from "@/assets/icons/LFK.jpeg";
+import allergyIcon from "@/assets/icons/gidro.jpg";
+import screeningsIcon from "@/assets/icons/treanjor.jpg";
+import pathologyIcon from "@/assets/icons/logoped.png";
+import cardiologyIcon from "@/assets/icons/needle.jpg";
 import { getTranslations } from 'next-intl/server';
 import BookingForm from "@/components/booking-form";
 import type { Metadata } from "next";
@@ -43,6 +43,11 @@ export const metadata: Metadata = {
 
 export default async function HomePage() {
   const t = await getTranslations();
+  
+  // Get phone number from translations and extract first number
+  const phoneValue = t("services.appointment.phoneValue") || "+998952817070";
+  const phoneNumber = phoneValue.split(" ")[0].replace(/[^\d+]/g, "");
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -69,19 +74,25 @@ export default async function HomePage() {
                 <p className="text-lg text-white/90 leading-relaxed max-w-xl">
                   {t("hero.description")}
                 </p>
-                <div className="flex flex-wrap gap-4 pt-4">
+                <div className="flex flex-wrap gap-4 pt-4 mb-4">
                   <Button
                     size="lg"
+                    asChild
                     className="bg-primary hover:bg-primary/90 text-white px-8 h-12 text-base font-semibold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all rounded-full"
                   >
-                    {t("hero.cta")}
+                    <IntlLink href="/contact">
+                      {t("hero.cta")}
+                    </IntlLink>
                   </Button>
                   <Button
                     size="lg"
                     variant="outline"
+                    asChild
                     className="border-2 border-white text-white hover:bg-white hover:text-blue-600 bg-transparent h-12 px-8 text-base font-semibold rounded-full"
                   >
-                    {t("hero.contact")}
+                    <a href={`tel:${phoneNumber}`}>
+                      {t("hero.contact")}
+                    </a>
                   </Button>
                 </div>
               </div>
@@ -111,17 +122,25 @@ export default async function HomePage() {
         <BookingForm translations={{
           name: t("common.name"),
           email: t("common.email"),
+          phone: t("common.phoneNumber"),
           service: t("common.service"),
           date: t("common.date"),
           yourName: t("common.yourName"),
           yourEmail: t("common.yourEmail"),
+          phonePlaceholder: t("common.phonePlaceholder"),
           selectService: t("common.selectService"),
           childCare: t("common.childCare"),
           vaccination: t("common.vaccination"),
+          cme: t("common.cme"),
           allergyTest: t("common.allergyTest"),
+          trainer: t("common.trainer"),
           screening: t("common.screening"),
           pathology: t("common.pathology"),
           cardiology: t("common.cardiology"),
+          logoped: t("common.logoped"),
+          orthoped: t("common.orthoped"),
+          pediatrician: t("common.pediatrician"),
+          neurologist: t("common.neurologist"),
           acupuncture: t("common.acupuncture"),
           bookAppointmentNow: t("common.bookAppointmentNow")
         }} />

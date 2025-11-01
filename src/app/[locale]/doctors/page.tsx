@@ -15,12 +15,12 @@ import {
 import { getTranslations } from "next-intl/server";
 import { Link as IntlLink } from "@/i18n/routing";
 import CounterWrapper from "@/components/counter-wrapper";
-import childIcon from "@/assets/icons/child.png";
-import vaccinationsIcon from "@/assets/icons/vaccinations.png";
-import allergyIcon from "@/assets/icons/allergy.png";
-import screeningsIcon from "@/assets/icons/creenings.png";
-import pathologyIcon from "@/assets/icons/pathology.png";
-import cardiologyIcon from "@/assets/icons/cardiology.png";
+import childIcon from "@/assets/icons/baby-massage.png";
+import vaccinationsIcon from "@/assets/icons/LFK.jpeg";
+import allergyIcon from "@/assets/icons/gidro.jpg";
+import screeningsIcon from "@/assets/icons/treanjor.jpg";
+import pathologyIcon from "@/assets/icons/logoped.png";
+import cardiologyIcon from "@/assets/icons/needle.jpg";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -3,7 +3,16 @@ import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { getTranslations } from 'next-intl/server'
-import childIcon from "@/assets/icons/child.png"
+import childIcon from "@/assets/icons/baby-massage.png"
+import lfkIcon from "@/assets/icons/LFK.jpeg"
+import cmeIcon from "@/assets/icons/CME.png"
+import trainerIcon from "@/assets/icons/treanjor.jpg"
+import logopedIcon from "@/assets/icons/logoped.png"
+import acupunctureIcon from "@/assets/icons/needle.jpg"
+import allergyIcon from "@/assets/icons/gidro.jpg";
+import nevropotologIcon from "@/assets/icons/nevropotolog.png";
+import pediatrIcon from "@/assets/icons/pediator.jpg";
+import ortopedIcon from "@/assets/icons/ortoped.jpg";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -42,6 +51,43 @@ export default async function DetailedServicesPage() {
     services = fallbackServices;
   }
 
+  // Icon mapping based on service title
+  const getServiceIcon = (title: string) => {
+    const titleLower = title.toLowerCase();
+    if (titleLower.includes("bolalar massaji") || titleLower.includes("massaji")) {
+      return childIcon;
+    }
+    if (titleLower.includes("lfk") || titleLower.includes("jismoniy tarbiya")) {
+      return lfkIcon;
+    }
+    if (titleLower.includes("gidromassaj") || titleLower.includes("gidro") || titleLower.includes("gigromassaj")) {
+      return allergyIcon;
+    }
+    if (titleLower.includes("cuevas") || titleLower.includes("cme") || titleLower.includes("medek")) {
+      return cmeIcon;
+    }
+    if (titleLower.includes("trenajor") || titleLower.includes("reabilitatsiya")) {
+      return trainerIcon;
+    }
+    if (titleLower.includes("logoped") || titleLower.includes("defektolog")) {
+      return logopedIcon;
+    }
+    if (titleLower.includes("igna") || titleLower.includes("akupunktura")) {
+      return acupunctureIcon;
+    }
+    if (titleLower.includes("ortoped")) {
+      return ortopedIcon;
+    }
+    if (titleLower.includes("pediatr")) {
+      return pediatrIcon;
+    }
+    if (titleLower.includes("nevropatolog") || titleLower.includes("nevropatolog")) {
+      return nevropotologIcon;
+    }
+    // Default icon
+    return childIcon;
+  };
+
   return (
     <div className="min-h-screen">
       <section className="gradient-blue py-20">
@@ -63,8 +109,8 @@ export default async function DetailedServicesPage() {
             {services.map((service: { title: string; description: string; bullets: string[] }, i: number) => (
               <Card key={i} className="border-0 shadow-md hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 flex gap-6 items-start">
-                  <div className="flex-shrink-0 w-20 h-20 rounded-xl bg-primary/10 flex items-center justify-center overflow-hidden">
-                    <Image src={childIcon} alt={service.title} width={64} height={64} className="object-contain" />
+                  <div className="flex-shrink-0 w-20 h-20 rounded-xl bg-primary/10 flex items-center justify-center overflow-hidden p-2">
+                    <Image src={getServiceIcon(service.title)} alt={service.title} width={64} height={64} className="object-contain" />
                   </div>
                   <div className="space-y-3">
                     <h3 className="text-xl font-bold">{service.title}</h3>

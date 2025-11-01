@@ -93,54 +93,54 @@ export default async function AboutPage() {
                   </div>
                   <div>
                     <h4 className="mb-1 font-semibold">
-                      {t("about.allDoctors")}
+                      {t("doctors.quickFind")}
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      {t("about.allDoctorsDesc")}
+                      {t("doctors.quickFindDesc")}
                     </p>
                   </div>
                 </div>
+
                 <div className="flex gap-4">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-1">
                     <Check className="h-4 w-4 text-primary" />
                   </div>
                   <div>
                     <h4 className="mb-1 font-semibold">
-                      {t("about.ePrescription")}
+                      {t("doctors.ePrescription")}
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      {t("about.ePrescriptionDesc")}
+                      {t("doctors.ePrescriptionDesc")}
                     </p>
                   </div>
                 </div>
-              </div>
-              {/* Doctor Info */}
-              <div className="flex items-center gap-4 pt-8">
-                <div className="h-14 w-14 overflow-hidden rounded-full border-2 border-primary/20">
-                  <Image
-                    src="/doctor9.jpg"
-                    alt="Dr. Monica Hopkins"
-                    width={56}
-                    height={56}
-                    className="object-cover"
-                  />
+
+                <div className="flex gap-4">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-1">
+                    <Check className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="mb-1 font-semibold">
+                      {t("doctors.roadmap_title")}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {t("doctors.roadmap_description")}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-gray-800 text-base">
-                    Dr. Monica Hopkins
-                  </h4>
-                  <p className="text-sm text-primary font-medium">
-                    {t("about.founder")}
-                  </p>
-                </div>
-                <div className="ml-auto">
-                  <Image
-                    src="/signature.jpg"
-                    alt="Signature"
-                    width={40}
-                    height={40}
-                    className="opacity-60"
-                  />
+
+                <div className="flex gap-4">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-1">
+                    <Check className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="mb-1 font-semibold">
+                      {t("doctors.result_title")}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {t("doctors.result_description")}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

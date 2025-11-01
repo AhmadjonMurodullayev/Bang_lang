@@ -15,6 +15,8 @@ interface ContactFormProps {
     phonePlaceholder: string;
     emailLabel: string;
     emailPlaceholder: string;
+    service: string;
+    selectService: string;
     subject: string;
     subjectPlaceholder: string;
     messageText: string;
@@ -23,6 +25,19 @@ interface ContactFormProps {
     submitting: string;
     successMessage: string;
     errorMessage: string;
+    childCare: string;
+    vaccination: string;
+    cme: string;
+    allergyTest: string;
+    trainer: string;
+    screening: string;
+    pathology: string;
+    cardiology: string;
+    logoped: string;
+    orthoped: string;
+    pediatrician: string;
+    neurologist: string;
+    acupuncture: string;
   };
 }
 
@@ -31,13 +46,14 @@ export default function ContactForm({ translations }: ContactFormProps) {
     name: "",
     phoneNumber: "",
     email: "",
+    service: "",
     subject: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -56,11 +72,13 @@ export default function ContactForm({ translations }: ContactFormProps) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
+          body: JSON.stringify({
           name: formData.name,
           phoneNumber: formData.phoneNumber,
-          service: formData.subject,
+          email: formData.email,
+          service: formData.service,
           date: new Date().toISOString().split('T')[0],
+          message: formData.message || "",
         }),
       });
 
@@ -70,6 +88,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
           name: "",
           phoneNumber: "",
           email: "",
+          service: "",
           subject: "",
           message: ""
         });
@@ -144,16 +163,39 @@ export default function ContactForm({ translations }: ContactFormProps) {
             </div>
             <div>
               <label className="mb-2 block text-sm font-medium">
-                {translations.subject}
+                {translations.service}
               </label>
-              <Input 
-                name="subject"
-                value={formData.subject}
+              <select
+                name="service"
+                value={formData.service}
                 onChange={handleInputChange}
-                placeholder={translations.subjectPlaceholder} 
+                className="w-full h-10 rounded-lg border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                 required
-              />
+              >
+                <option value="">{translations.selectService}</option>
+                <option value={translations.childCare}>{translations.childCare}</option>
+                <option value={translations.vaccination}>{translations.vaccination}</option>
+                <option value={translations.cme}>{translations.cme}</option>
+                <option value={translations.trainer}>{translations.trainer}</option>
+                <option value={translations.allergyTest}>{translations.allergyTest}</option>
+                <option value={translations.logoped}>{translations.logoped}</option>
+                <option value={translations.orthoped}>{translations.orthoped}</option>
+                <option value={translations.pediatrician}>{translations.pediatrician}</option>
+                <option value={translations.neurologist}>{translations.neurologist}</option>
+                <option value={translations.acupuncture}>{translations.acupuncture}</option>
+              </select>
             </div>
+          </div>
+          <div>
+            <label className="mb-2 block text-sm font-medium">
+              {translations.subject}
+            </label>
+            <Input 
+              name="subject"
+              value={formData.subject}
+              onChange={handleInputChange}
+              placeholder={translations.subjectPlaceholder} 
+            />
           </div>
           <div>
             <label className="mb-2 block text-sm font-medium">

@@ -9,17 +9,25 @@ interface BookingFormProps {
   translations: {
     name: string;
     email: string;
+    phone: string;
     service: string;
     date: string;
     yourName: string;
     yourEmail: string;
+    phonePlaceholder: string;
     selectService: string;
     childCare: string;
     vaccination: string;
+    cme: string;
     allergyTest: string;
+    trainer: string;
     screening: string;
     pathology: string;
     cardiology: string;
+    logoped: string;
+    orthoped: string;
+    pediatrician: string;
+    neurologist: string;
     acupuncture: string;
     bookAppointmentNow: string;
   };
@@ -29,6 +37,7 @@ export default function BookingForm({ translations }: BookingFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     service: "",
     date: ""
   });
@@ -56,7 +65,8 @@ export default function BookingForm({ translations }: BookingFormProps) {
         },
         body: JSON.stringify({
           name: formData.name,
-          phoneNumber: formData.email, // Using email field as phone for home form
+          email: formData.email,
+          phoneNumber: formData.phone,
           service: formData.service,
           date: formData.date,
         }),
@@ -67,6 +77,7 @@ export default function BookingForm({ translations }: BookingFormProps) {
         setFormData({
           name: "",
           email: "",
+          phone: "",
           service: "",
           date: ""
         });
@@ -95,7 +106,7 @@ export default function BookingForm({ translations }: BookingFormProps) {
               ❌ Xatolik yuz berdi. Iltimos, qaytadan urinib ko&apos;ring.
             </div>
           )}
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
             <div>
               <label className="mb-2 block text-sm font-semibold text-foreground">
                 {translations.name}
@@ -125,6 +136,20 @@ export default function BookingForm({ translations }: BookingFormProps) {
             </div>
             <div>
               <label className="mb-2 block text-sm font-semibold text-foreground">
+                {translations.phone}
+              </label>
+              <Input
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                type="tel"
+                placeholder={translations.phonePlaceholder}
+                className="h-12 border-border/50 focus:border-primary rounded-lg"
+                required
+              />
+            </div>
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-foreground">
                 {translations.service}
               </label>
               <select 
@@ -137,10 +162,13 @@ export default function BookingForm({ translations }: BookingFormProps) {
                 <option value="">{translations.selectService}</option>
                 <option value={translations.childCare}>{translations.childCare}</option>
                 <option value={translations.vaccination}>{translations.vaccination}</option>
+                <option value={translations.cme}>{translations.cme}</option>
+                <option value={translations.trainer}>{translations.trainer}</option>
                 <option value={translations.allergyTest}>{translations.allergyTest}</option>
-                <option value={translations.screening}>{translations.screening}</option>
-                <option value={translations.pathology}>{translations.pathology}</option>
-                <option value={translations.cardiology}>{translations.cardiology}</option>
+                <option value={translations.logoped}>{translations.logoped}</option>
+                <option value={translations.orthoped}>{translations.orthoped}</option>
+                <option value={translations.pediatrician}>{translations.pediatrician}</option>
+                <option value={translations.neurologist}>{translations.neurologist}</option>
                 <option value={translations.acupuncture}>{translations.acupuncture}</option>
               </select>
             </div>

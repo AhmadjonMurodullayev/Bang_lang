@@ -21,9 +21,13 @@ interface ServicesAppointmentFormProps {
     bookAppointment: string;
     childMassage: string;
     lfk: string;
-    hydroMassage: string;
+    cme: string;
     trainer: string;
     logoped: string;
+    orthoped: string;
+    pediatrician: string;
+    neurologist: string;
+    acupuncture: string;
     successMessage: string;
     errorMessage: string;
     loadingMessage: string;
@@ -163,9 +167,13 @@ export default function ServicesAppointmentForm({ translations }: ServicesAppoin
               <option value="">{translations.selectServicePlaceholder}</option>
               <option value="childMassage">{translations.childMassage}</option>
               <option value="lfk">{translations.lfk}</option>
-              <option value="hydroMassage">{translations.hydroMassage}</option>
+              <option value="cme">{translations.cme}</option>
               <option value="trainer">{translations.trainer}</option>
               <option value="logoped">{translations.logoped}</option>
+              <option value="orthoped">{translations.orthoped}</option>
+              <option value="pediatrician">{translations.pediatrician}</option>
+              <option value="neurologist">{translations.neurologist}</option>
+              <option value="acupuncture">{translations.acupuncture}</option>
             </select>
           </div>
           <div>

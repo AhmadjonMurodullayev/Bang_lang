@@ -153,6 +153,8 @@ export default async function ContactPage() {
                 phonePlaceholder: t("contact.phonePlaceholder"),
                 emailLabel: t("contact.emailLabel"),
                 emailPlaceholder: t("contact.emailPlaceholder"),
+                service: t("common.service"),
+                selectService: t("common.selectService"),
                 subject: t("contact.subject"),
                 subjectPlaceholder: t("contact.subjectPlaceholder"),
                 messageText: t("contact.messageText"),
@@ -161,6 +163,19 @@ export default async function ContactPage() {
                 submitting: t("contact.submitting"),
                 successMessage: t("contact.successMessage"),
                 errorMessage: t("contact.errorMessage"),
+                childCare: t("common.childCare"),
+                vaccination: t("common.vaccination"),
+                cme: t("common.cme"),
+                allergyTest: t("common.allergyTest"),
+                trainer: t("common.trainer"),
+                screening: t("common.screening"),
+                pathology: t("common.pathology"),
+                cardiology: t("common.cardiology"),
+                logoped: t("common.logoped"),
+                orthoped: t("common.orthoped"),
+                pediatrician: t("common.pediatrician"),
+                neurologist: t("common.neurologist"),
+                acupuncture: t("common.acupuncture"),
               }}
             />
           </div>
