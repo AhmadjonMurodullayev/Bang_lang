@@ -121,17 +121,51 @@
       "title": "Bizning klinikamiz markazlarimiz",
       "description": "Bizning klinikalarimiz dunyoning turli qismlarida joylashgan va sizga eng yaqin joyda sifatli tibbiy xizmatni taqdim etamiz.",
       "tashkent": "Toshkent",
-      "tashkentRegion": "Toshkent viloyati",
+      "tashkentRegion": "Toshkent ",
+      "tashkentRegionAddress": "Toshkent shahri, Shayxontohur tumani, Bog'ko'cha massiv, 18-uy Mo'ljal: Tinchlik metro bekati",
       "samarkand": "Samarqand",
       "namangan": "Namangan",
       "comingSoon": "Tez kunda",
-      "tashkentAddress": "Toshkent shahar, Chilonzor tumani, zargarlik ko'chasi 25a"
+      "tashkentAddress": "Toshkent shahar, Chilonzor tumani, zargarlik ko'chasi 25a",
+      "location1": {
+        "address": "Toshkent shahri, Shayxontohur tumani, Bog'ko'cha massiv, 18-uy",
+        "reference": "Tinchlik metro bekati"
+      },
+      "location2": {
+        "address": "Toshkent shahar, Chilonzor tumani, zargarlik ko'chasi 25a",
+        "reference": ""
+      },
+      "addressLabel": "Manzil",
+      "referenceLabel": "Mo'ljal:"
     },
     "statistics": {
       "pediatricians": "Pediatr",
       "medicalStaff": "Tibbiy xodimlar",
       "pediatricClinics": "Pediatra poliklinikasi",
       "safeMonitoring": "Xavfsiz kuzatish"
+    },
+    "facilities": {
+      "subtitle": "Bizning qulayliklarimiz",
+      "title": "Qulay va zamonaviy sharoitlar",
+      "description": "Bizning klinikamizda farzandlaringiz uchun barcha zaruriy qulayliklar mavjud. Zamonaviy jihozlar, toza xonalar va professional xizmat ko'rsatish bizning afzalligimizdir.",
+      "items": [
+        {
+          "title": "Qulay davolash xonalari",
+          "description": "Zamonaviy jihozlangan va toza davolash xonalari"
+        },
+        {
+          "title": "Gidromassaj kabineti",
+          "description": "Gidromassaj uchun maxsus jihozlangan kabinetlar"
+        },
+        {
+          "title": "Reabilitatsiya zallari",
+          "description": "LFK va boshqa reabilitatsiya mashg'ulotlari uchun keng zallar"
+        },
+        {
+          "title": "Ikki xonali kabinetlar",
+          "description": "Asosiy davolash xonasi va alohida qo'shimcha xonadan iborat ikki xonali davolash kabinetlari. Har bir xona o'z funksiyasiga ega va qulay sharoitlarda davolash imkoniyatini yaratadi."
+        }
+      ]
     },
     "booking": {
       "subtitle": "Onlayn navbat olish",
@@ -229,7 +263,8 @@
       "description": "Bizning klinikamiz markazlarimiz dunyoning turli qismlarida joylashgan va sizga eng yaqin joyda sifatli tibbiy xizmatni taqdim etamiz.",
       "tashkent": "Toshkent shahar",
       "samarkand": "Samarqand",
-      "tashkentRegion": "Toshkent viloyati",
+      "tashkentRegion": "Toshkent ",
+      "tashkentRegionAddress": "",
       "bukhara": "Buxoro",
       "comingSoon": "Tez kunda",
       "tashkentAddress": "Toshkent shahar, Chilonzor tumani, Zargarlik ko'chasi 25a"
@@ -245,7 +280,21 @@
       "title": "Foydalanuvchilarning fikrlari",
       "description": "Foydalanuvchilarning fikrlari bizning xizmatlarimiz haqida to'liq ma'lumotlar olish uchun yordam beradi.",
       "testimonial": "Pediatra markaziga muntazam boramiz. Farzandim LFK va massaj kursidan so'ng holati sezilarli yaxshilandi: qomati to'g'rilandi, uyqu va ishtahasi me'yoriga keldi. Xodimlar juda e'tiborli va har bir jarayonni batafsil tushuntirib berishadi.",
-      "parent": "Ota-ona"
+      "parent": "Ota-ona",
+      "items": [
+        {
+          "name": "Shaxzoda",
+          "text": "Babyland pediatra markaziga olti oydan beri muntazam boramiz va natijalar ajoyib. Farzandim uchun LFK va bolalar massaji kurslarini boshladik. Birinchi oylarda sezilarli o'zgarishlar bo'ldi: bolamiz qomati to'g'rilandi, yurish holati yaxshilandi va uyqu rejimi me'yoriga keldi. Shifokorlar va mutaxassislar har safar bolamiz rivojlanishini batafsil kuzatib boradi va bizga aniq tavsiyalar beradi. Navbat olish tizimi juda qulay va hamma joyda toza va tartibli. Ota-ona sifatida bunday professional yondashuv va e'tibor biz uchun juda muhim."
+        },
+        {
+          "name": "Nigora",
+          "text": "Bizning o'g'lim uchun logoped-defektolog bilan ishlash bizga katta yordam bo'ldi. U 4 yoshda edi, lekin nutq rivojlanishida sezilarli kechikish bor edi. Birinchi oylarda mutaxassislar to'liq tashxis qo'ydi va individual dastur tuzdi. Har hafta mashg'ulotlardan keyin biz uyda ham mashqlar bajarardik. Uch oydan so'ng bolamiz so'zlashni boshladi va endi u o'z fikrini aniq va to'liq ifoda eta olmoqda. Lug'at boyligi kengaydi va u boshqa bolalar bilan o'ynashdan zavqlana boshladi. Bizning farzandim endi maktabga tayyor va buning asosiy sababi Babyland mutaxassislarining professional yondashuvidir."
+        },
+        {
+          "name": "Aziza",
+          "text": "Bizning qizim uchun gidromassaj va CME (Cuevas Medek Exercises) terapiyasidan foydalanamiz. U motor rivojlanishida muammolarga duch keldi va mustaqil harakat qilishda qiyinchiliklar bor edi. Babyland markazida bizga barcha kerakli xizmatlar bir joyda mavjudligidan juda mamnunmiz. Gidromassaj kabinetida suv oqimlari yordamida mushaklari bo'shashtiriladi va keyin CME terapiyasida u mustaqil yurish, o'tirish va turishni o'rganmoqda. Mutaxassislar har bir harakatni batafsil tushuntiradi va bizga uyda qiladigan mashqlar beradi. Ikki oy o'tgach, bolamiz mustaqil turishni va bir necha qadam yurishni o'rgandi. Klinikamiz sharoitlari zamonaviy, hamma narsa toza va bolalar uchun xavfsiz. Men bu markazni boshqa ota-onalarga ham tavsiya qilaman."
+        }
+      ]
     },
     "pricing": {
       "subtitle": "Narxlar va planlar",
@@ -492,8 +541,8 @@
     "founder": "Pediatra asoschisi",
     "roadmap_title": "Qadamma-qadam yo‘l xaritasi",
     "roadmap_description": "Mutaxassislar bolangiz rivoji uchun individual yo'riqnoma tuzadilar va sizni har bir bosqichda yo‘naltirib boradilar.",
-    "result_title":"Natijalarga yo‘naltirilgan yondashuv",
-    "result_description":"Mutaxassislar bolaning har bir o‘zgarishini kuzatib boradi va rivojlanish jarayonida kerakli tuzatishlarni kiritadi.",
+    "result_title": "Natijalarga yo‘naltirilgan yondashuv",
+    "result_description": "Mutaxassislar bolaning har bir o‘zgarishini kuzatib boradi va rivojlanish jarayonida kerakli tuzatishlarni kiritadi.",
     "services": {
       "childMassage": "Bolalar massaji",
       "lfk": "LFK",
@@ -522,7 +571,7 @@
     "title": "Aloqa",
     "subtitle": "Biz bilan bog'lanish",
     "contactUs": "Aloqa qiling",
-    "ourOffice": "Bizning ofisimiz",
+    "ourOffice": "Bizning markazimiz",
     "address": "Toshkent shahar, Chilonzor tumani, Zargarlik ko'chasi 25a",
     "callUs": "Bizga qo'ng'iroq qiling",
     "email": "Elektron pochta",

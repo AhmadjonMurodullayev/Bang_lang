@@ -192,20 +192,18 @@ export default async function Appointment() {
 
                   <div className="space-y-6 pt-4">
                     {getRawTranslation("appointment.howToBook.steps", [
-                      { step: "01", title: "Eng yaqin pediatrni topish" },
-                      { step: "02", title: "Xizmatlarni tanlash" },
-                      { step: "03", title: "Navbat olish" },
-                      { step: "04", title: "Shifokor bilan uchrashish" }
+                      { step: "01", title: "Xizmatlarni tanlash" },
+                      { step: "02", title: "Navbat olish" },
+                      { step: "03", title: "Shifokor bilan uchrashish" }
                     ]).map((step: { step: string; title: string }, i: number) => (
                   <div key={i} className="flex gap-4 items-center">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white font-bold text-lg flex-shrink-0">
                       {step.step}
                     </div>
                     <div className="flex items-center gap-3">
-                      {i === 0 && <Search className="h-6 w-6 text-primary" />}
-                      {i === 1 && <ClipboardCheck className="h-6 w-6 text-primary" />}
-                      {i === 2 && <Calendar className="h-6 w-6 text-primary" />}
-                      {i === 3 && <Users className="h-6 w-6 text-primary" />}
+                      {i === 0 && <ClipboardCheck className="h-6 w-6 text-primary" />}
+                      {i === 1 && <Calendar className="h-6 w-6 text-primary" />}
+                      {i === 2 && <Users className="h-6 w-6 text-primary" />}
                       <h4 className="font-semibold text-foreground text-lg">
                         {step.title}
                       </h4>

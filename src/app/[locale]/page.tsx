@@ -110,6 +110,7 @@ export default async function HomePage() {
                       width={500}
                       height={350}
                       className=" h-full w-full object-cover"
+                      unoptimized
                     />
                   </div>
                 </div>
@@ -163,6 +164,7 @@ export default async function HomePage() {
                   width={500}
                   height={667}
                   className="h-full w-full object-cover"
+                  unoptimized
                 />
               </div>
             </div>
@@ -328,33 +330,28 @@ export default async function HomePage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {[
               {
-                icon: Heart,
+                image: childIcon,
                 title: t("services.childMassage"),
-                color: "bg-emerald-500",
                 description: t("services.childMassageDesc"),
               },
               {
-                icon: TrendingUp,
+                image: vaccinationsIcon,
                 title: t("services.lfk"),
-                color: "bg-teal-500",
                 description: t("services.lfkDesc"),
               },
               {
-                icon: Syringe,
-                title: t("services.hydroMassage"),
-                color: "bg-cyan-500",
-                description: t("services.hydroMassageDesc"),
+                image: allergyIcon,
+                title: t("services.cme"),
+                description: t("services.cmeDesc"),
               },
               {
-                icon: Stethoscope,
+                image: screeningsIcon,
                 title: t("services.trainer"),
-                color: "bg-emerald-500",
                 description: t("services.trainerDesc"),
               },
               {
-                icon: ClipboardCheck,
+                image: pathologyIcon,
                 title: t("services.logoped"),
-                color: "bg-teal-500",
                 description: t("services.logopedDesc"),
               },
             ].map((service, i) => (
@@ -364,9 +361,15 @@ export default async function HomePage() {
               >
                 <CardContent className="p-10">
                   <div
-                    className={`mb-6 flex h-16 w-16 items-center justify-center rounded-full ${service.color} group-hover:scale-110 transition-all duration-300 shadow-lg`}
+                    className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100 group-hover:scale-110 transition-all duration-300 shadow-lg p-2"
                   >
-                    <service.icon className="h-8 w-8 text-white" />
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={64}
+                      height={64}
+                      className="object-contain"
+                    />
                   </div>
                   <h3 className="mb-3 text-xl font-bold">{service.title}</h3>
                   <p className="mb-6 text-sm text-muted-foreground leading-relaxed">
@@ -410,96 +413,83 @@ export default async function HomePage() {
       </section>
 
       {/* Locations Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          {/* Top Section - Locations */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-            {/* Left Side - Text and Locations */}
-            <div>
-              <div className="mb-4 text-sm font-bold text-primary uppercase tracking-wider">
-                {t("common.locations.subtitle")}
+          {/* Locations Cards with Maps */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 md:mb-24">
+            {/* Location 1 */}
+            <div className="rounded-2xl border border-blue-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+              {/* Map iframe */}
+              <div className="w-full h-72 md:h-96 relative">
+                <iframe
+                  src="https://www.google.com/maps?q=41.327459,69.215902&hl=ru&z=19&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full"
+                />
               </div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
-                {t("common.locations.title")}
-              </h2>
-              <p className="text-gray-600 text-lg mb-12 leading-relaxed">
-                {t("common.locations.description")}
-              </p>
-
-              {/* Locations Grid */}
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  {
-                    city: t("common.locations.tashkent"),
-                    address: t("common.locations.tashkentAddress"),
-                    color: "bg-primary",
-                  },
-                  {
-                    city: t("common.locations.tashkentRegion"),
-                    address: t("common.locations.comingSoon"),
-                    color: "bg-primary",
-                  },
-                  {
-                    city: t("common.locations.samarkand"),
-                    address: t("common.locations.comingSoon"),
-                    color: "bg-blue-500",
-                  },
-                  {
-                    city: t("common.locations.namangan"),
-                    address: t("common.locations.comingSoon"),
-                    color: "bg-blue-500",
-                  },
-                ].map((location, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div
-                      className={`flex h-12 w-12 items-center justify-center rounded-full ${location.color} flex-shrink-0`}
-                    >
-                      <Hospital className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-800 mb-1">
-                        {location.city}
-                      </h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">
-                        {location.address}
-                      </p>
-                    </div>
+              
+              {/* Address */}
+              <div className="p-5 md:p-6 bg-white">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="w-5 h-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
                   </div>
-                ))}
+                  <div className="flex-1">
+                    <span className="text-sm font-semibold text-orange-400 block mb-1.5">{t("common.locations.addressLabel")}</span>
+                    <p className="text-gray-800 text-sm md:text-base leading-relaxed font-medium">
+                      {t("common.locations.location1.address")}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Right Side - Globe */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                {/* Custom globe with hexagonal pattern */}
-                <div className="h-80 w-80 rounded-full border-4 border-gray-200 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-                  {/* Hexagonal pattern background */}
-                  <div className="absolute inset-0 opacity-30">
-                    <div
-                      className="w-full h-full"
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
-                      }}
-                    ></div>
+            {/* Location 2 */}
+            <div className="rounded-2xl border border-blue-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+              {/* Map iframe */}
+              <div className="w-full h-72 md:h-96 relative">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1499.3218757724096!2d69.184987!3d41.273092!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b53794ef631%3A0x43b45d5da1c8e6a1!2sBABYLAND!5e0!3m2!1sru!2sus!4v1761911176176!5m2!1sru!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full"
+                />
+              </div>
+              
+              {/* Address */}
+              <div className="p-5 md:p-6 bg-white">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="w-5 h-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
                   </div>
-
-                  {/* Location markers */}
-                  <div className="absolute top-16 left-20 h-3 w-3 rounded-full bg-primary"></div>
-                  <div className="absolute top-32 right-16 h-3 w-3 rounded-full bg-primary"></div>
-                  <div className="absolute bottom-20 left-24 h-3 w-3 rounded-full bg-primary"></div>
-                  <div className="absolute bottom-16 right-20 h-3 w-3 rounded-full bg-primary"></div>
-                  <div className="absolute top-24 left-1/2 h-3 w-3 rounded-full bg-primary"></div>
+                  <div className="flex-1">
+                    <span className="text-sm font-semibold text-orange-400 block mb-1.5">{t("common.locations.addressLabel")}</span>
+                    <p className="text-gray-800 text-sm md:text-base leading-relaxed font-medium">
+                      {t("common.locations.location2.address")}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Bottom Section - Statistics */}
-          {/* Bottom Section - Statistics */}
           <div className="max-w-6xl mx-auto">
-            <div className="relative rounded-3xl bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-10 md:px-10 md:py-10 shadow-2xl">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6">
+            <div className="relative rounded-2xl md:rounded-3xl bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-8 md:px-10 md:py-10 shadow-2xl">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-6">
                 {[
                   {
                     count: 48,
@@ -528,14 +518,14 @@ export default async function HomePage() {
                 ].map((stat, i) => (
                   <div key={i} className="relative">
                     {/* Top white pill with icon */}
-                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-[200px] sm:w-[250px] h-[70px] bg-white rounded-[999px] shadow-md flex items-center justify-center">
+                    <div className="absolute -top-4 md:-top-6 left-1/2 -translate-x-1/2 w-[160px] sm:w-[200px] md:w-[250px] h-[56px] md:h-[70px] bg-white rounded-[999px] shadow-md flex items-center justify-center">
                       {stat.iconType === "doctor" && (
                         <UserRound
                           className={`${
                             stat.highlight
                               ? "text-emerald-600"
                               : "text-blue-600"
-                          } h-8 w-8`}
+                          } h-6 w-6 md:h-8 md:w-8`}
                         />
                       )}
                       {stat.iconType === "stethoscope" && (
@@ -544,7 +534,7 @@ export default async function HomePage() {
                             stat.highlight
                               ? "text-emerald-600"
                               : "text-blue-600"
-                          } h-8 w-8`}
+                          } h-6 w-6 md:h-8 md:w-8`}
                         />
                       )}
                       {stat.iconType === "hospital" && (
@@ -553,7 +543,7 @@ export default async function HomePage() {
                             stat.highlight
                               ? "text-emerald-600"
                               : "text-blue-600"
-                          } h-8 w-8`}
+                          } h-6 w-6 md:h-8 md:w-8`}
                         />
                       )}
                       {stat.iconType === "clipboard" && (
@@ -562,7 +552,7 @@ export default async function HomePage() {
                             stat.highlight
                               ? "text-emerald-600"
                               : "text-blue-600"
-                          } h-8 w-8`}
+                          } h-6 w-6 md:h-8 md:w-8`}
                         />
                       )}
                     </div>
@@ -571,17 +561,17 @@ export default async function HomePage() {
                     <div
                       className={`${
                         stat.highlight
-                          ? "bg-emerald-500 rounded-2xl shadow-xl"
+                          ? "bg-emerald-500 rounded-xl md:rounded-2xl shadow-xl"
                           : ""
-                      } pt-16 pb-7 px-6 text-center text-white`}
+                      } pt-12 md:pt-16 pb-5 md:pb-7 px-4 md:px-6 text-center text-white`}
                     >
                       <Counter
                         end={stat.count}
                         duration={1200}
-                        className="text-4xl sm:text-5xl font-extrabold tracking-tight"
+                        className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight"
                         suffix="+"
                       />
-                      <div className="mt-1 text-white/90 font-medium text-base sm:text-lg">
+                      <div className="mt-1 text-white/90 font-medium text-xs sm:text-sm md:text-base lg:text-lg break-words px-1">
                         {stat.label}
                       </div>
                     </div>
